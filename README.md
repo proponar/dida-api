@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+### Progress
+
+ * `rails new dida-api -d postgresql --api`
+ * add papertrail: https://github.com/paper-trail-gem/paper\_trail
+
+ token authorization
+ * https://thoughtbot.com/blog/token-authentication-with-rails
+
