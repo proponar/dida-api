@@ -1,6 +1,7 @@
 module Api
   class BaseController < ApplicationController
     before_action :authenticate
+    before_action :set_paper_trail_whodunnit  # uses `current_user`
 
     private
 
