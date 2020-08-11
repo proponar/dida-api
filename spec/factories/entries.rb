@@ -1,5 +1,8 @@
 FactoryBot.define do
   factory :entry do
-    heslo { Faker::Lorem.word }
+    user
+    heslo { Faker::Lorem.unique.word }
   end
+
+  factory :user
 end

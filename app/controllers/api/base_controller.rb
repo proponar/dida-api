@@ -1,5 +1,8 @@
 module Api
   class BaseController < ApplicationController
+    include ActionController::HttpAuthentication::Basic::ControllerMethods
+    include ActionController::HttpAuthentication::Token::ControllerMethods
+
     before_action :authenticate
     before_action :set_paper_trail_whodunnit  # uses `current_user`
 

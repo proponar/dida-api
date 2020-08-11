@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_083824) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "heslo"
-    t.string "kvantifikator"
+    t.string "kvalifikator"
     t.string "vyznam"
     t.boolean "vetne"
     t.integer "druh"

@@ -1,5 +1,9 @@
 module RequestSpecHelper
   def json
-    JSON.parse(response.body)
+    @json ||= JSON.parse(response.body)
+  end
+
+  def json_data
+    json['data']
   end
 end

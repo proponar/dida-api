@@ -1,2 +1,2 @@
-class Api::LocationsController < ApplicationController
+class Api::LocationsController < Api::BaseController
 end
