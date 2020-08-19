@@ -7,5 +7,7 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
+    get :auth, to: 'auth#auth'
+    resources :sources, only: [:index]
   end
 end

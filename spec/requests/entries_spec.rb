@@ -9,6 +9,8 @@ RSpec.describe 'Entries API', type: :request do
 
   describe 'GET /api/entries' do
     before { get '/api/entries', headers: { "Authorization" => credentials } }
+    # 2.6.1 :002 > ActionController::HttpAuthentication::Token.encode_credentials('sekkrit')
+    #  => "Token token=\"sekkrit\""
 
     it 'returns entries' do
       expect(json).not_to be_empty
