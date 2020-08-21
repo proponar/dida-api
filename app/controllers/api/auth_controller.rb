@@ -7,8 +7,7 @@ class Api::AuthController < ApplicationController
       # TODO: verify user
       username == 'admin' && password == 'password'
 
-      # return token in response.data.auth_token
-      render json: { data: { auth_token: 'sekkrit' } }
+      render json: { auth_token: 'sekkrit' }
     end
   end
 end
