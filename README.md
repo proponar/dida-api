@@ -32,7 +32,26 @@ Things you may want to cover:
 
  token authorization
  * https://thoughtbot.com/blog/token-authentication-with-rails
+   https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
 
+ * Running tests:
+	`bundle exec rake spec`
+
+ * add "exemp"
+
+ * add "source" model
+
+ * add CORS
+	https://github.com/cyu/rack-cors
+
+ * add "sources" controller
+
+ * add location seeding
+
+ * search for location
+	* script to load tables
+	* search action
+	* test for search action
 
 next:
   basic crud for entries
@@ -46,16 +65,10 @@ next:
 		rod (m., f., n.)
 
 	* tests for crud
-  search for location
-	* script to load tables
-	* search action
-	* test for search action
 
-
-  add "records"
-  crud for records
+  crud for exemps
 	* add columns
-		autor, exemplifikace zdroj, lokalizace, lokalizace_text, vetne/nevetne, zdroj
+		autor, exemplifikace, zdroj, lokalizace, lokalizace_text, vetne/nevetne, zdroj
 		rok, kvantifikator, vyznam, deaktivovat, chybny
 	* add controller + routes
 
