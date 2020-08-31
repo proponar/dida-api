@@ -10,6 +10,7 @@ class CreateExemps < ActiveRecord::Migration[6.0]
       t.integer :lokalizace_cast_obce
       t.string :lokalizace_text
       t.string :rok # rok, nebo rozmezi let, nebo prazdne
+      t.string :kvalifikator
       t.string :vyznam
       t.boolean :aktivni
       t.boolean :chybne
