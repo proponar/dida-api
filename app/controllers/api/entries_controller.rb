@@ -4,40 +4,35 @@ class Api::EntriesController < Api::BaseController
   def index
     entries = Entry.all
     render json: {message: 'Loaded all entries', data: entries}, status: 200
-  end 
+  end
 
   def show
-    render json: Entry.find(params[:id])
+    render json: Entry.includes(:exemps).find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render json: { message: 'could not find entry' }, status: 404
   end
 
   def create
     soft_params = params.permit!
-    entry = Entry.new(soft_params.slice(:rod, :druh, :heslo, :vetne, :kvalifikator, :vyznam))
-    entry.user = current_user
+    entry = Entry.new(
+      { user => current_user }
+        .update(soft_params.slice(:rod, :druh, :heslo, :vetne, :kvalifikator, :vyznam)))
     entry.save!
 
     exemps_data = soft_params[:exemps].permit!
 
-    exemps = 
-      #exemp_data.collect do |k, e|
-      #  Exemp.new(e.permit(%i(rok kvalifikator exemplifikace vyznam vetne)))
-      exemps_data.keys.each_with_object([]) do |k, o|
-        { :user => current_user, :entry => entry }.update(exemps_data["0"])
-        e = Exemp.new(
-          {
-            :user => current_user,
-            :entry => entry
-          }.update(
-            exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne))
-          )
+    exemps_data.keys.each do |k, o|
+      { :user => current_user, :entry => entry }.update(exemps_data["0"])
+      e = Exemp.new(
+        {
+          :user => current_user,
+          :entry => entry
+        }.update(
+          exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne))
         )
-        e.save!
-        o << e
-      end
-
-    #entry.exemps = exemps # FIXME not needed?!
+      )
+      e.save!
+    end
 
     render json: { message: 'entry created', data: entry }, status: 201
   rescue
