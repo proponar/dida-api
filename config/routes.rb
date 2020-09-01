@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       end
     end
     get :auth, to: 'auth#auth'
-    resources :sources, only: [:index]
+    resources :sources, only: [:index] do
+      collection do
+        post 'upload'
+      end
+    end
   end
 end
