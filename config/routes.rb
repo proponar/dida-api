@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :locations do
       collection do
         get 'search'
+        get 'search/:id', to: 'locations#search'
       end
     end
     get :auth, to: 'auth#auth'
