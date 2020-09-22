@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(name: 'martin', password: 'kompost', token: 'sekkrit')
 
+Source.create(name: 'vlasta', typ: 'casopis', rok: 1984, lokalizace: 'Brno')
+Source.create(name: 'vlasta', typ: 'casopis', rok: 1985, lokalizace: 'Praha')
