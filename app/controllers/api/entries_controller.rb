@@ -14,7 +14,6 @@ class Api::EntriesController < Api::BaseController
 
   def create
     soft_params = params.permit!
-
     entry_data = soft_params[:entry].permit!
     exemps_data = soft_params[:exemps].permit!
 
@@ -27,7 +26,6 @@ class Api::EntriesController < Api::BaseController
     entry.save!
 
     exemps_data.keys.each do |k, o|
-      { :user => current_user, :entry => entry }.update(exemps_data["0"])
       e = Exemp.new(
         {
           :user => current_user,
@@ -45,8 +43,32 @@ class Api::EntriesController < Api::BaseController
   end
 
   def update
+    soft_params = params.permit!
+    entry_data = soft_params[:entry].permit!
+    exemps_data = soft_params[:exemps].permit!
+
     entry = Entry.find(params[:id])
-    entry.update(entry_params)
+    entry.update(
+      {
+        :user => current_user,
+        :rod  => Entry.map_rod(entry_data[:rod]),
+        :druh => Entry.map_druh(entry_data[:druh]),
+      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam)))
+    entry.save!
+
+    entry.exemps.delete_all
+    exemps_data.keys.each do |k, o|
+      e = Exemp.new(
+        {
+          :user => current_user,
+          :entry => entry
+        }.update(
+          exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne)
+        )
+      )
+      e.save!
+    end
+
     render json: { message: 'entry updated', data: entry }
   rescue => e
     render json: { message: "could not update entry: #{e.message}" }, status: 400

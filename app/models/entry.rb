@@ -25,7 +25,7 @@ class Entry < ApplicationRecord
       created_at: created_at,
       updated_at: updated_at,
       heslo: heslo,
-      kvalifikator: kvalifikator,
+      kvalifikator: kvalifikator || '',
       vyznam: vyznam,
       vetne: vetne,
       druh: DRUH_MAP[druh],
