@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :sources, only: [:index] do
       collection do
         post 'upload'
+        get 'download'
       end
     end
   end

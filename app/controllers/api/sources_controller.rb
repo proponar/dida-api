@@ -20,4 +20,8 @@ class Api::SourcesController < Api::BaseController
       render json: {message: "#{e.message} Zdroje nebyly importovány."}, status: 422
     end
   end
+
+  def download
+    send_data(Source.to_csv, :filename => 'zdroje.csv')
+  end
 end
