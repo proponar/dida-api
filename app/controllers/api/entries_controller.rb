@@ -31,7 +31,7 @@ class Api::EntriesController < Api::BaseController
           :user => current_user,
           :entry => entry
         }.update(
-          exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne))
+          exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni))
         )
       )
       e.save!
@@ -63,7 +63,7 @@ class Api::EntriesController < Api::BaseController
           :user => current_user,
           :entry => entry
         }.update(
-          exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne)
+          exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni)
         )
       )
       e.save!

@@ -10,6 +10,7 @@ class Exemp < ApplicationRecord
       exemplifikace: exemplifikace,
       vyznam: vyznam,
       vetne: vetne,
+      aktivni: !! aktivni,
       # lokalizaceObec: "somewhere"
       lokalizace_obec: lokalizace_obec,
       lokalizace_cast_obce: lokalizace_cast_obce,
