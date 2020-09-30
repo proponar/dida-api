@@ -26,10 +26,12 @@ class Api::EntriesController < Api::BaseController
     entry.save!
 
     exemps_data.keys.each do |k, o|
+      kod_obec = exemps_data[k][:lokalizace_obec_id]
       e = Exemp.new(
         {
           :user => current_user,
-          :entry => entry
+          :entry => entry,
+          :lokalizace_obec => kod_obec,
         }.update(
           exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni))
         )
@@ -58,10 +60,12 @@ class Api::EntriesController < Api::BaseController
 
     entry.exemps.delete_all
     exemps_data.keys.each do |k, o|
+      kod_obec = exemps_data[k][:lokalizace_obec_id]
       e = Exemp.new(
         {
           :user => current_user,
-          :entry => entry
+          :entry => entry,
+          :lokalizace_obec => kod_obec,
         }.update(
           exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni)
         )

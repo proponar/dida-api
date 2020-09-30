@@ -12,9 +12,11 @@ class Exemp < ApplicationRecord
       vetne: vetne,
       aktivni: !! aktivni,
       # lokalizaceObec: "somewhere"
-      lokalizace_obec: lokalizace_obec,
-      lokalizace_cast_obce: lokalizace_cast_obce,
-      lokalizace_text: lokalizace_text,
+      lokalizace_obec_id: lokalizace_obec,
+      lokalizace_obec_text: Location.naz_obec(lokalizace_obec),
+      lokalizace_cast_obce_id: lokalizace_cast_obce,
+      lokalizace_cast_obce_text: Location.naz_cast(lokalizace_cast_obce),
+      lokalizace_text: lokalizace_text,                # unused
     }
   end
 end
