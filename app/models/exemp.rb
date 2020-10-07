@@ -5,6 +5,7 @@ class Exemp < ApplicationRecord
 
   def json_hash
     {
+      id: id,
       rok: rok,
       kvalifikator: kvalifikator || '',
       exemplifikace: exemplifikace,

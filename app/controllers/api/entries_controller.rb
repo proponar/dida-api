@@ -15,7 +15,6 @@ class Api::EntriesController < Api::BaseController
   def create
     soft_params = params.permit!
     entry_data = soft_params[:entry].permit!
-    exemps_data = soft_params[:exemps].permit!
 
     entry = Entry.new(
       {
@@ -25,18 +24,21 @@ class Api::EntriesController < Api::BaseController
       } .update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam)))
     entry.save!
 
-    exemps_data.keys.each do |k, o|
-      kod_obec = exemps_data[k][:lokalizace_obec_id]
-      e = Exemp.new(
-        {
-          :user => current_user,
-          :entry => entry,
-          :lokalizace_obec => kod_obec,
-        }.update(
-          exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni))
+    if soft_params.key?(:exemps)
+      exemps_data = soft_params[:exemps].permit!
+      exemps_data.keys.each do |k, o|
+        kod_obec = exemps_data[k][:lokalizace_obec_id]
+        e = Exemp.new(
+          {
+            :user => current_user,
+            :entry => entry,
+            :lokalizace_obec => kod_obec,
+          }.update(
+            exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni))
+          )
         )
-      )
-      e.save!
+        e.save!
+      end
     end
 
     render json: { message: 'entry created', data: entry }, status: 201
@@ -47,7 +49,6 @@ class Api::EntriesController < Api::BaseController
   def update
     soft_params = params.permit!
     entry_data = soft_params[:entry].permit!
-    exemps_data = soft_params[:exemps].permit!
 
     entry = Entry.find(params[:id])
     entry.update(
@@ -58,19 +59,22 @@ class Api::EntriesController < Api::BaseController
       }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam)))
     entry.save!
 
-    entry.exemps.delete_all
-    exemps_data.keys.each do |k, o|
-      kod_obec = exemps_data[k][:lokalizace_obec_id]
-      e = Exemp.new(
-        {
-          :user => current_user,
-          :entry => entry,
-          :lokalizace_obec => kod_obec,
-        }.update(
-          exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni)
+    if soft_params.key?(:exemps)
+      exemps_data = soft_params[:exemps].permit!
+      entry.exemps.delete_all
+      exemps_data.keys.each do |k, o|
+        kod_obec = exemps_data[k][:lokalizace_obec_id]
+        e = Exemp.new(
+          {
+            :user => current_user,
+            :entry => entry,
+            :lokalizace_obec => kod_obec,
+          }.update(
+            exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni)
+          )
         )
-      )
-      e.save!
+        e.save!
+      end
     end
 
     render json: { message: 'entry updated', data: entry }
