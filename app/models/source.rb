@@ -9,4 +9,8 @@ class Source < ApplicationRecord
       end
     end
   end
+
+  def self.column_order
+    %w(cislo autor name nazev2 rok bibliografie typ lokalizace_text lokalizace rok_sberu)
+  end
 end
