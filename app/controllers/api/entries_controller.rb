@@ -21,7 +21,7 @@ class Api::EntriesController < Api::BaseController
         :user => current_user,
         :rod  => Entry.map_rod(entry_data[:rod]),
         :druh => Entry.map_druh(entry_data[:druh]),
-      } .update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam)))
+      } .update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary)))
     entry.save!
 
     if soft_params.key?(:exemps)
@@ -34,7 +34,7 @@ class Api::EntriesController < Api::BaseController
             :entry => entry,
             :lokalizace_obec => kod_obec,
           }.update(
-            exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni))
+            exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok))
           )
         )
         e.save!
@@ -56,7 +56,7 @@ class Api::EntriesController < Api::BaseController
         :user => current_user,
         :rod  => Entry.map_rod(entry_data[:rod]),
         :druh => Entry.map_druh(entry_data[:druh]),
-      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam)))
+      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary)))
     entry.save!
 
     if soft_params.key?(:exemps)
@@ -70,7 +70,7 @@ class Api::EntriesController < Api::BaseController
             :entry => entry,
             :lokalizace_obec => kod_obec,
           }.update(
-            exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni)
+            exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni, :rok)
           )
         )
         e.save!
@@ -89,9 +89,28 @@ class Api::EntriesController < Api::BaseController
     render json: { message: 'could not delete entry' }, status: 400
   end
 
+  # import exemplifikaci do hesla
+  # api_entry_import POST   /api/entries/:entry_id/import(.:format)   api/entries#import
+  def import
+    dry_run = params[:dry_run] != 'false'
+
+    results = Entry.import_text(
+      params[:entry_id],
+      current_user,
+      request.body.read.force_encoding('UTF-8'),
+      dry_run
+    )
+
+    count = results.length
+    render json: {
+      message: "imported #{count} entries",
+      count: count,
+      data: results.map { |e| e.json_hash }
+    }
+  end
+
   private
   def entry_params
-    # {"rod"=>"m", "druh"=>"subst", "heslo"=>"klesloxxx", "vetne"=>true, "kvalifikator"=>"kvlf.", "vyznam"=>"vyznam...ss",
     params.permit(%i(rod druh heslo vetne kvalifikator vyznam))
   end
 end

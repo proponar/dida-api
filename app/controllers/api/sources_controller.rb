@@ -11,8 +11,9 @@ class Api::SourcesController < Api::BaseController
     csv_data = request.body.read
     # FIXME using https://mattboldt.com/importing-massive-data-into-rails/
     begin
+      Source.delete_all
       CSV.parse(csv_data, headers: true) do |row|
-        #Source.create(row.to_h)
+        Source.create(row.to_h.slice(*%w(cislo name autor typ rok lokalizace)))
         counter += 1
       end
       render json: {message: "#{counter} zdroje importovány", count: counter}, status: 200

@@ -1,6 +1,6 @@
 class Source < ApplicationRecord
   def self.to_csv
-    attributes = %i(name typ rok lokalizace)
+    attributes = %i(cislo name autor typ rok lokalizace)
 
     CSV.generate(headers: true) do |csv|
       csv << attributes

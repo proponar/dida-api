@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_130501) do
+ActiveRecord::Schema.define(version: 2020_10_08_152156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_130501) do
     t.boolean "vetne"
     t.integer "druh"
     t.integer "rod"
+    t.string "tvary"
   end
 
   create_table "exemps", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_130501) do
     t.boolean "chybne"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rod"
   end
 
   create_table "n3_casti_obce_body", id: false, force: :cascade do |t|
@@ -266,6 +268,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_130501) do
     t.string "typ"
     t.integer "rok"
     t.string "lokalizace"
+    t.string "autor"
+    t.integer "cislo"
   end
 
   create_table "users", force: :cascade do |t|
