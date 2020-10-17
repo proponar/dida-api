@@ -21,6 +21,7 @@ class Exemp < ApplicationRecord
       lokalizace_cast_obce_id: lokalizace_cast_obce,
       lokalizace_cast_obce_text: Location.naz_cast(lokalizace_cast_obce),
       lokalizace_text: lokalizace_text,                # unused
+      urceni: urceni,
     }
   end
 end

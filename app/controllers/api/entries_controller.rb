@@ -21,7 +21,7 @@ class Api::EntriesController < Api::BaseController
         :user => current_user,
         :rod  => Entry.map_rod(entry_data[:rod]),
         :druh => Entry.map_druh(entry_data[:druh]),
-      } .update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary)))
+      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary, :urceni)))
     entry.save!
 
     if soft_params.key?(:exemps)
@@ -56,7 +56,7 @@ class Api::EntriesController < Api::BaseController
         :user => current_user,
         :rod  => Entry.map_rod(entry_data[:rod]),
         :druh => Entry.map_druh(entry_data[:druh]),
-      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary)))
+      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary, :urceni)))
     entry.save!
 
     if soft_params.key?(:exemps)

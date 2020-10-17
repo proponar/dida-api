@@ -31,6 +31,7 @@ class Entry < ApplicationRecord
       druh: DRUH_MAP[druh],
       rod: ROD_MAP[rod],
       tvary: tvary,
+      urceni: urceni,
     }
   end
 
