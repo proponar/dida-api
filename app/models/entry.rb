@@ -37,6 +37,8 @@ class Entry < ApplicationRecord
 
   # Bachmannová, Za života se stane ledacos
   def guess_source(str)
+    return nil if str.blank?
+
     parts = str.split(/, */)
 
     # FIXME: osetrit vice hitu
@@ -63,30 +65,69 @@ class Entry < ApplicationRecord
     nil
   end
 
+  def parsed_tvary
+    @parsed_tvary ||= tvary.split(/\s+/).map { |t| t.sub(/-/, '') }
+  end
+
   def parse_ex(str)
-    md = str.match(/^\((\d)\s(pl|sg)\.\)\s(.*)$/) # pad a exemplifikace
-    pad = md[1]
-    cislo = md[2]
-    exemplifikace = md[3]
-    [pad, cislo, exemplifikace]
+    str =~ /^\(/ ? parse_ex_bracket(str) : parse_ex_inline(str)
+  end
+
+  # (1 pl.) dejte si pozor, 
+  # (1 sg., 7 sg.) proč jen 
+  def parse_ex_bracket(str)
+    md = str.match(/^\(([^)]+)\)\s+(.*)$/) # urceni a exemplifikace
+    urceni_str = md[1]
+    exemplifikace = md[2]
+
+    urceni_list = urceni_str.strip.split(/,/).map(&:strip).map do |u|
+      md = u.match(/^(\d)\.?\s+(pl|sg)\.?$/)
+      binding.pry if md.nil?
+      { pad: md[1], cislo: md[2] }
+    end
+
+    parts = exemplifikace.split(/([\s\.,!?]+)/)
+
+    counter = 0
+    filtered_parts = parts.collect do |part|
+      if parsed_tvary.index(part)
+        u = urceni_list[counter]
+        counter += 1
+        if u.present?
+          "{#{part}, #{u[:pad]} #{u[:cislo]}.}"
+        else
+          "{#{part}}"
+        end
+      else
+        part
+      end
+    end
+
+    [filtered_parts.join(''), urceni_list]
+  end
+
+  def parse_ex_inline(str)
+    # FIXME
   end
 
   # (1 pl.) dejte si pozor, je tam taková louš, co se husi v leťe koupou; Držkov JN; Bachmannová, Za života se stane ledacos
+  # (1 sg., 7 sg.) proč jen se mu tolik chťelo na ten prašskej jarmark? Husa přeleťela móře a zústala přec jen husou; Jilemnice SM; Horáček, Nic kalýho zpod Žalýho
   def parse_exemp(line, user)
     parts = line.split(/;\s*/)
-    pad, cislo, exemplifikace = parse_ex(parts[0])
+    exemplifikace, urceni = parse_ex(parts[0])
 
-    lokalizace = guess_lokalizace(parts[1]) # lokalizace
-    lokalizace_text = lokalizace.nil? ? parts[1] : ''
+    lokalizace = parts[1] && guess_lokalizace(parts[1]) || nil
+    lokalizace_text = lokalizace.nil? ? (parts[1] || '') : ''
 
     source = guess_source(parts[2]) # zdroj
     Exemp.new(
       user: user,
       entry_id: id,
       source: source,
-      lokalizace_obec: lokalizace.kod_obec,
+      lokalizace_obec: lokalizace && lokalizace.kod_obec || nil,
       lokalizace_text: lokalizace_text,
       exemplifikace: exemplifikace,
+      urceni: urceni.to_json,
 
       vetne: self.vetne,
       rod: self.rod,
@@ -100,7 +141,9 @@ class Entry < ApplicationRecord
     entry = Entry.find(entry_id)
 
     results = []
-    text_data.split("\n").each do |line|
+    text_data.split("\n").map(&:strip).filter(&:present?).each do |line|
+      next if line.blank?
+
       ex = entry.parse_exemp(line, user)
       if dry_run
         # temporary id
