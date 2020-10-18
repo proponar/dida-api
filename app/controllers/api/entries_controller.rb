@@ -2,7 +2,7 @@ class Api::EntriesController < Api::BaseController
   # The total number of entries in in the rage of lower hundreds (< 1.000)
   # therefor no pagination is needed.
   def index
-    entries = Entry.includes(:user).all.map &:json_entry
+    entries = Entry.includes(:user).order(:heslo).all.map &:json_entry
     render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 
