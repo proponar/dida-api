@@ -4,10 +4,9 @@ class Api::AuthController < ApplicationController
   def auth
     # read basic auth headers
     authenticate_or_request_with_http_basic('Administration') do |username, password|
-      # TODO: verify user
-      username == 'admin' && password == 'password'
-
-      render json: { auth_token: 'sekkrit' }
+      user = User.find_by(:name => username, :password => password)
+      # TODO: generate temporaty tokens per session
+      render json: { auth_token: user.token }
     end
   end
 end
