@@ -7,5 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(name: 'martin', password: 'kompost', token: 'sekkrit')
 
-Source.create(name: 'Vlasta', autor: 'Pepa Ladič', typ: 'casopis', rok: 1984, lokalizace: 'Brno')
-Source.create(name: 'Motýle', autor: 'Franta Kubera', typ: 'casopis', rok: 1977, lokalizace: 'Praha')
+require_relative '../import_sources.rb'
+SourceImporter.import('/home/martin/dida-sources.csv')
+#Source.create(name: 'Vlasta', autor: 'Pepa Ladič', typ: 'casopis', rok: 1984, lokalizace: 'Brno')
+#Source.create(name: 'Motýle', autor: 'Franta Kubera', typ: 'casopis', rok: 1977, lokalizace: 'Praha')

@@ -53,7 +53,6 @@ Things you may want to cover:
 	* search action
 	* test for search action
 
-next:
   basic crud for entries
 	* add columns
 		Heslo,
@@ -63,14 +62,22 @@ next:
 		dejme do společné části ještě
 		slovní druh (substantivum/adjektivum)
 		rod (m., f., n.)
-
-	* tests for crud
-
   crud for exemps
 	* add columns
 		autor, exemplifikace, zdroj, lokalizace, lokalizace_text, vetne/nevetne, zdroj
 		rok, kvantifikator, vyznam, deaktivovat, chybny
 	* add controller + routes
+
+  * nested /entries/exemps/
+
+  * import with preview
+
+  * simple auth
+
+next:
+  * tests for entries crud
+  * tests for import
+  * session tokens
 
   attaching files:
 	https://edgeguides.rubyonrails.org/active_storage_overview.html

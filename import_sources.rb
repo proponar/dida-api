@@ -5,7 +5,6 @@ class SourceImporter
     data = File.read(file,nil)
     #data.sub!(/^L.*$/m,'')
     CSV.parse(data, headers: true) do |rec|
-      binding.pry
       s = Source.create({
         cislo: rec[0],
         autor: rec[1],

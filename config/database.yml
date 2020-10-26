@@ -82,4 +82,4 @@ test:
 production:
   <<: *default
   database: dida_api_production
-  username: dida_api
+  #username: dida_api
