@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         get 'search'
         get 'search/:id', to: 'locations#search'
       end
+      get 'parts'
     end
     get :auth, to: 'auth#auth'
     resources :sources, only: [:index] do

@@ -19,6 +19,7 @@ class Api::ExempsController < Api::BaseController
     e = Exemp.new({
       :user     => current_user,
       :entry_id => params[:entry_id],
+      :zdroj_id => params[:zdroj_id],
     }.update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni))
     ))
@@ -33,6 +34,7 @@ class Api::ExempsController < Api::BaseController
     kod_obec = params[:lokalizace_obec_id]
     e.update({
       :user => current_user,
+      :zdroj_id => params[:zdroj_id],
     }.update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni))
       )

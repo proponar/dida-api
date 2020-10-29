@@ -1,5 +1,6 @@
 Rails.application.configure do
   config.hosts << "dida.ujc.cas.cz"
+  config.hosts << "dida.hmpf.cz"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
