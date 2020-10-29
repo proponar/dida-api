@@ -3,14 +3,14 @@ class Location < ApplicationRecord
 
   def self.naz_obec(kod_obec)
     Location.find_by_sql([
-      "select naz_obec, kod_obec from #{table_name} where kod_obec = ?",
+      "select naz_obec, kod_obec from #{table_name} where kod_obec::integer = ?",
       kod_obec.to_s
     ]).first.try(:naz_obec)
   end
 
   def self.naz_cast(kod_cast)
     result = Location.connection.select_one(
-      "select naz_cob, kod_cob from n3_casti_obce_polygony where kod_cob = $1",
+      "select naz_cob, kod_cob from n3_casti_obce_polygony where kod_cob::integer = $1",
       'SQL',
       [[nil, kod_cast]]
     )
