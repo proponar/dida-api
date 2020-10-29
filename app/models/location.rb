@@ -9,7 +9,12 @@ class Location < ApplicationRecord
   end
 
   def self.naz_cast(kod_cast)
-    return "FIXME"
+    result = Location.connection.select_one(
+      "select naz_cob, kod_cob from n3_casti_obce_polygony where kod_cob = $1",
+      'SQL',
+      [[nil, kod_cast]]
+    )
+    result && result['naz_cob']
   end
 
   def self.okres2zkratka

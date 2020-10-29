@@ -16,10 +16,14 @@ class Api::ExempsController < Api::BaseController
   #        /api/entries/9/exemps
   def create
     soft_params = params.permit!
+    kod_obec = params[:lokalizace_obec_id]
+    kod_cast = params[:lokalizace_cast_obce_id]
     e = Exemp.new({
-      :user     => current_user,
+      :user => current_user,
       :entry_id => params[:entry_id],
       :zdroj_id => params[:zdroj_id],
+      :lokalizace_obec => kod_obec,
+      :lokalizace_cast_obce => kod_cast,
     }.update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni))
     ))
@@ -32,9 +36,12 @@ class Api::ExempsController < Api::BaseController
 
     soft_params = params.permit!
     kod_obec = params[:lokalizace_obec_id]
+    kod_cast = params[:lokalizace_cast_obce_id]
     e.update({
       :user => current_user,
       :zdroj_id => params[:zdroj_id],
+      :lokalizace_obec => kod_obec,
+      :lokalizace_cast_obce => kod_cast,
     }.update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni))
       )
