@@ -4,7 +4,7 @@ class Location < ApplicationRecord
   def self.naz_obec(kod_obec)
     Location.find_by_sql([
       "select naz_obec, kod_obec from #{table_name} where kod_obec::integer = ?",
-      kod_obec.to_s
+      kod_obec.to_i
     ]).first.try(:naz_obec)
   end
 
@@ -12,7 +12,7 @@ class Location < ApplicationRecord
     result = Location.connection.select_one(
       "select naz_cob, kod_cob from n3_casti_obce_polygony where kod_cob::integer = $1",
       'SQL',
-      [[nil, kod_cast]]
+      [[nil, kod_cast.to_i]]
     )
     result && result['naz_cob']
   end
