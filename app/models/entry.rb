@@ -46,9 +46,36 @@ class Entry < ApplicationRecord
     return s.first if s.present?
 
     if parts[0].present? && parts[1].present? # matchujeme jen neprazdne
-      s = Source.where("name like ? and autor ilike ?", parts[1]+'%', parts[0]+'%')
+      s = Source.where("name ilike ? and autor ilike ?", parts[1]+'%', parts[0]+'%')
       return s.first if s.present?
     end
+
+    if parts[0].present? && parts[1].present? # matchujeme jen neprazdne
+      s = Source.where(
+        "name_processed ilike ? and autor ilike ?",
+        I18n.transliterate(parts[1]) + '%',
+        parts[0] + '%'
+      )
+      return s.first if s.present?
+    end
+
+    if parts[0].blank? && parts[1].present? # matchujeme jen neprazdne
+      s = Source.where(
+        "name_processed ilike ?",
+        I18n.transliterate(parts[1]) + '%'
+      )
+      return s.first if s.present?
+    end
+
+    if parts[0].present? && parts[1].blank? # matchujeme jen neprazdne
+      s = Source.where(
+        "name_processed ilike ?",
+        I18n.transliterate(parts[0]) + '%'
+      )
+      return s.first if s.present?
+    end
+
+    $stderr.puts("Chybi zdroj: #{str}")
 
     nil
   end
@@ -66,7 +93,7 @@ class Entry < ApplicationRecord
   end
 
   def parsed_tvary
-    @parsed_tvary ||= tvary.split(/\s+/).map { |t| t.sub(/-/, '') }
+    @parsed_tvary ||= tvary.to_s.split(/\s+/).map { |t| t.sub(/-/, '') }
   end
 
   def parse_ex(str)
