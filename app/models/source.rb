@@ -13,4 +13,10 @@ class Source < ApplicationRecord
   def self.column_order
     %w(cislo autor name nazev2 rok bibliografie typ lokalizace_text lokalizace rok_sberu)
   end
+
+  before_save :process_name
+
+  def process_name
+    self.name_processed = I18n.transliterate(self.name)
+  end
 end
