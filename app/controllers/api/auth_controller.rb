@@ -6,7 +6,7 @@ class Api::AuthController < ApplicationController
     authenticate_or_request_with_http_basic('Administration') do |username, password|
       user = User.find_by(:name => username, :password => password)
       # TODO: generate temporaty tokens per session
-      render json: { auth_token: user.token }
+      render json: { auth_token: user.token, name: user.name }
     end
   end
 end
