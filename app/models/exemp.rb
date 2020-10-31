@@ -15,13 +15,14 @@ class Exemp < ApplicationRecord
       aktivni: !! aktivni,
       zdroj_id: source && source.cislo,
       zdroj_name: source && source.name,
-      # lokalizaceObec: "somewhere"
       lokalizace_obec_id: lokalizace_obec,
       lokalizace_obec_text: Location.naz_obec(lokalizace_obec),
       lokalizace_cast_obce_id: lokalizace_cast_obce,
       lokalizace_cast_obce_text: Location.naz_cast(lokalizace_cast_obce),
-      lokalizace_text: lokalizace_text,                # unused
+      lokalizace_text: lokalizace_text,  # unused
+      lokalizace_format: Location.location_format(lokalizace_obec, lokalizace_cast_obce),
       urceni: urceni,
+      time: updated_at,
     }
   end
 end
