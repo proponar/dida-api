@@ -1,8 +1,15 @@
-text_data = "(1 pl.) dejte si pozor, je tam taková louš, co se husi v leťe koupou; Držkov JN; Bachmannová, Za života se stane ledacos
-(1 pl.) v zimňe, gdiš se husi nepásli, vzala si paňimáma Anešku k sobje do kuchiňe; Paseky nad Jizerou SM; Pacholík, Poudačky a vhačky 
-(2 pl.) jak se co ďelá na poli jináč než doma i co tam maj kraf, prasat, hus i slepic; Paseky nad Jizerou SM; Pacholík, Poudačky a vhačky
-(2 pl.) tam ji vzal jeden velkej sedlák za pasačku husí; Paseky nad Jizerou SM; Pacholík, Poudačky a vhačky"
-
+text_data2 = "
+o {husách, 6 pl.} i o {husech, 6 pl.}; Ostrava OV; Ožehlé haluze
+dvě {husi, 1 pl.}; Opava OP; Lamprecht, Slovník
+tří {hus, 2. pl.}; Věteřov HO; Bělič, Dolská nářečí na Moravě
+bodejť by ťe {husa, 1 sg.} kopla; Blatnice pod Svatým Antonínkem HO; Marek, Blatnice 1966
+čí só tedle {hose, 1 pl.}; Náklo OL; Zábranský, Břehule
+ti černí {husi, 1 pl.}; za ňic nestojej Železný Brod JN; Bachmannová, Za života se stane ledacos
+{husa, 1 sg.} kouřivá; Horní Bělá PM; Korandová 1960
+pudež z {husou, 7 sg.} na pastvu?; Bozkov SM; Bachmannová, Co my toho prožili
+to je {husa, 1 sg.} futrálová; Mnichovo Hradiště MB; Horák, Mnichovo Hradiště 1958
+do mosazné {husi, 2 sg.}; Chodsko; Jindřich, Chodský slovník
+"
 text_data = "
 (1 sg., 1 sg.) nekerá slépka lebo huz byla dobrá mama, ale nekerá huz lebo kvočka neseďela dobře na vajcoch; Valašské Klobouky ZL; Klobucký rok
 (1 pl.) dejte si pozor, je tam taková louš, co se husi v leťe koupou; Držkov JN; Bachmannová, Za života se stane ledacos
@@ -439,9 +446,22 @@ text_data = "
 (1 sg.) hus kejhá; záp. Morava; Bartoš, Dialektický slovník
 "
 
+def jq(str)
+  result = IO.popen('jq .', 'r+') do |io|
+    io.write(str)
+    io.close_write
+    io.read
+  end
+end
+
 if $0 == __FILE__
 	require 'csv'
 	require File.expand_path('./config/environment.rb')
 
-	print Entry.import_text(14, User.first, text_data, true).map { |e| e.json_hash }.to_json
+	parsed = Entry.import_text(14, User.first, text_data, true)
+  found = parsed.find_all { |e| e.source.present? }.length
+  puts "#{found} / #{parsed.length} sources found"
+
+	json = parsed.map { |e| e.json_hash }.to_json
+  #puts(jq(json))
 end

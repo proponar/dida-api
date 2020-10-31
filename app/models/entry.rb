@@ -39,14 +39,22 @@ class Entry < ApplicationRecord
   def guess_source(str)
     return nil if str.blank?
 
+    # zdroj konci rokem
+    if md = str.match(/(\d\d\d\d)\s*$/)
+      rok = md[1]
+      str.sub!(/\s*(\d\d\d\d)\s*$/, '')
+    end
+
     parts = str.split(/, */)
 
-    # FIXME: osetrit vice hitu
+    # FIXME: osetrit vice hitu ?
+
     s = Source.where(:autor => parts[0], :name => parts[1])
     return s.first if s.present?
 
     if parts[0].present? && parts[1].present? # matchujeme jen neprazdne
       s = Source.where("name ilike ? and autor ilike ?", parts[1]+'%', parts[0]+'%')
+      s = s.where(:rok => rok) if rok.present?
       return s.first if s.present?
     end
 
@@ -56,14 +64,17 @@ class Entry < ApplicationRecord
         I18n.transliterate(parts[1]) + '%',
         parts[0] + '%'
       )
+      s = s.where(:rok => rok) if rok.present?
       return s.first if s.present?
     end
 
+    # matchujeme jen nazev
     if parts[0].blank? && parts[1].present? # matchujeme jen neprazdne
       s = Source.where(
         "name_processed ilike ?",
         I18n.transliterate(parts[1]) + '%'
       )
+      s = s.where(:rok => rok) if rok.present?
       return s.first if s.present?
     end
 
@@ -72,6 +83,20 @@ class Entry < ApplicationRecord
         "name_processed ilike ?",
         I18n.transliterate(parts[0]) + '%'
       )
+      s = s.where(:rok => rok) if rok.present?
+      return s.first if s.present?
+    end
+
+    # matchujeme jen autora
+    if parts[0].blank? && parts[1].present? # matchujeme jen neprazdne
+      s = Source.where("autor ilike ?", parts[1] + '%')
+      s = s.where(:rok => rok) if rok.present?
+      return s.first if s.present?
+    end
+
+    if parts[0].present? && parts[1].blank? # matchujeme jen neprazdne
+      s = Source.where("autor ilike ?", parts[0] + '%')
+      s = s.where(:rok => rok) if rok.present?
       return s.first if s.present?
     end
 
@@ -109,9 +134,8 @@ class Entry < ApplicationRecord
 
     urceni_list = urceni_str.strip.split(/,/).map(&:strip).map do |u|
       md = u.match(/^(\d)\.?\s+(pl|sg)\.?$/)
-      binding.pry if md.nil?
-      { pad: md[1], cislo: md[2] }
-    end
+      md.nil? ? nil : { pad: md[1], cislo: md[2] }
+    end.compact
 
     parts = exemplifikace.split(/([\s\.,!?]+)/)
 
@@ -133,8 +157,19 @@ class Entry < ApplicationRecord
     [filtered_parts.join(''), urceni_list]
   end
 
+  # jedna {husa, 1 sg.}; Luhačovice ZL; Kolařík, Slovník Luhačovického Zálesí
   def parse_ex_inline(str)
-    # FIXME
+    matched = str.scan(/[^{}]+(?=\})/)
+
+    # => ["husách, 6 pl.", "husách, 1 sg."]
+    urceni_list = matched.map(&:strip).map do |wu|
+      word, u = wu.split(/,\s+/, 2)
+
+      md = u.match(/^(\d)\.?\s+(pl|sg)\.?$/)
+      md.nil? ? nil : { pad: md[1], cislo: md[2] }
+    end.compact
+
+    [str, urceni_list]
   end
 
   # (1 pl.) dejte si pozor, je tam taková louš, co se husi v leťe koupou; Držkov JN; Bachmannová, Za života se stane ledacos
