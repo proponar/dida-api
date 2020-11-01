@@ -17,6 +17,16 @@ class Location < ApplicationRecord
     find_obec(kod_obec).try(:naz_obec)
   end
 
+  def self.naz_obec_with_zkr(kod_obec)
+    ob = find_obec(kod_obec)
+    if ob.present?
+      kod_okres = self.kodOk2names[ob.kod_okres.to_i]&.at(1)
+      "#{ob.naz_obec} #{kod_okres}"
+    else
+      nil
+    end
+  end
+
   def self.naz_cast(kod_cast)
     @naz_cast ||= {}
     unless @naz_cast.key?(kod_cast)
@@ -36,7 +46,7 @@ class Location < ApplicationRecord
     return '' unless kod_ob.present?
     ob = find_obec(kod_ob)
     return '' unless ob.present?
-    kod_okres = self.kod2names[ob.kod_okres.to_i]&.at(1)
+    kod_okres = self.kodOk2names[ob.kod_okres.to_i]&.at(1)
 
     if kod_cast.present?
       naz_cast = Location.naz_cast(kod_cast)
@@ -135,8 +145,8 @@ class Location < ApplicationRecord
     @zkratka2okres ||= self.okres2zkratka.reverse.freeze
   end
 
-  def self.kod2names
-    @kod2names ||= {
+  def self.kodOk2names
+    @kodOk2names ||= {
       40169 => ['Benešov'                         ,'BN'],
       40177 => ['Beroun'                          ,'BE'],
       40703 => ['Blansko'                         ,'BK'],

@@ -16,7 +16,7 @@ class Exemp < ApplicationRecord
       zdroj_id: source && source.cislo,
       zdroj_name: source && source.name,
       lokalizace_obec_id: lokalizace_obec,
-      lokalizace_obec_text: Location.naz_obec(lokalizace_obec),
+      lokalizace_obec_text: Location.naz_obec_with_zkr(lokalizace_obec),
       lokalizace_cast_obce_id: lokalizace_cast_obce,
       lokalizace_cast_obce_text: Location.naz_cast(lokalizace_cast_obce),
       lokalizace_text: lokalizace_text,  # unused

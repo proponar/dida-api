@@ -1,18 +1,19 @@
 class Api::LocationsController < Api::BaseController
   def search
-    # binding.pry
     # jednoduche hledani v nazvu obce
     locations =
       params[:id].present? ?
         Location.find_by_sql([
-          "select naz_obec, kod_obec from #{Location.table_name} where naz_obec ilike ?",
+          "select naz_obec, kod_obec, kod_okres from #{Location.table_name} where naz_obec ilike ?",
           params[:id] + '%'
-        ]) : Location.select(:naz_obec, :kod_obec)
+        ]) : Location.select(:naz_obec, :kod_obec, :kod_okres)
+
+    locations = locations.as_json.map do |l|
+      l['zk_okres'] = Location.kodOk2names[l['kod_okres'].to_i]&.at(1)
+      l
+    end
 
     render json: {message: 'Loaded all matching locations', data: locations}, status: 200
-
-    # potrebujeme i casti obci
-    # Location.connection.select_all( ... ) .to_hash
   end
 
   # GET /api/locations/:location_id/parts(.:format) api/locations#parts
@@ -32,7 +33,6 @@ class Api::LocationsController < Api::BaseController
         [[nil, obec_id]]
       ).to_a
 
-      # FIXME: pole, pocet
       count = results.length
       render json: {message: "Nalezeno #{count} částí obce.", count: count, data: results}
     end
