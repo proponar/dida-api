@@ -13,7 +13,7 @@ class Api::SourcesController < Api::BaseController
     begin
       Source.delete_all
       CSV.parse(csv_data, headers: true) do |row|
-        Source.create(row.to_h.slice(*%w(cislo name autor typ rok lokalizace)))
+        Source.create(row.to_h.slice(Source.column_order))
         counter += 1
       end
       render json: {message: "#{counter} zdroje importovány", count: counter}, status: 200
