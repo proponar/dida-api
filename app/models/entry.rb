@@ -219,6 +219,28 @@ class Entry < ApplicationRecord
     results
   end
 
+  def self.calculate_tvar_map(tv, ur)
+    tvary = tv.split(/\s+/).map { |t| t.gsub(/-/, '') }
+    urceni = ur.split(/\.\s+/).map do |u|
+      md = u.match(/^(\d)\.?\s+(pl|sg)\.?$/)
+      md.nil? ? nil : { pad: md[1], cislo: md[2] }
+    end
+
+    if tvary.length != urceni.length
+      return [:fail, "Počet tvaru #{tvary.length} neodpovídá počtu určení #{urceni.length}"]
+    end
+
+    tvar_map = {}
+    tvary.each_with_index do |t, i|
+      u = urceni[i]
+
+      tvar_map[t] ||= []
+      tvar_map[t] << u
+    end
+
+    [:ok, tvar_map]
+  end
+
   def json_hash
     {
       entry: json_entry,

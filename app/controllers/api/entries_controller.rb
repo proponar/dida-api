@@ -109,6 +109,13 @@ class Api::EntriesController < Api::BaseController
     }
   end
 
+  def tvar_map
+    e = Entry.find(params[:id])
+    render json: {
+      :map => Entry.calculate_tvar_map(e.tvary, e.urceni)
+    }, status: 400
+  end
+
   private
   def entry_params
     params.permit(%i(rod druh heslo vetne kvalifikator vyznam))

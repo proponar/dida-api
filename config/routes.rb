@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :entries do
       resources :exemps
       post 'import'
+      get 'tvar_map'
     end
     resources :locations do
       collection do
