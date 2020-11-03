@@ -25,7 +25,7 @@ class Api::ExempsController < Api::BaseController
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
     }.update(
-      soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni))
+      soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni lokalizace_text))
     ))
     e.save!
     render json: { message: 'exemp created', data: e }, status: 201
@@ -43,7 +43,7 @@ class Api::ExempsController < Api::BaseController
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
     }.update(
-      soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni))
+      soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni lokalizace_text))
       )
     )
     render json: { message: 'exemp updated', data: e }, status: 200
