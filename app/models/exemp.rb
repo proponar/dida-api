@@ -22,7 +22,7 @@ class Exemp < ApplicationRecord
       lokalizace_text: lokalizace_text,  # unused
       lokalizace_format: Location.location_format(lokalizace_obec, lokalizace_cast_obce),
       urceni: urceni,
-      time: updated_at,
+      time: updated_at.localtime.strftime('%d.%m.%Y %H:%M:%S'),
     }
   end
 end
