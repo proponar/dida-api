@@ -47,14 +47,14 @@ class Entry < ApplicationRecord
 
     parts = str.split(/, */)
 
-    # FIXME: osetrit vice hitu ?
-
+    # FIXME: vide hitu zatim resime, jakoby nic nebylo nalezeno
     s = Source.where(:autor => parts[0], :name => parts[1])
     return s.first if s.present?
 
     if parts[0].present? && parts[1].present? # matchujeme jen neprazdne
       s = Source.where("name ilike ? and autor ilike ?", parts[1]+'%', parts[0]+'%')
       s = s.where(:rok => rok) if rok.present?
+      return nil if s.count > 1
       return s.first if s.present?
     end
 
@@ -65,6 +65,7 @@ class Entry < ApplicationRecord
         parts[0] + '%'
       )
       s = s.where(:rok => rok) if rok.present?
+      return nil if s.count > 1
       return s.first if s.present?
     end
 
@@ -75,6 +76,7 @@ class Entry < ApplicationRecord
         I18n.transliterate(parts[1]) + '%'
       )
       s = s.where(:rok => rok) if rok.present?
+      return nil if s.count > 1
       return s.first if s.present?
     end
 
@@ -84,6 +86,7 @@ class Entry < ApplicationRecord
         I18n.transliterate(parts[0]) + '%'
       )
       s = s.where(:rok => rok) if rok.present?
+      return nil if s.count > 1
       return s.first if s.present?
     end
 
@@ -91,12 +94,14 @@ class Entry < ApplicationRecord
     if parts[0].blank? && parts[1].present? # matchujeme jen neprazdne
       s = Source.where("autor ilike ?", parts[1] + '%')
       s = s.where(:rok => rok) if rok.present?
+      return nil if s.count > 1
       return s.first if s.present?
     end
 
     if parts[0].present? && parts[1].blank? # matchujeme jen neprazdne
       s = Source.where("autor ilike ?", parts[0] + '%')
       s = s.where(:rok => rok) if rok.present?
+      return nil if s.count > 1
       return s.first if s.present?
     end
 
@@ -186,6 +191,7 @@ class Entry < ApplicationRecord
       user: user,
       entry_id: id,
       source: source,
+      rok: source&.rok,
       lokalizace_obec: lokalizace && lokalizace.kod_obec || nil,
       lokalizace_text: lokalizace_text,
       exemplifikace: exemplifikace,
