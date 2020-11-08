@@ -50,4 +50,14 @@ class Api::ExempsController < Api::BaseController
   rescue => e
     render json: { message: "could not update exemp: #{e.message}" }, status: 400
   end
+
+  def destroy
+    begin
+      e = Exemp.find(params[:id])
+      e.delete
+      render json: { message: "exemp deletes" }, status: 200
+    rescue => e
+      render json: { message: "could not update exemp: #{e.message}" }, status: 400
+    end
+  end
 end
