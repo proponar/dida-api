@@ -170,7 +170,7 @@ class Entry < ApplicationRecord
     urceni_list = matched.map(&:strip).map do |wu|
       word, u = wu.split(/,\s+/, 2)
 
-      md = u.match(/^(\d)\.?\s+(pl|sg)\.?$/)
+      md = u&.match(/^(\d)\.?\s+(pl|sg)\.?$/)
       md.nil? ? nil : { pad: md[1], cislo: md[2] }
     end.compact
 
@@ -212,7 +212,18 @@ class Entry < ApplicationRecord
     text_data.split("\n").map(&:strip).filter(&:present?).each do |line|
       next if line.blank?
 
-      ex = entry.parse_exemp(line, user)
+      begin
+        ex = entry.parse_exemp(line, user)
+      rescue
+        next unless dry_run
+
+        # create fake record to report problem to the user
+        ex = Exemp.new(
+          user: user,
+          entry_id: id,
+          exemplifikace: "PROBLÉM: #{line}",
+        )
+      end
       if dry_run
         # temporary id
         ex.id = results.length
