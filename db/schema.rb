@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_125612) do
+ActiveRecord::Schema.define(version: 2020_11_12_172328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_125612) do
     t.integer "rod"
     t.string "tvary"
     t.string "urceni"
+    t.string "tvar_map"
   end
 
   create_table "exemps", force: :cascade do |t|

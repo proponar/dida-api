@@ -5,6 +5,8 @@ class Entry < ApplicationRecord
 
   validates :heslo, presence: true, uniqueness: true
 
+  before_save :process_tvar_map
+
   ROD_MAP = ['m', 'f', 'n']
   DRUH_MAP = ['subst', 'adj']
 
@@ -32,6 +34,7 @@ class Entry < ApplicationRecord
       rod: ROD_MAP[rod],
       tvary: tvary,
       urceni: urceni,
+      tvar_map: tvar_map,
     }
   end
 
@@ -256,6 +259,13 @@ class Entry < ApplicationRecord
     end
 
     [:ok, tvar_map]
+  end
+
+  def process_tvar_map
+    code, tv_map = Entry.calculate_tvar_map(tvary, urceni)
+    if code == :ok
+      self.tvar_map = tv_map.to_json
+    end
   end
 
   def json_hash
