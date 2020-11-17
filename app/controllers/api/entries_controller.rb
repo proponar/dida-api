@@ -79,6 +79,8 @@ class Api::EntriesController < Api::BaseController
 
     render json: { message: 'entry updated', data: entry }
   rescue => e
+    logger.error("Exception: #{e.message}")
+    logger.error(e.backtrace.join("\n"))
     render json: { message: "could not update entry: #{e.message}" }, status: 400
   end
 
