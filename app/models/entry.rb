@@ -269,6 +269,8 @@ class Entry < ApplicationRecord
     code, tv_map = Entry.calculate_tvar_map(tvary, urceni)
     if code == :ok
       self.tvar_map = tv_map.to_json
+    else
+      logger.error("Failed to calculate tvar_map: '#{tv_map}'")
     end
   end
 
