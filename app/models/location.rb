@@ -142,7 +142,7 @@ class Location < ApplicationRecord
   end
 
   def self.zkratka2okres
-    @zkratka2okres ||= self.okres2zkratka.reverse.freeze
+    @zkratka2okres ||= self.okres2zkratka.invert.freeze
   end
 
   def self.kodOk2names

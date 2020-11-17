@@ -117,10 +117,14 @@ class Entry < ApplicationRecord
   def guess_lokalizace(str)
     md = str.match(/^(.*)\s+(\w\w)$/)
     if md
-      # md[0]
-      loc = Location.where(:naz_obec => md[1]).first # FIXME, kdyz je vic, matchovat pres zkratku okresu
-      return loc
-    else
+      obec = md[1]
+      zkr_okres = md[2]
+      locs = Location.where(:naz_obec => obec)
+      return nil if locs.length === 0
+      return locs.first if locs.length === 1
+
+      okres = Location.zkratka2okres[zkr_okres]
+      return locs.where(:naz_lau1 => okres).first
     end
     nil
   end
@@ -133,8 +137,8 @@ class Entry < ApplicationRecord
     str =~ /^\(/ ? parse_ex_bracket(str) : parse_ex_inline(str)
   end
 
-  # (1 pl.) dejte si pozor, 
-  # (1 sg., 7 sg.) proč jen 
+  # (1 pl.) dejte si pozor,
+  # (1 sg., 7 sg.) proč jen
   def parse_ex_bracket(str)
     md = str.match(/^\(([^)]+)\)\s+(.*)$/) # urceni a exemplifikace
     urceni_str = md[1]
@@ -240,8 +244,8 @@ class Entry < ApplicationRecord
   end
 
   def self.calculate_tvar_map(tv, ur)
-    tvary = tv.split(/\s+/).map { |t| t.gsub(/-/, '') }
-    urceni = ur.split(/\.\s+/).map do |u|
+    tvary = tv.to_s.split(/\s+/).map { |t| t.gsub(/-/, '') }
+    urceni = ur.to_s.split(/\.\s+/).map do |u|
       md = u.match(/^(\d)\.?\s+(pl|sg)\.?$/)
       md.nil? ? nil : { pad: md[1], cislo: md[2] }
     end
