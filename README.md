@@ -35,38 +35,38 @@ Things you may want to cover:
    https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
 
  * Running tests:
-	`bundle exec rake spec`
+        `bundle exec rake spec`
 
  * add "exemp"
 
  * add "source" model
 
  * add CORS
-	https://github.com/cyu/rack-cors
+        https://github.com/cyu/rack-cors
 
  * add "sources" controller
 
  * add location seeding
 
  * search for location
-	* script to load tables
-	* search action
-	* test for search action
+        * script to load tables
+        * search action
+        * test for search action
 
   basic crud for entries
-	* add columns
-		Heslo,
-		kvalifikator,
-		vyznam
-		vetne/nevetne,
-		dejme do společné části ještě
-		slovní druh (substantivum/adjektivum)
-		rod (m., f., n.)
+        * add columns
+                Heslo,
+                kvalifikator,
+                vyznam
+                vetne/nevetne,
+                dejme do společné části ještě
+                slovní druh (substantivum/adjektivum)
+                rod (m., f., n.)
   crud for exemps
-	* add columns
-		autor, exemplifikace, zdroj, lokalizace, lokalizace_text, vetne/nevetne, zdroj
-		rok, kvantifikator, vyznam, deaktivovat, chybny
-	* add controller + routes
+        * add columns
+                autor, exemplifikace, zdroj, lokalizace, lokalizace_text, vetne/nevetne, zdroj
+                rok, kvantifikator, vyznam, deaktivovat, chybny
+        * add controller + routes
 
   * nested /entries/exemps/
 
@@ -80,5 +80,5 @@ next:
   * session tokens
 
   attaching files:
-	https://edgeguides.rubyonrails.org/active_storage_overview.html
-
+        https://edgeguides.rubyonrails.org/active_storage_overview.html
+        `rails active_storage:install`

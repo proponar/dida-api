@@ -52,12 +52,27 @@ class Api::ExempsController < Api::BaseController
   end
 
   def destroy
-    begin
-      e = Exemp.find(params[:id])
-      e.delete
-      render json: { message: "exemp deletes" }, status: 200
-    rescue => e
-      render json: { message: "could not update exemp: #{e.message}" }, status: 400
-    end
+    e = Exemp.find(params[:id])
+    e.delete
+    render json: { message: "exemp deletes" }, status: 200
+  rescue => e
+    render json: { message: "could not update exemp: #{e.message}" }, status: 400
+  end
+
+  # /api/entries/:entry_id/exemps/:exemp_id/attach(.:format)
+  def attach
+    attachment_data_io = request.body #.read
+    e = Exemp.find(params[:exemp_id])
+
+    e.attachments.attach( #attachment_data)
+      io: attachment_data_io, #File.open('/path/to/file'),
+      filename: request.headers['X-File-Name'],
+      #content_type: 'application/pdf',
+      identify: true # automatically figure content_type? TODO: verify
+    )
+
+    render json: {message: "Příloha byla připojena"}, status: 200
+  rescue => e
+    render json: { message: "Nepodařilo se připojit soubor: #{e.message}" }, status: 400
   end
 end
