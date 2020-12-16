@@ -24,6 +24,9 @@ class Exemp < ApplicationRecord
       lokalizace_format: Location.location_format(lokalizace_obec, lokalizace_cast_obce),
       urceni: urceni,
       time: updated_at&.localtime&.strftime('%d.%m.%Y %H:%M:%S'),
+      attachments: attachments.map { |a, i|
+        {filename: a.filename.to_s, content_type: a.content_type, id: a.id}
+      },
     }
   end
 end

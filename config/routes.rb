@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :entries do
       resources :exemps do
         post 'attach'
+        post 'detach'
       end
       post 'import'
       get 'tvar_map'

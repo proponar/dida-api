@@ -75,4 +75,24 @@ class Api::ExempsController < Api::BaseController
   rescue => e
     render json: { message: "Nepodařilo se připojit soubor: #{e.message}" }, status: 400
   end
+
+  def detach
+    e = Exemp.find(params[:exemp_id])
+
+    parms = JSON.parse(request.body.read)
+    attachment_id = parms['attachment_id']
+    filename = parms['filename']
+
+    a = ActiveStorage::Attachment.find(parms['attachment_id'])
+    unless a.filename == parms['filename']
+      raise "Nesprávné parametry přílohy #{attachment_id}, #{filename}"
+    end
+
+    a.delete
+
+    render json: {message: "Příloha byla odstraněna"}, status: 200
+  rescue => e
+    render json: { message: "Nepodařilo se odstranit přílohu: #{e.message}" }, status: 400
+  end
+
 end
