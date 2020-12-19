@@ -7,7 +7,7 @@ class Entry < ApplicationRecord
 
   before_save :process_tvar_map
 
-  ROD_MAP = ['m', 'f', 'n']
+  ROD_MAP = %w(m f n mf fn mn mplt fplt nplt mfplt fnplt mnplt)
   DRUH_MAP = ['subst', 'adj']
 
   def self.map_rod(str)
@@ -21,19 +21,19 @@ class Entry < ApplicationRecord
   def json_entry
     {
       id: id,
-      text: text,
+      text: text || '',
       author_id: author_id,
       author_name: user.name,
       created_at: created_at,
       updated_at: updated_at,
       heslo: heslo,
       kvalifikator: kvalifikator || '',
-      vyznam: vyznam,
+      vyznam: vyznam || '',
       vetne: vetne,
       druh: DRUH_MAP[druh],
       rod: ROD_MAP[rod],
-      tvary: tvary,
-      urceni: urceni,
+      tvary: tvary || '',
+      urceni: urceni || '',
       tvar_map: tvar_map,
     }
   end
