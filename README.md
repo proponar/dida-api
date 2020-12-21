@@ -80,7 +80,7 @@ Things you may want to cover:
 
   * added Meanings
 ```
-  $ bundle exec rails generate model Meaning cislo:integer vyznam:string kvalifikatory:string entry:references
+  $ bundle exec rails generate model Meaning cislo:integer vyznam:string kvalifikator:string entry:references
   Running via Spring preloader in process 429720
         invoke  active_record
         create    db/migrate/20201220194210_create_meanings.rb

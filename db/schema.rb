@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_194210) do
   create_table "meanings", force: :cascade do |t|
     t.integer "cislo"
     t.string "vyznam"
-    t.string "kvalifikatory"
+    t.string "kvalifikator"
     t.bigint "entry_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

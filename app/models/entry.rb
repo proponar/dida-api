@@ -279,6 +279,7 @@ class Entry < ApplicationRecord
     {
       entry: json_entry,
       exemps: exemps.map { |e| e.json_hash }
+      meanings: meanings.map { |e| m.json_hash }
     }
   end
 end

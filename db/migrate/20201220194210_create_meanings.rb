@@ -3,7 +3,7 @@ class CreateMeanings < ActiveRecord::Migration[6.0]
     create_table :meanings do |t|
       t.integer :cislo
       t.string :vyznam
-      t.string :kvalifikatory
+      t.string :kvalifikator
       t.references :entry, null: false, foreign_key: true
 
       t.timestamps
