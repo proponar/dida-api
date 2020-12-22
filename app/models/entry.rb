@@ -36,6 +36,7 @@ class Entry < ApplicationRecord
       tvary: tvary || '',
       urceni: urceni || '',
       tvar_map: tvar_map,
+      meanings: meanings.map { |m| m.json_hash },
     }
   end
 
@@ -278,8 +279,61 @@ class Entry < ApplicationRecord
   def json_hash
     {
       entry: json_entry,
-      exemps: exemps.map { |e| e.json_hash }
-      meanings: meanings.map { |e| m.json_hash }
+      exemps: exemps.map { |e| e.json_hash },
+      meanings: meanings.map { |m| m.json_hash }
     }
+  end
+
+  # pokud existuje meaning s danym ID u TOHOTO hesla, aktualizujeme:
+  #   cislo, vyznam, exemplifikaci
+  #   musime zkontrolovat, ze mezi vstupnimi daty neni vic vyznamu se stejnym cislem
+  #
+  # pokud mazeme vyznam, musime se ujistit, ze u nej nejsou zadne exemplifikace
+  def valid_meanings_data?(md)
+    meaning_hash = md.each_with_object({}) do |m, acc|
+      # kontrola duplicitnich cisel vyznamu
+      if acc.key?(m['cislo'])
+        return [false, 'Duplicitní číslo významu.']
+      end
+      acc[m['cislo']] = m
+
+      # kontrola prislusnosti k heslu
+      if m['id'].present?
+        mn = Meaning.find(m['id'])
+        if mn.entry_id != self.id
+          return [false, 'Význam patří k jinému heslu.']
+        end
+      end
+    end
+
+    # kontola, ze nemazeme nejaky vyznam, ktery ma exemps
+    vyznamy_ids = Exemp.where(entry_id: self.id, meaning_id: 'not null').pluck(:meaning_id)
+    if 0 > (vyznamy_ids - meaning_hash.keys).length
+      return [false, 'Nelze odstranit význam, pro který existují exemplifikace.']
+    end
+
+    [true, '']
+  end
+
+  def replace_meanings(md)
+    seen_ids = md.each_with_object({}) do |m, acc|
+      new_m = replace_or_create_meaning(m)
+      acc[new_m.id] = new_m
+    end
+
+    # delete unseen
+    delete_ids = meanings.pluck(:id)
+    unless delete_ids.empty?
+      Meaning.delete(id: delete_ids)
+    end
+  end
+
+  def replace_or_create_meaning(m)
+    existing = m['id'].present? && Meaning.find(m['id'])
+    if existing.present?
+      existing.update(cislo: m['cislo'], kvalifikator: m['kvalifikator'], vyznam: m['vyznam'])
+      return existing
+    end
+    Meaning.create(entry: self, cislo: m['cislo'], kvalifikator: m['kvalifikator'], vyznam: m['vyznam'])
   end
 end

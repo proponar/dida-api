@@ -3,6 +3,7 @@ class Exemp < ApplicationRecord
   belongs_to :user, foreign_key: 'author_id'
   belongs_to :source, foreign_key: 'zdroj_id', required: false, primary_key: 'cislo'
   has_many_attached :attachments
+  has_one :meaning
 
   def json_hash
     {
@@ -27,6 +28,7 @@ class Exemp < ApplicationRecord
       attachments: attachments.map { |a, i|
         {filename: a.filename.to_s, content_type: a.content_type, id: a.id}
       },
+      meaning_id: meaning_id,
     }
   end
 end
