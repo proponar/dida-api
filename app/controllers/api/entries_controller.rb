@@ -9,7 +9,7 @@ class Api::EntriesController < Api::BaseController
   def show
     render json: Entry.includes(:user, :exemps).find(params[:id]).json_hash
   rescue ActiveRecord::RecordNotFound
-    render json: { message: 'could not find entry' }, status: 404
+    render json: { message: 'Heslo nebylo nalezeno.' }, status: 404
   end
 
   def create
@@ -41,9 +41,9 @@ class Api::EntriesController < Api::BaseController
       end
     end
 
-    render json: { message: 'entry created', data: entry }, status: 201
+    render json: { message: 'Heslo uloženo.', data: entry }, status: 201
   rescue => e
-    render json: { message: "could not create entry #{e.message}" }, status: 422
+    render json: { message: "Heslo nebylo možné uložit: #{e.message}" }, status: 422
   end
 
   def update
@@ -99,8 +99,8 @@ class Api::EntriesController < Api::BaseController
   def destroy
     Entry.find(params[:id]).destroy
     render status: 204
-  rescue
-    render json: { message: 'could not delete entry' }, status: 400
+  rescue => e
+    render json: { message: "Heslo nebylo možné smazat: #{e.message}" }, status: 400
   end
 
   # import exemplifikaci do hesla
@@ -121,6 +121,8 @@ class Api::EntriesController < Api::BaseController
       count: count,
       data: results.map { |e| e.json_hash }
     }
+  rescue => e
+    render json: { message: "Exemplifikace nebylo možné importovat: #{e.message}" }, status: 400
   end
 
   def tvar_map
