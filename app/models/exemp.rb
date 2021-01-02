@@ -3,16 +3,18 @@ class Exemp < ApplicationRecord
   belongs_to :user, foreign_key: 'author_id'
   belongs_to :source, foreign_key: 'zdroj_id', required: false, primary_key: 'cislo'
   has_many_attached :attachments
-  has_one :meaning
+  belongs_to :meaning, required: false
 
   def json_hash
     {
       id: id,
+      kvalifikator: meaning&.kvalifikator || '',
+      vyznam: meaning&.vyznam || '',
+      meaning_id: meaning_id,
+
       rod: rod && Entry::ROD_MAP[rod],
       rok: rok,
-      kvalifikator: kvalifikator || '',
       exemplifikace: exemplifikace,
-      vyznam: vyznam,
       vetne: vetne,
       aktivni: !! aktivni,
       zdroj_id: source && source.cislo,
