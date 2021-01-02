@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_065020) do
+ActiveRecord::Schema.define(version: 2021_01_01_132016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -311,6 +311,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_065020) do
     t.string "bibliografie"
     t.string "lokalizace_text"
     t.string "name_processed"
+    t.integer "lokalizace_obec"
   end
 
   create_table "users", force: :cascade do |t|

@@ -226,4 +226,21 @@ class Location < ApplicationRecord
       40762 => ['Znojmo'                          ,'ZN'],
     }.freeze
   end
+
+  # Držkov JH
+  def self.guess_lokalizace(str)
+    md = str.match(/^(.*)\s+(\w\w)$/)
+    if md
+      obec = md[1]
+      zkr_okres = md[2]
+      locs = Location.where(:naz_obec => obec)
+      return nil if locs.length === 0
+      return locs.first if locs.length === 1
+
+      # FIXME: kontrola, ze sedi okres
+      okres = Location.zkratka2okres[zkr_okres]
+      return locs.where(:naz_lau1 => okres).first
+    end
+    nil
+  end
 end

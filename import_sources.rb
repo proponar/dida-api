@@ -15,6 +15,7 @@ class SourceImporter
         typ: rec[6],
         lokalizace_text: rec[7],
         lokalizace: rec[8],
+        lokalizace_obec: rec[8] && Location::guess_lokalizace(rec[8])&.kod_obec,
         rok_sberu: rec[9],
       })
       s.save!

@@ -115,22 +115,6 @@ class Entry < ApplicationRecord
     nil
   end
 
-  # Držkov JH
-  def guess_lokalizace(str)
-    md = str.match(/^(.*)\s+(\w\w)$/)
-    if md
-      obec = md[1]
-      zkr_okres = md[2]
-      locs = Location.where(:naz_obec => obec)
-      return nil if locs.length === 0
-      return locs.first if locs.length === 1
-
-      okres = Location.zkratka2okres[zkr_okres]
-      return locs.where(:naz_lau1 => okres).first
-    end
-    nil
-  end
-
   def parsed_tvary
     @parsed_tvary ||= tvary.to_s.split(/\s+/).map { |t| t.sub(/-/, '') }
   end
@@ -192,7 +176,7 @@ class Entry < ApplicationRecord
     parts = line.split(/;\s*/)
     exemplifikace, urceni = parse_ex(parts[0])
 
-    lokalizace = parts[1] && guess_lokalizace(parts[1]) || nil
+    lokalizace = parts[1] && Location.guess_lokalizace(parts[1]) || nil
     lokalizace_text = lokalizace.nil? ? (parts[1] || '') : ''
 
     source = guess_source(parts[2]) # zdroj
@@ -201,7 +185,7 @@ class Entry < ApplicationRecord
       entry_id: id,
       source: source,
       rok: source&.rok,
-      lokalizace_obec: lokalizace && lokalizace.kod_obec || nil,
+      lokalizace_obec: lokalizace&.kod_obec,
       lokalizace_text: lokalizace_text,
       exemplifikace: exemplifikace,
       urceni: urceni.to_json,
