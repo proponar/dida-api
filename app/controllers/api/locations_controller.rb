@@ -1,4 +1,17 @@
 class Api::LocationsController < Api::BaseController
+  def lookup
+    # dohledani lokalizace (ve formatu jako #search) podle kodu obce
+    location = Location.find_by_sql([
+      "select naz_obec, kod_obec, kod_okres from #{Location.table_name} where kod_obec = ?",
+       params[:id]
+    ]).first
+    location['zk_okres'] = Location.kodOk2names[l['kod_okres'].to_i]&.at(1)
+
+    render json: {message: 'Odpovídající lokalizace.', location: location}, status: 200
+  rescue
+    render json: {message: 'Obec nebyla nalezena.'}, status: 422
+  end
+
   def search
     # jednoduche hledani v nazvu obce
     locations =
@@ -13,7 +26,7 @@ class Api::LocationsController < Api::BaseController
       l
     end
 
-    render json: {message: 'Loaded all matching locations', data: locations}, status: 200
+    render json: {message: 'Odpovídající lokalizace.', data: locations}, status: 200
   end
 
   # GET /api/locations/:location_id/parts(.:format) api/locations#parts
