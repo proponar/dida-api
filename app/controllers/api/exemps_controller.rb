@@ -22,6 +22,7 @@ class Api::ExempsController < Api::BaseController
       :user => current_user,
       :entry_id => params[:entry_id],
       :zdroj_id => params[:zdroj_id],
+      :meaning_id => params[:meaning_id],
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
     }.update(
@@ -40,6 +41,7 @@ class Api::ExempsController < Api::BaseController
     e.update({
       :user => current_user,
       :zdroj_id => params[:zdroj_id],
+      :meaning_id => params[:meaning_id],
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
     }.update(
