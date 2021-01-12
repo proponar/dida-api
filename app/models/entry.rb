@@ -276,10 +276,11 @@ class Entry < ApplicationRecord
   def valid_meanings_data?(md)
     meaning_hash = md.each_with_object({}) do |m, acc|
       # kontrola duplicitnich cisel vyznamu
-      if acc.key?(m['cislo'])
+      cislo = m['cislo'].to_i
+      if acc.key?(cislo)
         return [false, 'Duplicitní číslo významu.']
       end
-      acc[m['cislo']] = m
+      acc[cislo] = m
 
       # kontrola prislusnosti k heslu
       if m['id'].present?
@@ -306,9 +307,9 @@ class Entry < ApplicationRecord
     end
 
     # delete unseen
-    delete_ids = meanings.pluck(:id)
+    delete_ids = meanings.pluck(:id) - seen_ids.keys
     unless delete_ids.empty?
-      Meaning.delete(id: delete_ids)
+      Meaning.delete(delete_ids)
     end
   end
 

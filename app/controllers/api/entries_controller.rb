@@ -58,7 +58,7 @@ class Api::EntriesController < Api::BaseController
       if ok
         entry.replace_meanings(meanings_data)
       else
-        render json: { message: "Významy nelze aktualitovat: #{message}", data: entry }
+        render json: { message: "Významy nelze aktualitovat: #{message}", data: entry }, status: 400
         return
       end
     end
