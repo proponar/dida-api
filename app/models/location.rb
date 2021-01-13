@@ -233,13 +233,11 @@ class Location < ApplicationRecord
     if md
       obec = md[1]
       zkr_okres = md[2]
-      locs = Location.where(:naz_obec => obec)
-      return nil if locs.length === 0
-      return locs.first if locs.length === 1
-
-      # FIXME: kontrola, ze sedi okres
       okres = Location.zkratka2okres[zkr_okres]
-      return locs.where(:naz_lau1 => okres).first
+
+      # musi sedet nazev obce i zkratka
+      locs = Location.where(naz_obec: obec, naz_lau1: okres)
+      return locs.first if locs.length === 1
     end
     nil
   end
