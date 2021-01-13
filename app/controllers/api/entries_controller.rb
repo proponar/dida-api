@@ -107,17 +107,21 @@ class Api::EntriesController < Api::BaseController
   # api_entry_import POST   /api/entries/:entry_id/import(.:format)   api/entries#import
   def import
     dry_run = params[:dry_run] != 'false'
+    vetne = params[:vetne] != 'false'
+    meaning_id = params[:meaning]
 
     results = Entry.import_text(
       params[:entry_id],
       current_user,
       request.body.read.force_encoding('UTF-8'),
+      meaning_id,
+      vetne,
       dry_run
     )
 
     count = results.length
     render json: {
-      message: "imported #{count} entries",
+      message: dry_run ? "Zpracováno #{count} exemplifikaci." : "Importováno #{count} exemplifikací.",
       count: count,
       data: results.map { |e| e.json_hash }
     }

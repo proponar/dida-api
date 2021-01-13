@@ -172,7 +172,7 @@ class Entry < ApplicationRecord
 
   # (1 pl.) dejte si pozor, je tam taková louš, co se husi v leťe koupou; Držkov JN; Bachmannová, Za života se stane ledacos
   # (1 sg., 7 sg.) proč jen se mu tolik chťelo na ten prašskej jarmark? Husa přeleťela móře a zústala přec jen husou; Jilemnice SM; Horáček, Nic kalýho zpod Žalýho
-  def parse_exemp(line, user)
+  def parse_exemp(line, user, meaning_id, vetne)
     parts = line.split(/;\s*/)
     exemplifikace, urceni = parse_ex(parts[0])
 
@@ -190,7 +190,9 @@ class Entry < ApplicationRecord
       exemplifikace: exemplifikace,
       urceni: urceni.to_json,
 
-      vetne: self.vetne,
+      meaning_id: meaning_id,
+      vetne: vetne,
+
       rod: self.rod,
       kvalifikator: self.kvalifikator,
       aktivni: true,
@@ -198,15 +200,19 @@ class Entry < ApplicationRecord
     )
   end
 
-  def self.import_text(entry_id, user, text_data, dry_run)
+  def self.import_text(entry_id, user, text_data, meaning_id, vetne, dry_run)
     entry = Entry.find(entry_id)
+
+    # check if meaning_id is valid for this entry
+    meaning = entry.meanings.find { |m| m.id = meaning_id }
+    raise "Neplatný význam." unless meaning.present?
 
     results = []
     text_data.split("\n").map(&:strip).filter(&:present?).each do |line|
       next if line.blank?
 
       begin
-        ex = entry.parse_exemp(line, user)
+        ex = entry.parse_exemp(line, user, meaning_id, vetne)
       rescue
         next unless dry_run
 
