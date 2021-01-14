@@ -5,6 +5,13 @@ class SourceImporter
     data = File.read(file,nil)
     #data.sub!(/^L.*$/m,'')
     CSV.parse(data, headers: true) do |rec|
+      if rec[8]
+        kod_obec, kod_cast = Location::guess_lokalizace(rec[8])
+      else
+        kod_obec = nil
+        kod_cast = nil
+      end
+
       s = Source.create({
         cislo: rec[0],
         autor: rec[1],
@@ -15,7 +22,7 @@ class SourceImporter
         typ: rec[6],
         lokalizace_text: rec[7],
         lokalizace: rec[8],
-        lokalizace_obec: rec[8] && Location::guess_lokalizace(rec[8])&.kod_obec,
+        lokalizace_obec: kod_obec,
         rok_sberu: rec[9],
       })
       s.save!

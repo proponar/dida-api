@@ -174,18 +174,25 @@ class Entry < ApplicationRecord
   # (1 sg., 7 sg.) proč jen se mu tolik chťelo na ten prašskej jarmark? Husa přeleťela móře a zústala přec jen husou; Jilemnice SM; Horáček, Nic kalýho zpod Žalýho
   def parse_exemp(line, user, meaning_id, vetne)
     parts = line.split(/;\s*/)
-    exemplifikace, urceni = parse_ex(parts[0])
 
-    lokalizace = parts[1] && Location.guess_lokalizace(parts[1]) || nil
-    lokalizace_text = lokalizace.nil? ? (parts[1] || '') : ''
+    exemplifikace, urceni = parse_ex(parts[0])
+    if parts[1]
+      kod_obec, kod_cast = Location.guess_lokalizace(parts[1])
+    else
+      kod_obec = nil
+      kod_cast = nil
+    end
+    lokalizace_text = kod_obec.nil? ? (parts[1] || '') : ''
 
     source = guess_source(parts[2]) # zdroj
+
     Exemp.new(
       user: user,
       entry_id: id,
       source: source,
       rok: source&.rok,
-      lokalizace_obec: lokalizace&.kod_obec,
+      lokalizace_obec: kod_obec,
+      lokalizace_cast_obce: kod_cast,
       lokalizace_text: lokalizace_text,
       exemplifikace: exemplifikace,
       urceni: urceni.to_json,

@@ -56,6 +56,14 @@ class Location < ApplicationRecord
     end
   end
 
+  def parts
+    Location.connection.select_all(
+      "select naz_cob, kod_cob from n3_casti_obce_polygony where kod_obec = $1 order by naz_cob",
+      'SQL',
+      [[nil, self.kod_obec]]
+    ).to_a
+  end
+
   def self.okres2zkratka
     @okres2zkratka ||= {
       'Semily'              => 'SM',
@@ -228,17 +236,31 @@ class Location < ApplicationRecord
   end
 
   # Držkov JH
+  # Brno BM (Kohoutovice)
   def self.guess_lokalizace(str)
-    md = str.match(/^(.*)\s+(\w\w)$/)
-    if md
-      obec = md[1]
-      zkr_okres = md[2]
-      okres = Location.zkratka2okres[zkr_okres]
+    md = str.match(/^(.*)\s+(\w\w)(\s*\((.*)\)\s*)?$/)
+    return [nil, nil] unless md
 
-      # musi sedet nazev obce i zkratka
-      locs = Location.where(naz_obec: obec, naz_lau1: okres)
-      return locs.first if locs.length === 1
+    obec = md[1]
+    zkr_okres = md[2]
+    cast = md[4]
+
+    # musi sedet nazev obce i zkratka
+    okres = Location.zkratka2okres[zkr_okres]
+    locs = Location.where(naz_obec: obec, naz_lau1: okres)
+    return [nil, nil] if locs.length != 1
+
+    loc = locs.first
+    # jen lokalizace, zadna cast
+    return [loc.kod_obec, nil] unless cast.present?
+
+    part_pair = loc.parts.find do |part|
+      # part: {"naz_cob"=>"Hoření Paseky", "kod_cob"=>"160563"},
+      part['naz_cob'] == cast
     end
-    nil
+
+    # FIXME: opravdu chceme cele blbe, pokud je blbe jen cast?
+    #[loc.kod_obec, part_pair && part_pair['kod_cob']]
+    part_pair.present? ? [loc.kod_obec, part_pair['kod_cob']] : [nil, nil]
   end
 end

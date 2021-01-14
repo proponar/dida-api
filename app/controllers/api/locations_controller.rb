@@ -33,19 +33,18 @@ class Api::LocationsController < Api::BaseController
   def parts
     obec_id = params[:location_id].to_s.strip
 
+    # FIXME: opravdu potrebujeme resit oba pripady (nazev i id?)
     if obec_id.present?
-      obec_id = (obec_id =~ /^[0-9]+$/) ? obec_id : Location.where(:kod_obec => obec_id.to_s).select(:naz_obec).first
+      obec_id = (obec_id =~ /^[0-9]+$/) ?
+        obec_id :
+        Location.where(:kod_obec => obec_id.to_s).select(:naz_obec).first
     end
 
     if obec_id.empty?
       render json: {message: "Obec nebyla nalezena."}, status: 422
     else
-      results = Location.connection.select_all(
-        "select naz_cob, kod_cob from n3_casti_obce_polygony where kod_obec = $1 order by naz_cob",
-        'SQL',
-        [[nil, obec_id]]
-      ).to_a
-
+      # FIXME: zbytecne znovu delame dotaz (pokud probehl vyse)
+      results = Location.find(obec_id).parts
       count = results.length
       render json: {message: "Nalezeno #{count} částí obce.", count: count, data: results}
     end
