@@ -28,7 +28,8 @@ RSpec.describe 'Entries API', type: :request do
     context 'when the record exists' do
       it 'returns the entry' do
         expect(json).not_to be_empty
-        expect(json['id']).to eq(entry_id)
+        expect(json['entry']).not_to be_empty
+        expect(json['entry']['id']).to eq(entry_id)
       end
 
       it 'returns status code 200' do
@@ -44,13 +45,13 @@ RSpec.describe 'Entries API', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/could not find entry/)
+        expect(response.body).to match(/Heslo nebylo nalezeno/)
       end
     end
   end
 
   describe 'POST /api/entries' do
-    let(:valid_attributes) { { heslo: 'abraka', kvalifikator: 'dabra', vyznam: 'blah', created_by: '1' } }
+    let(:valid_attributes) { { entry: { heslo: 'abraka', kvalifikator: 'dabra', vyznam: 'blah', created_by: '1' } } }
 
     context 'when the request is valid' do
       before { post '/api/entries', params: valid_attributes, headers: { "Authorization" => credentials } }
@@ -65,7 +66,7 @@ RSpec.describe 'Entries API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/api/entries', params: { vyznam: 'Foobar' }, headers: { "Authorization" => credentials } }
+      before { post '/api/entries', params: { entry: { vyznam: 'Foobar' } }, headers: { "Authorization" => credentials } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -79,14 +80,14 @@ RSpec.describe 'Entries API', type: :request do
   end
 
   describe 'PUT /api/entries/:id' do
-    let(:valid_attributes) { { heslo: 'Shopping' } }
+    let(:valid_attributes) { { entry: { heslo: 'Shopping' } } }
 
     context 'when the record exists' do
       before { put "/api/entries/#{entry_id}", params: valid_attributes, headers: { "Authorization" => credentials } }
 
       it 'updates the record' do
         #expect(response.body).to be_empty
-        expect(response.body).to match(/entry updated/)
+        expect(response.body).to match(/Heslo bylo aktualizováno/)
         expect(response).to have_http_status(200)
       end
 

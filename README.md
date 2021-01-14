@@ -1,13 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API for DIDA entr app.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* Dependencies:
+  * Ruby 2.6.x, Rails 6.x.
+  * PosgreSQL
 
 * Configuration
 
@@ -15,7 +12,16 @@ Things you may want to cover:
 
 * Database initialization
 
-* How to run the test suite
+* Running tests:
+  First seed the locations:
+
+  `RAILS_ENV=test rake db:seed_location`
+
+  Run all tests, documentation format:
+  `bundle exec rake spec SPEC_OPTS=-fd`
+
+  Run a single test:
+  `bundle exec rake spec SPEC=./spec/models/entry_spec.rb`
 
 * Services (job queues, cache servers, search engines, etc.)
 
@@ -33,9 +39,6 @@ Things you may want to cover:
  token authorization
  * https://thoughtbot.com/blog/token-authentication-with-rails
    https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
-
- * Running tests:
-        `bundle exec rake spec`
 
  * add "exemp"
 
@@ -79,20 +82,9 @@ Things you may want to cover:
         `rails active_storage:install`
 
   * added Meanings
-```
-  $ bundle exec rails generate model Meaning cislo:integer vyznam:string kvalifikator:string entry:references
-  Running via Spring preloader in process 429720
-        invoke  active_record
-        create    db/migrate/20201220194210_create_meanings.rb
-        create    app/models/meaning.rb
-        invoke    rspec
-        create      spec/models/meaning_spec.rb
-```
-
 
 next:
   * tests for entries crud
   * tests for import
   * session tokens
-
 
