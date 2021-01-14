@@ -458,7 +458,8 @@ if $0 == __FILE__
 	require 'csv'
 	require File.expand_path('./config/environment.rb')
 
-	parsed = Entry.import_text(14, User.first, text_data, true)
+  e.Entry.find(14)
+  parsed = e.import_text(User.first, text_data, e.meanings[0].id, true, true)
   found = parsed.find_all { |e| e.source.present? }.length
   puts "#{found} / #{parsed.length} sources found"
 

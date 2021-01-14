@@ -207,11 +207,9 @@ class Entry < ApplicationRecord
     )
   end
 
-  def self.import_text(entry_id, user, text_data, meaning_id, vetne, dry_run)
-    entry = Entry.find(entry_id)
-
+  def import_text(user, text_data, meaning_id, vetne, dry_run)
     # check if meaning_id is valid for this entry
-    meaning = entry.meanings.find { |m| m.id = meaning_id }
+    meaning = meanings.find { |m| m.id = meaning_id }
     raise "Neplatný význam." unless meaning.present?
 
     results = []
@@ -219,7 +217,7 @@ class Entry < ApplicationRecord
       next if line.blank?
 
       begin
-        ex = entry.parse_exemp(line, user, meaning_id, vetne)
+        ex = parse_exemp(line, user, meaning_id, vetne)
       rescue
         next unless dry_run
 

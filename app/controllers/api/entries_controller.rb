@@ -110,8 +110,7 @@ class Api::EntriesController < Api::BaseController
     vetne = params[:vetne] != 'false'
     meaning_id = params[:meaning]
 
-    results = Entry.import_text(
-      params[:entry_id],
+    results = Entry.find(params[:entry_id]).import_text(
       current_user,
       request.body.read.force_encoding('UTF-8'),
       meaning_id,
