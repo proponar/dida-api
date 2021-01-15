@@ -7,15 +7,10 @@ class Api::SourcesController < Api::BaseController
   end
 
   def upload
-    counter = 0
-    csv_data = request.body.read
-    # FIXME using https://mattboldt.com/importing-massive-data-into-rails/
     begin
       Source.delete_all
-      CSV.parse(csv_data, headers: true) do |row|
-        Source.create(row.to_h.slice(Source.column_order))
-        counter += 1
-      end
+      counter = Source.csv_import(request.body.read.force_encoding('utf-8'))
+
       render json: {message: "#{counter} zdroje importovány", count: counter}, status: 200
     rescue CSV::MalformedCSVError => e
       render json: {message: "#{e.message} Zdroje nebyly importovány."}, status: 422
