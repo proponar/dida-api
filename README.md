@@ -1,6 +1,4 @@
-# README
-
-API for DIDA entr app.
+# API for DIDA entry app.
 
 * Dependencies:
   * Ruby 2.6.x, Rails 6.x.
@@ -44,8 +42,7 @@ API for DIDA entr app.
 
  * add "source" model
 
- * add CORS
-        https://github.com/cyu/rack-cors
+ * add CORS: https://github.com/cyu/rack-cors
 
  * add "sources" controller
 
@@ -56,7 +53,7 @@ API for DIDA entr app.
         * search action
         * test for search action
 
-  basic crud for entries
+ * basic crud for entries
         * add columns
                 Heslo,
                 kvalifikator,
@@ -65,26 +62,27 @@ API for DIDA entr app.
                 dejme do společné části ještě
                 slovní druh (substantivum/adjektivum)
                 rod (m., f., n.)
-  crud for exemps
+  * crud for exemps
         * add columns
                 autor, exemplifikace, zdroj, lokalizace, lokalizace_text, vetne/nevetne, zdroj
                 rok, kvantifikator, vyznam, deaktivovat, chybny
         * add controller + routes
 
   * nested /entries/exemps/
-
   * import with preview
-
   * simple auth
-
   * attaching files:
         https://edgeguides.rubyonrails.org/active_storage_overview.html
+
         `rails active_storage:install`
 
   * added Meanings
+  * basic test for entries crud
+  * basic test for import
 
-next:
-  * tests for entries crud
-  * tests for import
+### next:
   * session tokens
 
+---
+
+[![Rails test workflow](https://github.com/martinpovolny/dida-api/workflows/Rails%20tests/badge.svg?branch=master)](https://github.com/martinpovolny/dida-api/actions?query=workflow%3A%22Rails+tests%22)
