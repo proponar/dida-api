@@ -68,7 +68,7 @@ class Api::ExempsController < Api::BaseController
 
     e.attachments.attach( #attachment_data)
       io: attachment_data_io, #File.open('/path/to/file'),
-      filename: request.headers['X-File-Name'],
+      filename: URI::unescape(request.headers['X-File-Name']),
       #content_type: 'application/pdf',
       identify: true # automatically figure content_type? TODO: verify
     )
