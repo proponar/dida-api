@@ -44,7 +44,7 @@ class Api::LocationsController < Api::BaseController
       render json: {message: "Obec nebyla nalezena."}, status: 422
     else
       # FIXME: zbytecne znovu delame dotaz (pokud probehl vyse)
-      results = Location.find(obec_id).parts
+      results = Location.find_obec(obec_id).parts
       count = results.length
       render json: {message: "Nalezeno #{count} částí obce.", count: count, data: results}
     end
