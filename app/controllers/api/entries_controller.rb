@@ -24,20 +24,14 @@ class Api::EntriesController < Api::BaseController
       }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary, :urceni)))
     entry.save!
 
-    if soft_params.key?(:exemps)
-      exemps_data = soft_params[:exemps].permit!
-      exemps_data.keys.each do |k, o|
-        kod_obec = exemps_data[k][:lokalizace_obec_id]
-        e = Exemp.new(
-          {
-            :user => current_user,
-            :entry => entry,
-            :lokalizace_obec => kod_obec,
-          }.update(
-            exemps_data[k].permit(%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok))
-          )
-        )
-        e.save!
+    if soft_params.key?(:meanings)
+      meanings_data = soft_params[:meanings] #.permit!
+      (ok, message) = entry.valid_meanings_data?(meanings_data)
+      if ok
+        entry.replace_meanings(meanings_data)
+      else
+        render json: { message: "Významy nelze aktualitovat: #{message}", data: entry }, status: 400
+        return
       end
     end
 
@@ -70,24 +64,6 @@ class Api::EntriesController < Api::BaseController
         :druh => Entry.map_druh(entry_data[:druh]),
       }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary, :urceni)))
     entry.save!
-
-    # if soft_params.key?(:exemps)
-    #   exemps_data = soft_params[:exemps].permit!
-    #   entry.exemps.delete_all
-    #   exemps_data.keys.each do |k, o|
-    #     kod_obec = exemps_data[k][:lokalizace_obec_id]
-    #     e = Exemp.new(
-    #       {
-    #         :user => current_user,
-    #         :entry => entry,
-    #         :lokalizace_obec => kod_obec,
-    #       }.update(
-    #         exemps_data[k].slice(:rok, :kvalifikator, :exemplifikace, :vyznam, :vetne, :aktivni, :rok)
-    #       )
-    #     )
-    #     e.save!
-    #   end
-    # end
 
     render json: { message: 'Heslo bylo aktualizováno', data: entry }
   rescue => e
