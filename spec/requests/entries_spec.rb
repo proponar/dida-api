@@ -77,6 +77,21 @@ RSpec.describe 'Entries API', type: :request do
       #    .to match(/Validation failed: Created by can't be blank/)
       #end
     end
+
+    context 'complex record' do
+      # {"author_name":"mp","vetne":true,"rod":"f","druh":"subst","heslo":"balalajka","tvary":"balalajka balalajky","meanings":[{"cislo":"1","kvalifikator":"hud.","vyznam":"hudebni nástroj"}]}
+      let(:entry_data) {{ vetne: true, rod: "f", druh: "subst", heslo: "balalajka", tvary: "balalajka balalajky", meanings: [{cislo: "1", kvalifikator: "hud.", vyznam: "hudebni nástroj"}] }}
+
+      before do
+        post "/api/entries",
+          params: { entry: entry_data },
+          headers: { "Authorization" => credentials }
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
   end
 
   describe 'PUT /api/entries/:id' do
