@@ -56,7 +56,7 @@ class Api::ExempsController < Api::BaseController
   def destroy
     e = Exemp.find(params[:id])
     e.delete
-    render json: { message: "exemp deletes" }, status: 200
+    render json: { message: "Exemplifikace smazána" }, status: 200
   rescue => e
     render json: { message: "could not update exemp: #{e.message}" }, status: 400
   end

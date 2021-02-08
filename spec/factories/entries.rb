@@ -14,3 +14,9 @@ def entry_with_meanings(meaning_count: 5)
     FactoryBot.create_list(:meaning, meaning_count, entry: e)
   end
 end
+
+def entry_with_exemp
+  FactoryBot.create(:entry) do |e|
+    FactoryBot.create(:exemp, entry: e)
+  end
+end
