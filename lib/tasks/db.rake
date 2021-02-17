@@ -12,5 +12,5 @@ namespace :db do
   end
 
   desc "Drop, recreate and seed database."
-  task :reseed => [:environment, 'db:reset', 'db:seed_location']
+  task :reseed => [:environment, 'db:create', 'db:schema:load', 'db:seed_location', 'db:seed']
 end
