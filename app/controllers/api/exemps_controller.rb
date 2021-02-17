@@ -97,4 +97,10 @@ class Api::ExempsController < Api::BaseController
     render json: { message: "Nepodařilo se odstranit přílohu: #{e.message}" }, status: 400
   end
 
+  def coordinates
+    e = Exemp.find(params[:exemp_id])
+    render json: { coordinates: e.coordinates }
+  rescue => e
+    render json: { message: "Nepodařilo se najít exemplifikaci: #{e.message}" }, status: 400
+  end
 end

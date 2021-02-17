@@ -86,4 +86,14 @@ RSpec.describe 'Exemps API', type: :request do
   describe "POST entries/:entry_id/exemps/:id/detach" do
     # FIXME
   end
+
+  describe "POST entries/:entry_id/exemps/:id/coordinates" do
+    it 'returns coordinates' do
+      get "/api/entries/#{entry_with_exemp.id}/exemps/#{entry_with_exemp.exemps[0].id}/coordinates",
+        headers: { "authorization" => credentials }
+      coordinates = JSON.parse(response.body)['coordinates']
+      expect(coordinates).to have_key('lng')
+      expect(coordinates).to have_key('lat')
+    end
+  end
 end

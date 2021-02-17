@@ -33,4 +33,9 @@ class Exemp < ApplicationRecord
       meaning_id: meaning_id,
     }
   end
+
+  def coordinates
+    l = Location.find_obec(self.lokalizace_obec)
+    { lng: l.point_x, lat: l.point_y }
+  end
 end

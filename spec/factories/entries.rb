@@ -17,6 +17,6 @@ end
 
 def entry_with_exemp
   FactoryBot.create(:entry) do |e|
-    FactoryBot.create(:exemp, entry: e)
+    FactoryBot.create(:exemp, entry: e, lokalizace_obec: '500011')
   end
 end

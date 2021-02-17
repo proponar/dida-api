@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :exemps do
         post 'attach'
         post 'detach'
+        get 'coordinates', to: 'exemps#coordinates'
       end
       post 'import'
       get 'tvar_map'

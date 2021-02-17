@@ -6,7 +6,7 @@ class Location < ApplicationRecord
     unless @obec.key?(kod_obec)
       @obec[kod_obec] ||=
         Location.find_by_sql([
-          "select naz_obec, kod_obec, kod_okres from #{table_name} where kod_obec::integer = ?",
+          "select naz_obec, kod_obec, kod_okres, point_x, point_y from #{table_name} where kod_obec::integer = ?",
           kod_obec.to_i
         ]).first
     end
