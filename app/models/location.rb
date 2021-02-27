@@ -150,7 +150,12 @@ class Location < ApplicationRecord
   end
 
   def self.zkratka2okres
-    @zkratka2okres ||= self.okres2zkratka.invert.freeze
+    @zkratka2okres ||= (
+      self.okres2zkratka.each_with_object({}) do |(k, v), acc|
+        acc[v] = [] unless acc.key?(v)
+        acc[v] << k
+      end
+    )
   end
 
   def self.kodOk2names

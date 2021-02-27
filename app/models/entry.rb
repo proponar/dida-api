@@ -212,9 +212,10 @@ class Entry < ApplicationRecord
     meaning = meanings.find { |m| m.id = meaning_id }
     raise "Neplatný význam." unless meaning.present?
 
-    results = []
-    text_data.split("\n").map(&:strip).filter(&:present?).each do |line|
-      next if line.blank?
+    text_data.split("\n")
+      .map(&:strip)
+      .filter(&:present?)
+      .each_with_object([]) do |line, results|
 
       begin
         ex = parse_exemp(line, user, meaning_id, vetne)
@@ -228,16 +229,15 @@ class Entry < ApplicationRecord
           exemplifikace: "PROBLÉM: #{line}",
         )
       end
+
       if dry_run
-        # temporary id
-        ex.id = results.length
+        ex.id = results.length # temporary id
       else
-        ex.save! unless dry_run
+        ex.save!
       end
+
       results << ex
     end
-
-    results
   end
 
   def self.calculate_tvar_map(tv, ur)
