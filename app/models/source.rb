@@ -39,10 +39,18 @@ class Source < ApplicationRecord
         lokalizace: rec[8],
         lokalizace_obec: kod_obec,
         rok_sberu: rec[9],
+        lokalizace_cast_obce: kod_cast,
       })
       s.save!
       counter += 1
     end
     counter
+  end
+
+  def format_json
+    attributes.update(
+      lokalizace_obec_text: Location.naz_obec_with_zkr(lokalizace_obec),
+      lokalizace_cast_obce_text: Location.naz_cast(lokalizace_cast_obce),
+    )
   end
 end

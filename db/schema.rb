@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_01_132016) do
+ActiveRecord::Schema.define(version: 2021_02_27_152424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,222 @@ ActiveRecord::Schema.define(version: 2021_01_01_132016) do
     t.index ["entry_id"], name: "index_meanings_on_entry_id"
   end
 
+  create_table "n3_casti_obce_body", id: false, force: :cascade do |t|
+    t.integer "cat"
+    t.bigint "objectid"
+    t.string "kod_cob", limit: 6
+    t.string "naz_zkr_co", limit: 60
+    t.string "naz_cob", limit: 254
+    t.string "kod_obec", limit: 6
+    t.string "naz_obec", limit: 40
+    t.string "kod_zuj", limit: 6
+    t.string "naz_zuj", limit: 40
+    t.string "kod_pou", limit: 5
+    t.string "naz_pou", limit: 254
+    t.string "kod_orp", limit: 4
+    t.string "naz_orp", limit: 254
+    t.string "kod_okres", limit: 5
+    t.string "kod_lau1", limit: 6
+    t.string "naz_lau1", limit: 40
+    t.string "kod_kraj", limit: 4
+    t.string "kod_cznuts", limit: 6
+    t.string "naz_cznuts", limit: 40
+    t.float "sx"
+    t.float "sy"
+    t.index ["cat"], name: "n3_casti_obce_body_cat", unique: true
+  end
+
+  create_table "n3_casti_obce_polygony", id: false, force: :cascade do |t|
+    t.integer "cat"
+    t.bigint "objectid"
+    t.string "kod_cob", limit: 6
+    t.string "naz_zkr_co", limit: 60
+    t.string "naz_cob", limit: 254
+    t.string "kod_obec", limit: 6
+    t.string "naz_obec", limit: 40
+    t.string "kod_zuj", limit: 6
+    t.string "naz_zuj", limit: 40
+    t.string "kod_pou", limit: 5
+    t.string "naz_pou", limit: 254
+    t.string "kod_orp", limit: 4
+    t.string "naz_orp", limit: 254
+    t.string "kod_okres", limit: 5
+    t.string "kod_lau1", limit: 6
+    t.string "naz_lau1", limit: 40
+    t.string "kod_kraj", limit: 4
+    t.string "kod_cznuts", limit: 6
+    t.string "naz_cznuts", limit: 40
+    t.float "sx"
+    t.float "sy"
+    t.float "shape_leng"
+    t.float "shape_area"
+    t.index ["cat"], name: "n3_casti_obce_polygony_cat", unique: true
+  end
+
+  create_table "n3_kraje_polygony", id: false, force: :cascade do |t|
+    t.integer "cat"
+    t.bigint "objectid"
+    t.string "kod_kraj", limit: 4
+    t.string "kod_cznuts", limit: 6
+    t.string "naz_cznuts", limit: 40
+    t.float "snatky"
+    t.float "rozvody"
+    t.float "narozeni"
+    t.float "zemreli"
+    t.float "pristehova"
+    t.float "vystehoval"
+    t.float "pocet_obyv"
+    t.float "muzi"
+    t.float "zeny"
+    t.float "obyv_0_14"
+    t.float "muzi_0_14"
+    t.float "zeny_0_14"
+    t.float "obyv_15_64"
+    t.float "muzi_15_64"
+    t.float "zeny_15_64"
+    t.float "obyv_65"
+    t.float "muzi_65"
+    t.float "zeny_65"
+    t.float "mira_nezam"
+    t.float "mira_nez_1"
+    t.float "mira_nez_2"
+    t.float "mzda"
+    t.float "rozdil_mzd"
+    t.float "nadeje_doz"
+    t.float "nadeje_d_1"
+    t.float "sx"
+    t.float "sy"
+    t.float "shape_leng"
+    t.float "shape_area"
+    t.index ["cat"], name: "n3_kraje_polygony_cat", unique: true
+  end
+
+  create_table "n3_obce_body", id: false, force: :cascade do |t|
+    t.integer "cat"
+    t.bigint "objectid_1"
+    t.bigint "objectid"
+    t.string "kod_obec", limit: 6
+    t.string "naz_obec", limit: 40
+    t.string "kod_zuj", limit: 6
+    t.string "naz_zuj", limit: 40
+    t.string "kod_pou", limit: 5
+    t.string "naz_pou", limit: 254
+    t.string "kod_orp", limit: 4
+    t.string "naz_orp", limit: 254
+    t.string "kod_okres", limit: 5
+    t.string "kod_lau1", limit: 6
+    t.string "naz_lau1", limit: 40
+    t.string "kod_kraj", limit: 4
+    t.string "kod_cznuts", limit: 6
+    t.string "naz_cznuts", limit: 40
+    t.float "snatky"
+    t.float "rozvody"
+    t.float "narozeni"
+    t.float "zemreli"
+    t.float "pristehova"
+    t.float "vystehoval"
+    t.float "pocet_obyv"
+    t.float "muzi"
+    t.float "zeny"
+    t.float "obyv_0_14"
+    t.float "muzi_0_14"
+    t.float "zeny_0_14"
+    t.float "obyv_15_64"
+    t.float "muzi_15_64"
+    t.float "zeny_15_64"
+    t.float "obyv_65"
+    t.float "muzi_65"
+    t.float "zeny_65"
+    t.float "mira_nezam"
+    t.float "sx"
+    t.float "sy"
+    t.float "point_x"
+    t.float "point_y"
+    t.index ["cat"], name: "n3_obce_body_cat", unique: true
+  end
+
+  create_table "n3_obce_polygony", id: false, force: :cascade do |t|
+    t.integer "cat"
+    t.bigint "objectid"
+    t.string "kod_obec", limit: 6
+    t.string "naz_obec", limit: 40
+    t.string "kod_zuj", limit: 6
+    t.string "naz_zuj", limit: 40
+    t.string "kod_pou", limit: 5
+    t.string "naz_pou", limit: 254
+    t.string "kod_orp", limit: 4
+    t.string "naz_orp", limit: 254
+    t.string "kod_okres", limit: 5
+    t.string "kod_lau1", limit: 6
+    t.string "naz_lau1", limit: 40
+    t.string "kod_kraj", limit: 4
+    t.string "kod_cznuts", limit: 6
+    t.string "naz_cznuts", limit: 40
+    t.float "snatky"
+    t.float "rozvody"
+    t.float "narozeni"
+    t.float "zemreli"
+    t.float "pristehova"
+    t.float "vystehoval"
+    t.float "pocet_obyv"
+    t.float "muzi"
+    t.float "zeny"
+    t.float "obyv_0_14"
+    t.float "muzi_0_14"
+    t.float "zeny_0_14"
+    t.float "obyv_15_64"
+    t.float "muzi_15_64"
+    t.float "zeny_15_64"
+    t.float "obyv_65"
+    t.float "muzi_65"
+    t.float "zeny_65"
+    t.float "mira_nezam"
+    t.float "sx"
+    t.float "sy"
+    t.float "shape_leng"
+    t.float "shape_area"
+    t.index ["cat"], name: "n3_obce_polygony_cat", unique: true
+  end
+
+  create_table "n3_okresy_polygony", id: false, force: :cascade do |t|
+    t.integer "cat"
+    t.bigint "objectid"
+    t.string "kod_okres", limit: 5
+    t.string "kod_lau1", limit: 6
+    t.string "naz_lau1", limit: 40
+    t.string "kod_kraj", limit: 4
+    t.string "kod_cznuts", limit: 6
+    t.string "naz_cznuts", limit: 40
+    t.float "snatky"
+    t.float "rozvody"
+    t.float "narozeni"
+    t.float "zemreli"
+    t.float "pristehova"
+    t.float "vystehoval"
+    t.float "pocet_obyv"
+    t.float "muzi"
+    t.float "zeny"
+    t.float "obyv_0_14"
+    t.float "muzi_0_14"
+    t.float "zeny_0_14"
+    t.float "obyv_15_64"
+    t.float "muzi_15_64"
+    t.float "zeny_15_64"
+    t.float "obyv_65"
+    t.float "muzi_65"
+    t.float "zeny_65"
+    t.float "mira_nezam"
+    t.float "mira_nez_1"
+    t.float "mira_nez_2"
+    t.float "nadeje_doz"
+    t.float "nadeje_d_1"
+    t.float "sx"
+    t.float "sy"
+    t.float "shape_leng"
+    t.float "shape_area"
+    t.index ["cat"], name: "n3_okresy_polygony_cat", unique: true
+  end
+
   create_table "sources", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -99,6 +315,7 @@ ActiveRecord::Schema.define(version: 2021_01_01_132016) do
     t.string "lokalizace_text"
     t.string "name_processed"
     t.integer "lokalizace_obec"
+    t.integer "lokalizace_cast_obce"
   end
 
   create_table "users", force: :cascade do |t|
