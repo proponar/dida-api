@@ -43,7 +43,7 @@ EOD
       expect(result[3].lokalizace_text).to eq('Světlá pod Ještědem LX (Hoření Paseky)')
     end
 
-    it 'parses problematic "zkratka okresu"' do
+    it 'parses all problematic "zkratka okresu"' do
       # První příklad je Plzeň-sever, druhý Plzeň-jih
       plzen_test_data = <<EOD
 stála tam {husa, 1 sg.} a mlčela; Žilov PM (Stýskaly); Šembera, Základové
@@ -59,6 +59,17 @@ EOD
 
       result = entry.import_text(user, plzen_test_data + ostrava_test_data, meaning.id, true, true)
       expect(result.find_all { |r| r.lokalizace_obec.present? }.length).to eq(5)
+    end
+
+    it 'parses source w/o an autor and the location' do
+      result = entry.import_text(
+        user,
+        "stála tam {husa, 1 sg.} a mlčela; Nymburk NB; Obecná řeč v Nymburce",
+        meaning.id, true, true
+      )[0]
+
+      expect(result.lokalizace_obec).to eq(537004)
+      expect(result.source.name).to eq("Obecná řeč v Nymburce.")
     end
   end
 end

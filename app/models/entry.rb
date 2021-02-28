@@ -40,81 +40,6 @@ class Entry < ApplicationRecord
     }
   end
 
-  # Bachmannová, Za života se stane ledacos
-  def guess_source(str)
-    return nil if str.blank?
-
-    # zdroj konci rokem
-    if md = str.match(/(\d\d\d\d)\s*$/)
-      rok = md[1]
-      str.sub!(/\s*(\d\d\d\d)\s*$/, '')
-    end
-
-    parts = str.split(/, */)
-
-    # FIXME: vide hitu zatim resime, jakoby nic nebylo nalezeno
-    s = Source.where(:autor => parts[0], :name => parts[1])
-    return s.first if s.present?
-
-    if parts[0].present? && parts[1].present? # matchujeme jen neprazdne
-      s = Source.where("name ilike ? and autor ilike ?", parts[1]+'%', parts[0]+'%')
-      s = s.where(:rok => rok) if rok.present?
-      return nil if s.count > 1
-      return s.first if s.present?
-    end
-
-    if parts[0].present? && parts[1].present? # matchujeme jen neprazdne
-      s = Source.where(
-        "name_processed ilike ? and autor ilike ?",
-        I18n.transliterate(parts[1]) + '%',
-        parts[0] + '%'
-      )
-      s = s.where(:rok => rok) if rok.present?
-      return nil if s.count > 1
-      return s.first if s.present?
-    end
-
-    # matchujeme jen nazev
-    if parts[0].blank? && parts[1].present? # matchujeme jen neprazdne
-      s = Source.where(
-        "name_processed ilike ?",
-        I18n.transliterate(parts[1]) + '%'
-      )
-      s = s.where(:rok => rok) if rok.present?
-      return nil if s.count > 1
-      return s.first if s.present?
-    end
-
-    if parts[0].present? && parts[1].blank? # matchujeme jen neprazdne
-      s = Source.where(
-        "name_processed ilike ?",
-        I18n.transliterate(parts[0]) + '%'
-      )
-      s = s.where(:rok => rok) if rok.present?
-      return nil if s.count > 1
-      return s.first if s.present?
-    end
-
-    # matchujeme jen autora
-    if parts[0].blank? && parts[1].present? # matchujeme jen neprazdne
-      s = Source.where("autor ilike ?", parts[1] + '%')
-      s = s.where(:rok => rok) if rok.present?
-      return nil if s.count > 1
-      return s.first if s.present?
-    end
-
-    if parts[0].present? && parts[1].blank? # matchujeme jen neprazdne
-      s = Source.where("autor ilike ?", parts[0] + '%')
-      s = s.where(:rok => rok) if rok.present?
-      return nil if s.count > 1
-      return s.first if s.present?
-    end
-
-    $stderr.puts("Chybi zdroj: #{str}")
-
-    nil
-  end
-
   def parsed_tvary
     @parsed_tvary ||= tvary.to_s.split(/\s+/).map { |t| t.sub(/-/, '') }
   end
@@ -184,7 +109,7 @@ class Entry < ApplicationRecord
     end
     lokalizace_text = kod_obec.nil? ? (parts[1] || '') : ''
 
-    source = guess_source(parts[2]) # zdroj
+    source = Source.guess_source(parts[2]) # zdroj
 
     Exemp.new(
       user: user,

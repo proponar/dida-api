@@ -11,7 +11,7 @@ RSpec.describe 'Entries API', type: :request do
 
     it 'returns sources' do
       expect(json).not_to be_empty
-      expect(json_data.size).to eq(100)
+      expect(json_data.size).to be >= 100
     end
 
     it 'returns status code 200' do
