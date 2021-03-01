@@ -45,7 +45,18 @@ EOD
       }
     }
 
-    examples.each do |input, expectation|
+    examples_with_nazev2 = {
+      'Baťha, Lidové výrazy, Naše řeč 1934' => batha = {
+        "name"  => "Lidové výrazy.",
+        "autor" => "BAŤHA, J.",
+      },
+      'Baťha, Lidové výrazy Naše řeč 1934' => batha,
+      'Baťha, Lidové výrazy, Naše řeč' => batha,
+      'Baťha, Lidové výrazy Naše řeč' => batha,
+      'Baťha, Naše řeč' => batha,
+    }
+
+    examples.merge(examples_with_nazev2).each do |input, expectation|
       it "guesses correctly for #{input}" do
         source = Source.guess_source(input)
 

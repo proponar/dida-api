@@ -8,6 +8,7 @@
 User.create(name: 'martin', password: 'kompost', token: 'sekkrit')
 
 require_relative '../import_sources.rb'
+Source.delete_all
 SourceImporter.import('db/seed/dida-sources.csv')
 #Source.create(name: 'Vlasta', autor: 'Pepa Ladič', typ: 'casopis', rok: 1984, lokalizace: 'Brno')
 #Source.create(name: 'Motýle', autor: 'Franta Kubera', typ: 'casopis', rok: 1977, lokalizace: 'Praha')

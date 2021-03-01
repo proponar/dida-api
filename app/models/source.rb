@@ -14,8 +14,13 @@ class Source < ApplicationRecord
 
   before_save :process_name
 
+  def process_string(str)
+    I18n.transliterate(str.to_s.strip.sub(/[;\.;]$/, ''))
+  end
+
   def process_name
-    self.name_processed = I18n.transliterate(self.name)
+    self.name_processed = process_string(self.name)
+    self.nazev2_processed = process_string(self.nazev2)
   end
 
   # FIXME using https://mattboldt.com/importing-massive-data-into-rails/
