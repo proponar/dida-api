@@ -4,6 +4,7 @@ class Exemp < ApplicationRecord
   belongs_to :source, foreign_key: 'zdroj_id', required: false, primary_key: 'cislo'
   has_many_attached :attachments
   belongs_to :meaning, required: false
+  has_one :location_text, required: false
 
   def json_hash
     {

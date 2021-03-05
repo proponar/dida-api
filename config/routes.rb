@@ -24,5 +24,7 @@ Rails.application.routes.draw do
         get 'download'
       end
     end
+    resource :location_texts, only: [:index] do
+    end
   end
 end

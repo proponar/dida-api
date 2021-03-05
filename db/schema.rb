@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_095339) do
+ActiveRecord::Schema.define(version: 2021_03_05_204616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,19 @@ ActiveRecord::Schema.define(version: 2021_03_01_095339) do
     t.integer "rod"
     t.string "urceni"
     t.bigint "meaning_id"
+    t.bigint "location_text_id"
+    t.index ["location_text_id"], name: "index_exemps_on_location_text_id"
     t.index ["meaning_id"], name: "index_exemps_on_meaning_id"
+  end
+
+  create_table "location_texts", force: :cascade do |t|
+    t.integer "cislo"
+    t.string "identifikator"
+    t.string "presentace"
+    t.text "definice"
+    t.string "zdroje"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "meanings", force: :cascade do |t|
@@ -339,6 +351,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_095339) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "exemps", "location_texts"
   add_foreign_key "exemps", "meanings"
   add_foreign_key "meanings", "entries"
 end

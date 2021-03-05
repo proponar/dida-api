@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-class LocationTextImporter
+class LocationTextsImporter
   def self.import(file)
     data = File.read(file,nil)
     #data.sub!(/^L.*$/m,'')
