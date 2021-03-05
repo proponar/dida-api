@@ -1,0 +1,64 @@
+číslo,seznam lokalit - oblastí,,číslo,lok. - oblast,+ č. zdroje,definovaná oblast,definice
+1,Blanensko,,1,Blanensko,,Blanensko,
+2,Blata,,2,Blata,,Blata,region
+3,Bohumínsko a Karvinsko ,,3,Bohumínsko a Karvinsko ,[1566],Bohumínsko a Karvinsko [Téma],...
+4,Břeclavsko ,,4,Břeclavsko ,[215],Břeclavsko [Podluží],region
+5,Českobudějovicko,,5,Českobudějovicko,,Českobudějovicko,
+6,Českotěšínsko,,6,Českotěšínsko,,Českotěšínsko,
+7,Českotřebovsko,,7,Českotřebovsko,,Českotřebovsko,
+8,Dačicko,,8,Dačicko,,Dačicko,
+9,Domažlicko,,9,Domažlicko,,Domažlicko,
+10,Doudlebsko,,10,Doudlebsko,,Doudlebsko,region
+11,Frenštátsko,,11,Frenštátsko,,Frenštátsko,
+12,Frýdecko,,12,Frýdecko,,Frýdecko,
+13,Frýdecko-Místecko,,13,Frýdecko-Místecko,,Frýdecko-Místecko,
+14,Hlinecko ,,13,Frýdecko-Místecko,[921],Frýdecko-Místecko [Loriš],"Morávka FM, Pražmo FM, Krásná FM, Staré Hamry FM, Malenovice FM, Frýdlant nad Ostravicí FM (Nová Ves), Frýdlant nad Ostravicí FM (Lubno), Pržno FM, Janovice FM, Raškovice FM, Vyšní Lhoty FM, Nižní Lhoty FM, Nošovice FM, Frýdek-Místek FM (Skalice), Baška FM, Staré Město FM, Frýdek-Místek FM (Frýdek), Dobrá FM, Dobratice FM, Vojkovice FM, Lučina FM, Pazderna FM, Frýdek-Místek FM (Lískovec), Bruzovice FM"
+15,Hlučínsko,,13,Frýdecko-Místecko,[1779],Frýdecko-Místecko [Tradiční mluva...],"Pražmo FM, Morávka FM, Krásná FM, Raškovice FM"
+16,Hodonínsko,,14,Hlinecko ,[1],Hlinecko [Adámek],...
+17,Holicko,,15,Hlučínsko,,Hlučínsko,
+18,Chodsko,,16,Hodonínsko,,Hodonínsko,
+19,Jilemnicko,,17,Holicko,,Holicko,
+20,Karvinsko,,18,Chodsko,,Chodsko,region
+21,Kelečsko,,19,Jilemnicko,,Jilemnicko,
+22,Kladsko,,20,Karvinsko,,Karvinsko,
+23,Konicko,,21,Kelečsko,,Kelečsko,...
+24,Litomyšlsko,,22,Kladsko,,Kladsko,region
+25,Luhačovicko ,,23,Konicko,,Konicko,
+26,Náchodsko,,24,Litomyšlsko,,Litomyšlsko,
+27,Neveklovsko,,25,Luhačovicko ,[663],Luhačovicko [Kolařík],"Luhačovice ZL, Ludkovice ZL, Pozlovice ZL, Podhradí ZL, Luhačovice ZL (Řetechov), Ludkovice ZL (Pradlisko), Biskupice ZL, Luhačovice ZL (Kladná Žilín)"
+28,Novopacko,,26,Náchodsko,,Náchodsko,
+29,Novopacko a Hořicko ,,27,Neveklovsko,,Neveklovsko,
+30,Opavsko,,28,Novopacko,,Novopacko,
+31,Ostravsko,,29,Novopacko a Hořicko ,[823],Novopacko a Hořicko [Kotík],
+32,Plzeňsko,,30,Opavsko,,Opavsko,
+33,Podkrkonoší,,31,Ostravsko,,Ostravsko,
+34,Prachaticko ,,32,Plzeňsko,,Plzeňsko,
+35,Prostějovsko,,33,Podkrkonoší,,Podkrkonoší [Bachmannová],...
+36,Příborsko,,34,Prachaticko ,[1757],Prachaticko [Vydra],"Budkov PT, Vlachovo Březí PT (Dachov), Drslavice PT, Dvory PT, Husinec PT (Horouty), Šumavské Hoštice PT, Husinec PT, Kratušín PT (Chlístov), Chlumany PT, Nebahovy PT (Jelemek), Prachatice PT (Kahov), Šumavské Hoštice PT (Kosmo), Kratušín PT, Lažiště PT, Nebahovy PT (Lažišťka), Radhostice PT (Lštění), Vlachovo Březí PT (Mojkov), Nebahovy PT, Prachatice PT (Oseky), Pěčnov PT, Prachatice PT (Podolí), Prachatice PT, Strunkovice nad Blanicí PT, Drslavice PT (Švihov), Buk PT (Včelná pod Boubínem), Vlachovo Březí PT, Šumavské Hoštice PT (Vojslavice), Zábrdí PT, Nebahovy PT (Zdenice), Strunkovice nad Blanicí PT (Žíchovec), Žárovná PT, Žernovice PT"
+37,Příbramsko ,,35,Prostějovsko,,Prostějovsko,
+38,Rožmitálsko,,36,Příborsko,,Příborsko,
+39,Rožnovsko,,37,Příbramsko ,[521],Příbramsko [Jančáková],"Křešín PB, Rosovice PB, Mokrovraty PB, Drevníky PB (Nechalov), Dublovice PB, Rožmitál pod Třemšínem PB (Nesvačily), Březnice PB (Bor), Bukovany PB, Klučenice PB, Krásná Hora nad Vltavou PB (Krašovice), Obecnice PB, Podlesí PB, Příbram PB (Kozičín), Příbram PB (Žežice), Láz PB, Lazsko PB, Modřovice PB, Tochovice PB, Hluboš PB, Trhové Dušníky PB, Háje PB, Milín PB, Vrančice PB, Suchodol PB, Dubenec PB, Višňová PB, Dolní Hbity PB (Jelence), Milín PB (Stěžov), Smolotely PB, Pečice PB, Bohostice PB, Obory PB, Dolní Hbity PB (Luhy), Kamýk nad Vltavou PB (Velká), Zduchovice PB, Kamýk nad Vltavou PB, Solenice PB"
+40,Rtyňsko-Svatoňovicko,,38,Rožmitálsko,,Rožmitálsko,
+41,Rychnovsko,,39,Rožnovsko,,Rožnovsko,
+42,"Sedlčansko, Sedlecko a Voticko ",,40,Rtyňsko-Svatoňovicko,,Rtyňsko-Svatoňovicko,"Rtyně v Podkrkonoší TU, Malé Svatoňovice TU, Velké Svatoňovice TU, Malé Svatoňovice TU (Petrovice), Malé Svatoňovice TU (Strážkovice), Malé Svatoňovice TU (Odolov), Velké Svatoňovice TU (Markoušovice), Batňovice TU, Úpice TU, Suchovršice TU, Havlovice TU, Libňatov TU, Maršov u Úpice Tu, Stárkov NA, Stárkov NA (Chlívce), Červený Kostelec NA (Bohdašín)"
+43,Strakonicko,,41,Rychnovsko,,Rychnovsko,
+44,Sušicko,,42,"Sedlčansko, Sedlecko a Voticko ",[236],"Sedlčansko, Sedlecko a Voticko [Habart]",
+45,Šumpersko ,,43,Strakonicko,,Strakonicko,
+46,Tišnovsko ,,44,Sušicko,,Sušicko,
+47,Uherskohradišťsko ,,45,Šumpersko ,[1352],Šumpersko [Rýznar],"Bohdíkov SU, Brníčko SU, Dlouhomilov SU, Drozdov SU, Horní Studénky SU, Jakubovice SU, Jedlí SU, Písařov SU, Postřelmov SU, Ruda nad Moravou SU (Bartoňov), Štíty SU"
+48,Valašsko,,46,Tišnovsko ,[1730],Tišnovsko [Vojtová],"Deblín BO, Drásov BO, Lipůvka BK, Kuřim BO, Rájec-Jestřebí BK, Sloup BK"
+49,Valašskokloboucko,,46,Tišnovsko ,[1731],Tišnovsko [Vojtová],"Deblín BO, Drásov BO, Lipůvka BK, Kuřim BO, Rájec-Jestřebí BK, Sloup BK"
+50,Valašskomeziříčsko ,,47,Uherskohradišťsko ,[484],Uherskohradišťsko [Hubáček],...
+51,Vsetínsko,,47,Uherskohradišťsko ,[506],Uherskohradišťsko [Ilík],"Kunovice UH, Uherské Hradiště UH (Míkovice), Podolí UH, Popovice UH, Uherské Hradiště UH (Sady), Uherské Hradiště UH (Vésky)"
+52,vých. Prostějovsko ,,48,Valašsko,,Valašsko,region
+53,Vysokomýtsko ,,49,Valašskokloboucko,,Valašskokloboucko,
+54,Vyškovsko,,50,Valašskomeziříčsko ,[580],Valašskomeziříčsko [Kašík],"Branky VS, Choryně VS, Kladeruby VS, Kunovice VS, Lešná VS, Lešná VS (Jasenice), Mikulůvka VS, Police VS, Poličná VS, Valašské Meziříčí VS (Juřinka), Valašské Meziříčí VS (Krásno nad Bečvou)"
+55,Vyškovsko ,,51,Vsetínsko,,Vsetínsko,
+56,Zábřežsko ,,52,vých. Prostějovsko ,[88],vých. Prostějovsko [Borocký],https://mapy.cz/s/dutavukosu
+57,Zlínsko,,53,Vysokomýtsko ,[15],Vysokomýtsko [Bachmann],...
+58,Ždánicko ,,54,Vyškovsko,,Vyškovsko,
+59,Železnobrodsko ,,55,Vyškovsko ,[102],Vyškovsko [Cigánek],...
+,,,56,Zábřežsko ,[1515],Zábřežsko [Šmejkalová],"Bohuslavice SU, Dubicko SU, Hrabová SU"
+,,,57,Zlínsko,,Zlínsko,
+,,,58,Ždánicko ,[661],Ždánicko [Kolaja],"Ždánice HO, Dambořice HO, Lovčice HO, Žarošice HO, Archlebov HO, Dražůvky HO"
+,,,59,Železnobrodsko ,[43],Železnobrodsko [Bachmannová],"Loužnice JN, Pěnčín JN (Bratříkov), Držkov JN, Zásada JN"
