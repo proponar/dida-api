@@ -51,7 +51,10 @@ RSpec.configure do |config|
 
   # truncate all tables but then use the faster transaction strategy the rest of the time.
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation, :except => %w[n3_casti_obce_body n3_casti_obce_polygony n3_kraje_polygony n3_obce_body n3_obce_polygony n3_okresy_polygony sources])
+    DatabaseCleaner.clean_with(
+      :truncation,
+      :except => %w[n3_casti_obce_body n3_casti_obce_polygony n3_kraje_polygony n3_obce_body n3_obce_polygony n3_okresy_polygony sources location_texts]
+    )
     DatabaseCleaner.strategy = :transaction
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Entries API', type: :request do
+RSpec.describe 'Sources API', type: :request do
   let!(:sources) { create_list(:source, 100) }
 
   before { create(:user, token: "sekkrit") }
