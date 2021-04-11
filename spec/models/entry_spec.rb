@@ -36,11 +36,11 @@ EOD
 
       expect(result[2].lokalizace_obec).to be_nil
       expect(result[2].lokalizace_cast_obce).to be_nil
-      expect(result[2].lokalizace_text).to eq('Světlá pod Ještědem LB (Hoření Paseky Blbost)')
+      expect(result[2].lokalizace_text).to eq('')
 
       expect(result[3].lokalizace_obec).to be_nil
       expect(result[3].lokalizace_cast_obce).to be_nil
-      expect(result[3].lokalizace_text).to eq('Světlá pod Ještědem LX (Hoření Paseky)')
+      expect(result[3].lokalizace_text).to eq('')
     end
 
     it 'parses all problematic "zkratka okresu"' do
@@ -59,6 +59,17 @@ EOD
 
       result = entry.import_text(user, plzen_test_data + ostrava_test_data, meaning.id, true, true)
       expect(result.find_all { |r| r.lokalizace_obec.present? }.length).to eq(5)
+    end
+
+    it 'parses lokalizace for "lokalizace_text" case' do
+      lokalizace_text_test_data = <<EOD
+(1 sg.) spravne jelen se promňeňi f krásního koňe; Blanensko; ČJA Dodatky.
+(1 sg.) spravne jelen se promňeňi f krásního koňe; Blanensko chyba; ČJA Dodatky.
+EOD
+      result = entry.import_text(user, lokalizace_text_test_data, meaning.id, true, true)
+      expect(result.length).to eq(2)
+      expect(result[0].location_text.identifikator).to eq('Blanensko')
+      expect(result[1].location_text).to be_nil
     end
 
     it 'parses source w/o an autor and the location' do

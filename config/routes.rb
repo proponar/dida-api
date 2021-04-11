@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get 'parts'
     end
     get :auth, to: 'auth#auth'
+    get :search, to: 'exemps#search'
     resources :sources, only: [:index] do
       collection do
         post 'upload'

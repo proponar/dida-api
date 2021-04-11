@@ -11,7 +11,6 @@ class Api::ExempsController < Api::BaseController
     render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 
-
   # POST   /api/entries/:entry_id/exemps(.:format)  api/exemps#create
   #        /api/entries/9/exemps
   def create
@@ -25,6 +24,7 @@ class Api::ExempsController < Api::BaseController
       :meaning_id => params[:meaning_id],
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
+      :location_text_id => params[:lokalizace_text_id],
     }.update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni lokalizace_text))
     ))
@@ -44,6 +44,7 @@ class Api::ExempsController < Api::BaseController
       :meaning_id => params[:meaning_id],
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
+      :location_text_id => params[:lokalizace_text_id],
     }.update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni lokalizace_text))
       )
@@ -102,5 +103,10 @@ class Api::ExempsController < Api::BaseController
     render json: { coordinates: e.coordinates }
   rescue => e
     render json: { message: "Nepodařilo se najít exemplifikaci: #{e.message}" }, status: 400
+  end
+
+  def search
+    entries = Exemp.all.order(:id).includes(:user).map(&:json_hash)
+    render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 end

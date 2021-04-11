@@ -31,8 +31,8 @@ class Entry < ApplicationRecord
       kvalifikator: kvalifikator || '',
       vyznam: vyznam || '',
       vetne: vetne,
-      druh: DRUH_MAP[druh],
-      rod: ROD_MAP[rod],
+      druh: DRUH_MAP[druh || 0],
+      rod: ROD_MAP[rod || 0],
       tvary: tvary || '',
       urceni: urceni || '',
       tvar_map: tvar_map,
@@ -108,6 +108,7 @@ class Entry < ApplicationRecord
       kod_cast = nil
     end
     lokalizace_text = kod_obec.nil? ? (parts[1] || '') : ''
+    location_text = LocationText.where(:identifikator => lokalizace_text)&.first
 
     source = Source.guess_source(parts[2]) # zdroj
 
@@ -118,7 +119,8 @@ class Entry < ApplicationRecord
       rok: source&.rok,
       lokalizace_obec: kod_obec,
       lokalizace_cast_obce: kod_cast,
-      lokalizace_text: lokalizace_text,
+      location_text: location_text,
+      lokalizace_text: location_text && location_text.identifikator || '', # lokalizace_text,
       exemplifikace: exemplifikace,
       urceni: urceni.to_json,
 

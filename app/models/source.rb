@@ -1,4 +1,6 @@
 class Source < ApplicationRecord
+  belongs_to :location_text, primary_key: 'cislo', required: false
+
   include SourceGuesser
 
   def self.to_csv
@@ -34,6 +36,10 @@ class Source < ApplicationRecord
         kod_cast = nil
       end
 
+      lokalizace_text = rec[7]
+      location_text = LocationText.where(:identifikator => lokalizace_text)&.first
+      binding.pry if location_text.present?
+
       s = Source.create({
         cislo: rec[0],
         autor: rec[1],
@@ -42,11 +48,12 @@ class Source < ApplicationRecord
         rok: rec[4],
         bibliografie: rec[5],
         typ: rec[6],
-        lokalizace_text: rec[7],
+        lokalizace_text: lokalizace_text, # textova varianta LocationText
         lokalizace: rec[8],
         lokalizace_obec: kod_obec,
         rok_sberu: rec[9],
         lokalizace_cast_obce: kod_cast,
+        location_text: location_text,   # vazba pres 'cislo' LocationText
       })
       s.save!
       counter += 1

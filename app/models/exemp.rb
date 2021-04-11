@@ -4,7 +4,7 @@ class Exemp < ApplicationRecord
   belongs_to :source, foreign_key: 'zdroj_id', required: false, primary_key: 'cislo'
   has_many_attached :attachments
   belongs_to :meaning, required: false
-  belongs_to :location_text, required: false
+  belongs_to :location_text, primary_key: 'cislo', required: false
 
   def json_hash
     {
@@ -12,6 +12,7 @@ class Exemp < ApplicationRecord
       kvalifikator: meaning&.kvalifikator || '',
       vyznam: meaning&.vyznam || '',
       meaning_id: meaning_id,
+      heslo: entry&.text || '',
 
       rod: rod && Entry::ROD_MAP[rod],
       rok: rok,
@@ -24,7 +25,7 @@ class Exemp < ApplicationRecord
       lokalizace_obec_text: Location.naz_obec_with_zkr(lokalizace_obec),
       lokalizace_cast_obce_id: lokalizace_cast_obce,
       lokalizace_cast_obce_text: Location.naz_cast(lokalizace_cast_obce),
-      lokalizace_text_id:  location_text&.id,
+      lokalizace_text_id:  location_text&.cislo,
       lokalizace_text: location_text&.identifikator,
       lokalizace_format: Location.location_format(lokalizace_obec, lokalizace_cast_obce),
       urceni: urceni,

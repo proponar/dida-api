@@ -13,7 +13,7 @@ class LocationText < ApplicationRecord
   def self.csv_import(data)
     counter = 0
     CSV.parse(data, headers: true) do |rec|
-
+      next if rec[1].to_s.strip.blank?
       s = LocationText.create({
         cislo: rec[0],
         identifikator: rec[1],
