@@ -38,7 +38,6 @@ class Source < ApplicationRecord
 
       lokalizace_text = rec[7]
       location_text = LocationText.where(:identifikator => lokalizace_text)&.first
-      binding.pry if location_text.present?
 
       s = Source.create({
         cislo: rec[0],
