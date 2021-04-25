@@ -12,7 +12,9 @@ class Exemp < ApplicationRecord
       kvalifikator: meaning&.kvalifikator || '',
       vyznam: meaning&.vyznam || '',
       meaning_id: meaning_id,
-      heslo: entry&.text || '',
+      heslo: entry&.heslo || '',
+      druh: entry && Entry::DRUH_MAP[entry.druh || 0],
+      rod: entry && Entry::ROD_MAP[entry.rod || 0],
 
       rod: rod && Entry::ROD_MAP[rod],
       rok: rok,

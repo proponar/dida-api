@@ -106,7 +106,20 @@ class Api::ExempsController < Api::BaseController
   end
 
   def search
-    entries = Exemp.all.order(:id).includes(:user).map(&:json_hash)
+    filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
+
+    query = Exemp.order(:id) # FIXME
+    query = query.where(:entry_id => filter[:entry][:id]) if filter.key?(:entry) && filter[:entry].key?(:id) # FIXME: povolit hvezdicky?
+    query = query.where(:rok => filter[:rok])     if filter.key?(:rok)
+    query = query.where(:vetne => filter[:vetne]) if filter.key?(:vetne)
+    if filter.key?(:exemp)
+      filter = filter[:exemp].gsub('*', '%')
+      query = query.where('exemps.exemplifikace ilike ?', filter)
+    end
+
+    entries = query.
+      includes([:user, :meaning, :source], {:entry => :meanings}).
+      with_attached_attachments.map(&:json_hash)
     render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 end
