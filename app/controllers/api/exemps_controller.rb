@@ -105,6 +105,17 @@ class Api::ExempsController < Api::BaseController
     render json: { message: "Nepodařilo se najít exemplifikaci: #{e.message}" }, status: 400
   end
 
+  def exemps_to_csv(l)
+    attributes = %i(exemplifikace druh heslo urceni lokalizace_format zdroj_name rok vyznam vetne aktivni time)
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      l.each do |s|
+        csv << attributes.map { |a| s[a.to_sym] }
+      end
+    end
+  end
+
   def search
     filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
 
@@ -120,6 +131,12 @@ class Api::ExempsController < Api::BaseController
     entries = query.
       includes([:user, :meaning, :source], {:entry => :meanings}).
       with_attached_attachments.map(&:json_hash)
+
+    if params[:d] == '1'
+      send_data(exemps_to_csv(entries), :filename => 'exemps-filtered.csv')
+      return
+    end
+
     render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 end
