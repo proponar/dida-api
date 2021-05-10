@@ -116,6 +116,14 @@ class Api::ExempsController < Api::BaseController
     end
   end
 
+  def exemps_to_word(l)
+    IO.popen('/home/martin/Projects/dida/dida-api/doc-exporter.sh', 'r+') do |io|
+      io.write(l.to_json)
+      io.close_write
+      io.read
+    end
+  end
+
   def search
     filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
 
@@ -134,6 +142,11 @@ class Api::ExempsController < Api::BaseController
 
     if params[:d] == '1'
       send_data(exemps_to_csv(entries), :filename => 'exemps-filtered.csv')
+      return
+    end
+
+    if params[:w] == '1'
+      send_data(exemps_to_word(entries), :filename => 'exemps-filtered.docx')
       return
     end
 
