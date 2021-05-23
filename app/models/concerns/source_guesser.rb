@@ -3,7 +3,7 @@ module SourceGuesser
 
   class_methods do
     # Bachmannová, Za života se stane ledacos
-    def Source.guess_source(str)
+    def guess_source(str)
       return nil if str.blank?
 
       # zdroj konci rokem
@@ -49,7 +49,7 @@ module SourceGuesser
       ret
     end
 
-    def Source.guess_source_from_3parts(parts, rok)
+    def guess_source_from_3parts(parts, rok)
       s = Source.where(:autor => parts[0], :name => parts[1], :nazev2 => parts[2])
       return s.first if s.present?
 
@@ -69,7 +69,7 @@ module SourceGuesser
       end
     end
 
-    def Source.guess_source_from_2parts(parts, rok)
+    def guess_source_from_2parts(parts, rok)
       # FIXME: vice hitu zatim resime, jakoby nic nebylo nalezeno
       
       # presna shoda autor i nazev
