@@ -127,7 +127,10 @@ class Api::ExempsController < Api::BaseController
   def search
     filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
 
-    query = Exemp.order(:id) # FIXME
+    export_to_word = params[:w] == '1'
+    export_to_csv = params[:d] == '1'
+
+    query = Exemp
     query = query.where(:entry_id => filter[:entry][:id]) if filter.key?(:entry) && filter[:entry].key?(:id) # FIXME: povolit hvezdicky?
     query = query.where(:rok => filter[:rok])     if filter.key?(:rok)
     query = query.where(:vetne => filter[:vetne]) if filter.key?(:vetne)
@@ -136,16 +139,32 @@ class Api::ExempsController < Api::BaseController
       query = query.where('exemps.exemplifikace ilike ?', filter)
     end
 
-    entries = query.
-      includes([:user, :meaning, :source], {:entry => :meanings}).
-      with_attached_attachments.map(&:json_hash)
+    query = query.
+      includes([:user, :meaning, :source], {:entry => :meanings})
 
-    if params[:d] == '1'
+    if export_to_word
+      #query = query.order(:heslo, 'meaning.cislo', 'urceni_sort(urceni)') # FIXME
+      query = query.order(:heslo, 'meaning.cislo')
+      # V rámci hesla bychom chtěli seřadit podle významů, v rámci významů podle pádů (určení) prvního výskytu pádu v exemplifikaci.
+      # Např. následující exemplifikaci budeme řadit podle 4 sg.
+      # {husu, 4 sg.} klovla jiná {husa, 1 sg.}
+      # Ideální by bylo řadit nejprve: 1 sg., 2 sg., 3 sg. ... a pak teprve 1 pl., 2 pl., 3 pl. ...
+    else
+      # primárně podle hesla (abecedně)
+      # sekundárně podle určení (1 sg. - v ideálním případě ještě předřadit 1, 2, 3 sg. před 1, 2, 3 pl., ale to zatím nechme)
+      # terciární podle lokalizace (abecedně)
+      # (případně kvartérně podle zdroje)
+      query = query.order(:heslo)
+    end
+
+    entries = query.with_attached_attachments.map(&:json_hash)
+
+    if export_to_csv
       send_data(exemps_to_csv(entries), :filename => 'exemps-filtered.csv')
       return
     end
 
-    if params[:w] == '1'
+    if export_to_word
       send_data(exemps_to_word(entries), :filename => 'exemps-filtered.docx')
       return
     end
