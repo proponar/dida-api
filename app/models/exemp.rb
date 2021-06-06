@@ -56,10 +56,10 @@ class Exemp < ApplicationRecord
     return '' unless self.location.present?
 
     nazev = self.location.naz_obec
-    kod_okres = Lokalizace.kodOk2names[self.location.kod_okres.to_i]&.at(1)
+    kod_okres = Location::kodOk2names[self.location.kod_okres.to_i]&.at(1)
 
     if self.location_part.present?
-      naz_cast = self.lcation_part.naz_cob
+      naz_cast = self.location_part.naz_cob
       "#{nazev} #{kod_okres} (#{naz_cast})"
     else
       "#{nazev} #{kod_okres}"

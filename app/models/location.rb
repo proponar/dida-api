@@ -28,8 +28,8 @@ class Location < ApplicationRecord
   end
 
   def naz_obec_with_zkr
-    kod_okres = self.kodOk2names[ob.kod_okres.to_i]&.at(1)
-    "#{ob.naz_obec} #{kod_okres}"
+    kod_okres = Location.kodOk2names[self.kod_okres.to_i]&.at(1)
+    "#{self.naz_obec} #{kod_okres}"
   end
 
   def self.naz_cast(kod_cast)

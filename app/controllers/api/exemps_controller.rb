@@ -2,13 +2,16 @@ class Api::ExempsController < Api::BaseController
   # The number of exemps for entry is in thousands, but each record is relatively short (hundreds bytes?)
   # Do we need pagination here? What is the average length of the exemplification?
   def index
-    entries = Exemp.where(:entry_id => params[:entry_id]).order(:id).includes(:user).map(&:json_hash)
-    # entry = Entry.includes(:exemps => :user).where(:id => params[:entry_id])
+    entries = Exemp.where(:entry_id => params[:entry_id]).
+      order(:id).
+      #includes(:user).
+      #joins([:user, :meaning, :source, {:entry => :meanings}]).
+      left_joins([:location_text, :location, :location_part]).
+      includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}]).
+      with_attached_attachments.
+      map(&:json_hash)
 
-    #entries = entry.exemps.map(&:json_hash)
-    #   Entry.includes(:exemps => :user).where(:id => params[:entry_id])
-    #   Entry.includes(:exemps, :exemps => :user).where(:id => params[:entry_id]).map(&:json_hash)
-    render json: {message: 'Loaded all entries', data: entries}, status: 200
+    render json: {message: 'Nahrány všechny exemplifikace.', data: entries}, status: 200
   end
 
   # POST   /api/entries/:entry_id/exemps(.:format)  api/exemps#create

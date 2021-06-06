@@ -63,6 +63,15 @@ RSpec.describe 'Exemps API', type: :request do
     end
   end
 
+  describe "GET entries/:entry_id/exemps" do
+    it 'returns the exemp' do
+      get "/api/entries/#{entry_with_exemp.id}/exemps",
+        headers: { "Authorization" => credentials }
+      expect(response).to have_http_status(200)
+      expect(json['message']).to match("Nahrány všechny exemplifikace.")
+    end
+  end
+
   describe "DELETE entries/:entry_id/exemps/:id" do
     it 'deletes the exemp' do
       delete "/api/entries/#{entry_with_exemp.id}/exemps/#{entry_with_exemp.exemps[0].id}",
