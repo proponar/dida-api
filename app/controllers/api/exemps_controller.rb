@@ -124,6 +124,7 @@ class Api::ExempsController < Api::BaseController
     end
   end
 
+  MAX_RESULTS = 1000
   def search
     filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
 
@@ -140,35 +141,35 @@ class Api::ExempsController < Api::BaseController
     end
 
     query = query.
-      includes([:user, :meaning, :source], {:entry => :meanings})
+      joins([:user, :meaning, :source, {:entry => :meanings}]).
+      left_joins([:location_text, :location, :location_part]).
+      includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}])
 
     if export_to_word
-      #query = query.order(:heslo, 'meaning.cislo', 'urceni_sort(urceni)') # FIXME
-      query = query.order(:heslo, 'meaning.cislo')
-      # V rámci hesla bychom chtěli seřadit podle významů, v rámci významů podle pádů (určení) prvního výskytu pádu v exemplifikaci.
-      # Např. následující exemplifikaci budeme řadit podle 4 sg.
-      # {husu, 4 sg.} klovla jiná {husa, 1 sg.}
-      # Ideální by bylo řadit nejprve: 1 sg., 2 sg., 3 sg. ... a pak teprve 1 pl., 2 pl., 3 pl. ...
+      # V rámci hesla bychom chtěli seřadit podle významů,
+      # v rámci významů podle pádů (určení) prvního výskytu pádu v exemplifikaci.
+      query = query.order(:heslo, 'meaning.cislo', 'urceni_sort')
     else
       # primárně podle hesla (abecedně)
       # sekundárně podle určení (1 sg. - v ideálním případě ještě předřadit 1, 2, 3 sg. před 1, 2, 3 pl., ale to zatím nechme)
       # terciární podle lokalizace (abecedně)
       # (případně kvartérně podle zdroje)
-      query = query.order(:heslo)
+      query = query.order(:heslo, 'urceni_sort', "#{Location.table_name}.naz_obec", 'sources.name')
     end
 
-    entries = query.with_attached_attachments.map(&:json_hash)
+    total = query.count
+    entries = query.limit(MAX_RESULTS).with_attached_attachments.map(&:json_hash)
 
     if export_to_csv
       send_data(exemps_to_csv(entries), :filename => 'exemps-filtered.csv')
       return
-    end
-
-    if export_to_word
+    elsif export_to_word
       send_data(exemps_to_word(entries), :filename => 'exemps-filtered.docx')
       return
+    else
+      message = total > MAX_RESULTS ?
+        "Načteno #{MAX_RESULTS} výsledků z celkového počtu #{total}" : 'Načteny všechny výsledky.'
+      render json: {message: message, data: entries, total: total}, status: 200
     end
-
-    render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 end

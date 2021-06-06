@@ -24,7 +24,7 @@ RSpec.describe 'Exemps API', type: :request do
     "exemplifikace":"kanec se jinam nesmí střílet, jen do voka",
     "vetne":true,"aktivni":true,"zdroj_id":1787,
     "zdroj_name":"Kladno 1–15.",
-    "lokalizace_obec_id":532576,"lokalizace_obec_text":"Libušín KL",
+    "lokalizace_obec_id":"532576","lokalizace_obec_text":"Libušín KL",
     "lokalizace_cast_obce_id":nil,"lokalizace_cast_obce_text":nil,
     "lokalizace_text":"","lokalizace_format":"Libušín KL",
     "urceni":nil,"time":"22.01.2021 10:58:13","attachments":[]
@@ -45,7 +45,7 @@ RSpec.describe 'Exemps API', type: :request do
 
     it 'creates a entry' do
       expect(json_data['exemplifikace']).to eq(exemp_data[:exemplifikace])
-      expect(json_data['lokalizace_obec']).to eq(532576)
+      expect(json_data['lokalizace_obec']).to eq('532576')
     end
   end
 
@@ -55,11 +55,11 @@ RSpec.describe 'Exemps API', type: :request do
         headers: { "Authorization" => credentials },
         params: exemp_data.update({
           exemplifikace: 'foobar',
-          lokalizace_obec: 532576,
+          lokalizace_obec: '532576',
         })
 
       expect(json_data['exemplifikace']).to eq('foobar')
-      expect(json_data['lokalizace_obec']).to eq(532576)
+      expect(json_data['lokalizace_obec']).to eq('532576')
     end
   end
 
@@ -94,6 +94,17 @@ RSpec.describe 'Exemps API', type: :request do
       coordinates = JSON.parse(response.body)['coordinates']
       expect(coordinates).to have_key('lng')
       expect(coordinates).to have_key('lat')
+    end
+  end
+
+  describe "GET search" do
+    it 'return exemps' do # TODO: sorted by heslo, urceni, lokalizace, zdroj
+      post "/api/search",
+        headers: { "authorization" => credentials }
+      expect(response).to have_http_status(200)
+      expect(json).to have_key('total')
+      expect(json).to have_key('message')
+      expect(json).to have_key('data')
     end
   end
 end

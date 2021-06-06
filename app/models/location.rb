@@ -27,6 +27,11 @@ class Location < ApplicationRecord
     end
   end
 
+  def naz_obec_with_zkr
+    kod_okres = self.kodOk2names[ob.kod_okres.to_i]&.at(1)
+    "#{ob.naz_obec} #{kod_okres}"
+  end
+
   def self.naz_cast(kod_cast)
     @naz_cast ||= {}
     unless @naz_cast.key?(kod_cast)
