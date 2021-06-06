@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2021_05_23_143706) do
     t.integer "entry_id"
     t.boolean "vetne"
     t.integer "zdroj_id"
-    t.integer "lokalizace_obec"
-    t.integer "lokalizace_cast_obce"
+    t.string "lokalizace_obec", limit: 6
+    t.string "lokalizace_cast_obce", limit: 6
     t.string "lokalizace_text"
     t.string "rok"
     t.string "kvalifikator"
@@ -327,8 +327,8 @@ ActiveRecord::Schema.define(version: 2021_05_23_143706) do
     t.string "bibliografie"
     t.string "lokalizace_text"
     t.string "name_processed"
-    t.integer "lokalizace_obec"
-    t.integer "lokalizace_cast_obce"
+    t.string "lokalizace_obec", limit: 6
+    t.string "lokalizace_cast_obce", limit: 6
     t.string "nazev2_processed"
     t.bigint "location_text_id"
     t.index ["location_text_id"], name: "index_sources_on_location_text_id"
