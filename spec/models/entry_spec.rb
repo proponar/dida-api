@@ -26,12 +26,12 @@ EOD
       result = entry.import_text(user, jelen_test_data, meaning.id, true, true)
       expect(result.length).to eq(4)
 
-      expect(result[0].lokalizace_obec).to eq(564427)
+      expect(result[0].lokalizace_obec).to eq("564427")
       expect(result[0].lokalizace_cast_obce).to be_nil
       expect(result[0].lokalizace_text).to eq('')
 
-      expect(result[1].lokalizace_obec).to eq(564427)
-      expect(result[1].lokalizace_cast_obce).to eq(160563)
+      expect(result[1].lokalizace_obec).to eq("564427")
+      expect(result[1].lokalizace_cast_obce).to eq("160563")
       expect(result[1].lokalizace_text).to eq('')
 
       expect(result[2].lokalizace_obec).to be_nil
@@ -79,7 +79,7 @@ EOD
         meaning.id, true, true
       )[0]
 
-      expect(result.lokalizace_obec).to eq(537004)
+      expect(result.lokalizace_obec).to eq("537004")
       expect(result.source.name).to eq("Obecná řeč v Nymburce.")
     end
   end

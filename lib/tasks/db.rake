@@ -13,4 +13,10 @@ namespace :db do
 
   desc "Drop, recreate and seed database."
   task :reseed => [:environment, 'db:create', 'db:schema:load', 'db:seed_location', 'db:seed']
+
+  desc "Force seed (for tests)"
+  task :force_seed do
+    require File.expand_path('./config/environment.rb')
+    require_relative '../../db/seeds.rb'
+  end
 end
