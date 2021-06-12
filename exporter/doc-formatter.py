@@ -42,7 +42,7 @@ same_meaning = ''
 same_urceni = ''
 
 def format_urceni(u):
-    if u == None:
+    if u == None or u["pad"] == None:
         return ""
 
     md = re.match("(\d)(\w)", u["pad"])
