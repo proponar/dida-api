@@ -66,6 +66,15 @@ module ExempParser
       return 0 unless md
       md[2] == 's' ? md[1].to_i : 100 + md[1].to_i
     end
+
+    def expand_urceni(u_number)
+      return '' if u_number == 0
+      if u_number > 100
+        "#{u_number - 100}. pl."
+      else
+        "#{u_number}. sg."
+      end
+    end
   end
 end
 

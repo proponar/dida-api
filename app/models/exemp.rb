@@ -44,12 +44,21 @@ class Exemp < ApplicationRecord
       lokalizace_text: location_text&.identifikator,
       #lokalizace_format: Location.location_format(lokalizace_obec, lokalizace_cast_obce),
       lokalizace_format: location_format,
-      # urceni: urceni,
+      urceni_sort: urceni_sort,
+      urceni: Exemp::expand_urceni(urceni_sort),
       time: updated_at&.localtime&.strftime('%d.%m.%Y %H:%M:%S'),
       attachments: attachments.map { |a, i|
         {filename: a.filename.to_s, content_type: a.content_type, id: a.id}
       },
     }
+  end
+
+  def json_hash_full
+    json_hash.update(
+      entry_full: entry.json_entry,
+      urceni_full: urceni,
+      vyznam_full: meaning,
+    )
   end
 
   def location_format

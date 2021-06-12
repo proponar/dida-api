@@ -4,8 +4,6 @@ class Api::ExempsController < Api::BaseController
   def index
     entries = Exemp.where(:entry_id => params[:entry_id]).
       order(:id).
-      #includes(:user).
-      #joins([:user, :meaning, :source, {:entry => :meanings}]).
       left_joins([:location_text, :location, :location_part]).
       includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}]).
       with_attached_attachments.
@@ -119,8 +117,9 @@ class Api::ExempsController < Api::BaseController
     end
   end
 
+  DOC_EXPORTER = Rails.root.join('exporter', 'doc-exporter.sh')
   def exemps_to_word(l)
-    IO.popen('/home/martin/Projects/dida/dida-api/doc-exporter.sh', 'r+') do |io|
+    IO.popen(DOC_EXPORTER.to_s, 'r+') do |io|
       io.write(l.to_json)
       io.close_write
       io.read
@@ -146,33 +145,33 @@ class Api::ExempsController < Api::BaseController
     query = query.
       joins([:user, :meaning, :source, {:entry => :meanings}]).
       left_joins([:location_text, :location, :location_part]).
-      includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}])
+      #includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}])
+      preload(:location_text, :location, :location_part).
+      includes(:user, :meaning, :source, {:entry => :meanings})
 
     if export_to_word
       # V rámci hesla bychom chtěli seřadit podle významů,
       # v rámci významů podle pádů (určení) prvního výskytu pádu v exemplifikaci.
-      query = query.order(:heslo, 'meaning.cislo', 'urceni_sort')
+      query = query.order(:heslo, 'meanings.cislo', 'urceni_sort')
     else
       # primárně podle hesla (abecedně)
-      # sekundárně podle určení (1 sg. - v ideálním případě ještě předřadit 1, 2, 3 sg. před 1, 2, 3 pl., ale to zatím nechme)
+      # sekundárně podle určení (předřadit 1, 2, 3 sg. před 1, 2, 3 pl.)
       # terciární podle lokalizace (abecedně)
       # (případně kvartérně podle zdroje)
       query = query.order(:heslo, 'urceni_sort', "#{Location.table_name}.naz_obec", 'sources.name')
     end
 
     total = query.count
-    entries = query.limit(MAX_RESULTS).with_attached_attachments.map(&:json_hash)
+    entries = query.limit(MAX_RESULTS).with_attached_attachments
 
     if export_to_csv
-      send_data(exemps_to_csv(entries), :filename => 'exemps-filtered.csv')
-      return
+      send_data(exemps_to_csv(entries.map(&:json_hash)), :filename => 'exemps-filtered.csv')
     elsif export_to_word
-      send_data(exemps_to_word(entries), :filename => 'exemps-filtered.docx')
-      return
+      send_data(exemps_to_word(entries.map(&:json_hash_full)), :filename => 'exemps-filtered.docx')
     else
       message = total > MAX_RESULTS ?
         "Načteno #{MAX_RESULTS} výsledků z celkového počtu #{total}" : 'Načteny všechny výsledky.'
-      render json: {message: message, data: entries, total: total}, status: 200
+      render json: {message: message, data: entries.map(&:json_hash), total: total}, status: 200
     end
   end
 end
