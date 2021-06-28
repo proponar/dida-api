@@ -68,7 +68,7 @@ module ExempParser
     end
 
     def expand_urceni(u_number)
-      return '' if u_number == 0
+      return '' if u_number.nil? || u_number == 0
       if u_number > 100
         "#{u_number - 100}. pl."
       else
