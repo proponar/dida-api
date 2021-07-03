@@ -58,6 +58,7 @@ class Exemp < ApplicationRecord
       entry_full: entry.json_entry,
       urceni_full: urceni,
       vyznam_full: meaning,
+      source_full: source.json_short,
     )
   end
 

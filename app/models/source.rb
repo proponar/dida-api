@@ -60,6 +60,10 @@ class Source < ApplicationRecord
     counter
   end
 
+  def json_short
+    attributes
+  end
+
   def format_json
     attributes.update(
       lokalizace_obec_text: Location.naz_obec_with_zkr(lokalizace_obec),

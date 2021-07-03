@@ -152,7 +152,10 @@ class Api::ExempsController < Api::BaseController
     if export_to_word
       # V rámci hesla bychom chtěli seřadit podle významů,
       # v rámci významů podle pádů (určení) prvního výskytu pádu v exemplifikaci.
-      query = query.order(:heslo, 'meanings.cislo', 'urceni_sort')
+      # potom podle lokalizace
+      query = query.order(
+        :heslo, 'meanings.cislo', 'urceni_sort',
+        "coalesce(#{Location.table_name}.naz_obec, location_texts.identifikator)")
     else
       # primárně podle hesla (abecedně)
       # sekundárně podle určení (předřadit 1, 2, 3 sg. před 1, 2, 3 pl.)

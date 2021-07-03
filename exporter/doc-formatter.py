@@ -3,7 +3,8 @@ import json
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-
+from docx.enum.section import WD_ORIENT
+from docx.enum.section import WD_SECTION
 
 import re
 import io
@@ -20,7 +21,16 @@ else:
     #data = json.load(open('/home/martin/Projects/word-py/ex.json'))
 
 document = Document()
-#p = document.add_paragraph(json.dumps(data)) # debug dump
+
+# change page orientation
+current_section = document.sections[-1]
+new_width, new_height = current_section.page_height, current_section.page_width
+current_section.orientation = WD_ORIENT.LANDSCAPE
+current_section.page_width = new_width
+current_section.page_height = new_height
+
+# debug dump
+#p = document.add_paragraph(json.dumps(data))
 
 # set styles
 styles = document.styles
@@ -58,6 +68,26 @@ def format_urceni(u):
 
     return urceni_string
 
+def format_lokalizace(e):
+    if 'lokalizace_format' in e and e['lokalizace_format'] != '':
+        return e['lokalizace_format']
+    if 'lokalizace_text' in e and e['lokalizace_text'] != '':
+        return e['lokalizace_text']
+    return ''
+
+def format_zdroj(z):
+    l = []
+    # autor - název1 - název2 - rok
+    if 'autor' in z and z['autor'] != None:
+        l.append(z['autor'])
+    if 'name' in z and z['name'] != None:
+        l.append(z['name'])
+    if 'nazev2' in z and z['nazev2'] != None:
+        l.append(z['nazev2'])
+    if 'rok' in z and z['rok'] != None:
+        l.append(str(z['rok']))
+    return " - ".join(l)      
+
 for e in data:
     if same_heslo != e['heslo']:
         heslo_text = f'{e["heslo"]} {e["entry_full"]["rod"]}.'
@@ -78,7 +108,10 @@ for e in data:
         same_urceni = ''
 
     if same_urceni != e['urceni_sort']:
-        urceni_string = format_urceni(e['urceni_full'][0])
+        if len(e['urceni_full']) > 0 :
+            urceni_string = format_urceni(e['urceni_full'][0])
+        else:
+            urceni_string = ''
         document.add_heading(urceni_string, 3)
         same_urceni = e['urceni_sort']
 
@@ -94,8 +127,9 @@ for e in data:
     p.add_run('; ')
     
     # lokalizace cervene
-    if 'lokalizace_format' in e and e['lokalizace_format'] != '':
-        run = p.add_run(e['lokalizace_format'])
+    lokalizace = format_lokalizace(e)
+    if lokalizace != '':
+        run = p.add_run(lokalizace)
         font = run.font
         font.size = Pt(10)
         font.color.rgb = RGBColor(0xE9, 0x24, 0x42)
@@ -103,50 +137,12 @@ for e in data:
 
     # zdroj modre
     if 'zdroj_name' in e:
-        run = p.add_run(e['zdroj_name'])
+        run = p.add_run(format_zdroj(e["source_full"]))
         font = run.font
         font.size = Pt(12)
         font.color.rgb = RGBColor(0x42, 0x24, 0xE9)
 
-# document.add_heading('Document Title', 0)
-
-# p = document.add_paragraph('A plain paragraph having some ')
-# p.add_run('bold').bold = True
-# p.add_run(' and some ')
-# p.add_run('italic.').italic = True
-# 
-# document.add_heading('Heading, level 1', level=1)
-# document.add_paragraph('Intense quote', style='Intense Quote')
-# 
-# document.add_paragraph(
-#     'first item in unordered list', style='List Bullet'
-# )
-# document.add_paragraph(
-#     'first item in ordered list', style='List Number'
-# )
-# 
-# document.add_picture('monty-truth.png', width=Inches(1.25))
-# 
-# records = (
-#     (3, '101', 'Spam'),
-#     (7, '422', 'Eggs'),
-#     (4, '631', 'Spam, spam, eggs, and spam')
-# )
-# 
-# table = document.add_table(rows=1, cols=3)
-# hdr_cells = table.rows[0].cells
-# hdr_cells[0].text = 'Qty'
-# hdr_cells[1].text = 'Id'
-# hdr_cells[2].text = 'Desc'
-# for qty, id, desc in records:
-#     row_cells = table.add_row().cells
-#     row_cells[0].text = str(qty)
-#     row_cells[1].text = id
-#     row_cells[2].text = desc
-# 
-# document.add_page_break()
-
-
+# output the document to STDOUT
 target_stream = io.BytesIO()
 document.save(target_stream)
 target_stream.seek(0)
