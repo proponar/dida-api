@@ -15,10 +15,8 @@ if len(sys.argv) > 1:
     data = json.load(open(sys.argv[1])) # '/home/martin/Projects/word-py/ex.json'))
 else:
     data = json.load(sys.stdin)
-    with open('/tmp/dump.js', 'w') as out:
-        json.dump(data, out) # debug dump
-
-    #data = json.load(open('/home/martin/Projects/word-py/ex.json'))
+    #with open('/tmp/dump.js', 'w') as out:
+    #    json.dump(data, out) # debug dump
 
 document = Document()
 
@@ -86,7 +84,7 @@ def format_zdroj(z):
         l.append(z['nazev2'])
     if 'rok' in z and z['rok'] != None:
         l.append(str(z['rok']))
-    return " - ".join(l)      
+    return " - ".join(l)
 
 for e in data:
     if same_heslo != e['heslo']:
@@ -125,7 +123,7 @@ for e in data:
             p.add_run(part).italic = True
 
     p.add_run('; ')
-    
+
     # lokalizace cervene
     lokalizace = format_lokalizace(e)
     if lokalizace != '':
