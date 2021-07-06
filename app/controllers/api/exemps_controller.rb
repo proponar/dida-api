@@ -126,7 +126,8 @@ class Api::ExempsController < Api::BaseController
     end
   end
 
-  MAX_RESULTS = 1000
+  MAX_RESULTS_UI = 2000
+  MAX_RESULTS_EXPORT = 5000
   def search
     filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
 
@@ -165,15 +166,16 @@ class Api::ExempsController < Api::BaseController
     end
 
     total = query.count
-    entries = query.limit(MAX_RESULTS).with_attached_attachments
+    max_results = export_to_word || export_to_csv ? MAX_RESULTS_EXPORT : MAX_RESULTS_UI
+    entries = query.limit(max_results).with_attached_attachments
 
     if export_to_csv
       send_data(exemps_to_csv(entries.map(&:json_hash)), :filename => 'exemps-filtered.csv')
     elsif export_to_word
       send_data(exemps_to_word(entries.map(&:json_hash_full)), :filename => 'exemps-filtered.docx')
     else
-      message = total > MAX_RESULTS ?
-        "Načteno #{MAX_RESULTS} výsledků z celkového počtu #{total}" : 'Načteny všechny výsledky.'
+      message = total > max_results ?
+        "Načteno #{max_results} výsledků z celkového počtu #{total}" : 'Načteny všechny výsledky.'
       render json: {message: message, data: entries.map(&:json_hash), total: total}, status: 200
     end
   end
