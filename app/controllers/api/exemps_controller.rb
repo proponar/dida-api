@@ -2,7 +2,8 @@ class Api::ExempsController < Api::BaseController
   # The number of exemps for entry is in thousands, but each record is relatively short (hundreds bytes?)
   # Do we need pagination here? What is the average length of the exemplification?
   def index
-    entries = Exemp.where(:entry_id => params[:entry_id]).
+    exemp = add_db_scope(Exemp)
+    entries = exemp.where(:entry_id => params[:entry_id]).
       order(:id).
       left_joins([:location_text, :location, :location_part]).
       includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}]).
@@ -18,7 +19,7 @@ class Api::ExempsController < Api::BaseController
     soft_params = params.permit!
     kod_obec = params[:lokalizace_obec_id]
     kod_cast = params[:lokalizace_cast_obce_id]
-    e = Exemp.new({
+    e = Exemp.new(add_db_field({
       :user => current_user,
       :entry_id => params[:entry_id],
       :zdroj_id => params[:zdroj_id],
@@ -26,7 +27,7 @@ class Api::ExempsController < Api::BaseController
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
       :location_text_id => params[:lokalizace_text_id],
-    }.update(
+    }).update(
       soft_params.slice(*%i(rok kvalifikator exemplifikace vyznam vetne aktivni rok urceni lokalizace_text))
     ))
     e.save!
@@ -34,7 +35,8 @@ class Api::ExempsController < Api::BaseController
   end
 
   def update
-    e = Exemp.find(params[:id])
+    exemp = add_db_scope(Exemp)
+    e = exemp.find(params[:id])
 
     soft_params = params.permit!
     kod_obec = params[:lokalizace_obec_id]
@@ -56,7 +58,8 @@ class Api::ExempsController < Api::BaseController
   end
 
   def destroy
-    e = Exemp.find(params[:id])
+    exemp = add_db_scope(Exemp)
+    e = exemp.find(params[:id])
     e.delete
     render json: { message: "Exemplifikace smazána" }, status: 200
   rescue => e
@@ -66,7 +69,8 @@ class Api::ExempsController < Api::BaseController
   # /api/entries/:entry_id/exemps/:exemp_id/attach(.:format)
   def attach
     attachment_data_io = request.body #.read
-    e = Exemp.find(params[:exemp_id])
+    exemp = add_db_scope(Exemp)
+    e = exemp.find(params[:exemp_id])
 
     e.attachments.attach( #attachment_data)
       io: attachment_data_io, #File.open('/path/to/file'),
@@ -81,7 +85,8 @@ class Api::ExempsController < Api::BaseController
   end
 
   def detach
-    e = Exemp.find(params[:exemp_id])
+    exemp = add_db_scope(Exemp)
+    e = exemp.find(params[:exemp_id])
 
     parms = JSON.parse(request.body.read)
     attachment_id = parms['attachment_id']
@@ -100,7 +105,8 @@ class Api::ExempsController < Api::BaseController
   end
 
   def coordinates
-    e = Exemp.find(params[:exemp_id])
+    exemp = add_db_scope(Exemp)
+    e = exemp.find(params[:exemp_id])
     render json: { coordinates: e.coordinates }
   rescue => e
     render json: { message: "Nepodařilo se najít exemplifikaci: #{e.message}" }, status: 400
@@ -134,7 +140,7 @@ class Api::ExempsController < Api::BaseController
     export_to_word = params[:w] == '1'
     export_to_csv = params[:d] == '1'
 
-    query = Exemp
+    query = add_db_scope(Exemp)
     query = query.where(:entry_id => filter[:entry][:id]) if filter.key?(:entry) && filter[:entry].key?(:id) # FIXME: povolit hvezdicky?
     query = query.where(:rok => filter[:rok])     if filter.key?(:rok)
     query = query.where(:vetne => filter[:vetne]) if filter.key?(:vetne)

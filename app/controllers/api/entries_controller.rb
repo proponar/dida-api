@@ -2,11 +2,13 @@ class Api::EntriesController < Api::BaseController
   # The total number of entries in in the rage of lower hundreds (< 1.000)
   # therefor no pagination is needed.
   def index
+    entry = add_db_scope(Entry)
     entries = Entry.includes(:user).order(:heslo).all.map &:json_entry
     render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 
   def show
+    entry = add_db_scope(Entry)
     render json: Entry.includes(:user, :exemps).find(params[:id]).json_hash
   rescue ActiveRecord::RecordNotFound
     render json: { message: 'Heslo nebylo nalezeno.' }, status: 404
@@ -16,12 +18,11 @@ class Api::EntriesController < Api::BaseController
     soft_params = params.permit!
     entry_data = soft_params[:entry].permit!
 
-    entry = Entry.new(
-      {
+    entry = Entry.new(add_db_field({
         :user => current_user,
         :rod  => Entry.map_rod(entry_data[:rod]),
         :druh => Entry.map_druh(entry_data[:druh]),
-      }.update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary, :urceni)))
+      }).update(entry_data.slice(:heslo, :vetne, :kvalifikator, :vyznam, :tvary, :urceni)))
     entry.save!
 
     if soft_params.key?(:meanings)
@@ -44,7 +45,8 @@ class Api::EntriesController < Api::BaseController
     soft_params = params.permit!
     entry_data = soft_params[:entry].permit!
 
-    entry = Entry.find(params[:id])
+    entry = add_db_scope(Entry)
+    entry = entry.find(params[:id])
 
     if soft_params.key?(:meanings)
       meanings_data = soft_params[:meanings] #.permit!
@@ -73,7 +75,8 @@ class Api::EntriesController < Api::BaseController
   end
 
   def destroy
-    Entry.find(params[:id]).destroy
+    entry = add_db_scope(Entry)
+    entry.find(params[:id]).destroy
     render status: 204
   rescue => e
     render json: { message: "Heslo nebylo možné smazat: #{e.message}" }, status: 400
@@ -86,7 +89,8 @@ class Api::EntriesController < Api::BaseController
     vetne = params[:vetne] != 'false'
     meaning_id = params[:meaning]
 
-    results = Entry.find(params[:entry_id]).import_text(
+    entry = add_db_scope(Entry)
+    results = entry.find(params[:entry_id]).import_text(
       current_user,
       request.body.read.force_encoding('UTF-8'),
       meaning_id,
@@ -105,7 +109,8 @@ class Api::EntriesController < Api::BaseController
   end
 
   def tvar_map
-    e = Entry.find(params[:id])
+    entry = add_db_scope(Entry)
+    e = entry.find(params[:id])
     render json: {
       :map => Entry.calculate_tvar_map(e.tvary, e.urceni)
     }, status: 400

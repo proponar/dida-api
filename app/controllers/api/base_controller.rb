@@ -17,5 +17,14 @@ module Api
     def current_user
       @current_user ||= authenticate
     end
+
+    def add_db_scope(ar)
+      ar.where(:db => @current_user.db)
+    end
+
+    def add_db_field(rec)
+      rec[:db] = @current_user.db
+      rec
+    end
   end
 end

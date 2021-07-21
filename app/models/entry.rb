@@ -113,6 +113,7 @@ class Entry < ApplicationRecord
     source = Source.guess_source(parts[2]) # zdroj
 
     Exemp.new(
+      db: user.db,
       user: user,
       entry_id: id,
       source: source,
