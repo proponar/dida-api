@@ -3,13 +3,13 @@ class Api::EntriesController < Api::BaseController
   # therefor no pagination is needed.
   def index
     entry = add_db_scope(Entry)
-    entries = Entry.includes(:user).order(:heslo).all.map &:json_entry
+    entries = entry.includes(:user).order(:heslo).all.map &:json_entry
     render json: {message: 'Loaded all entries', data: entries}, status: 200
   end
 
   def show
     entry = add_db_scope(Entry)
-    render json: Entry.includes(:user, :exemps).find(params[:id]).json_hash
+    render json: entry.includes(:user, :exemps).find(params[:id]).json_hash
   rescue ActiveRecord::RecordNotFound
     render json: { message: 'Heslo nebylo nalezeno.' }, status: 404
   end
