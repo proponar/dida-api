@@ -11,7 +11,11 @@ class User < ApplicationRecord
 
       u = User.find_by(:name => email)
       if u.nil?
-        u = User.create(:name => user_data["email"], :token => SecureRandom.hex)
+        u = User.create(
+          :name => user_data["email"],
+          :token => SecureRandom.hex,
+          :db => User.maximum(:db) + 1,
+        )
         u.save!
       end
       u
