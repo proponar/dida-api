@@ -9,7 +9,7 @@ class Entry < ApplicationRecord
   before_save :process_tvar_map
 
   ROD_MAP = %w(m f n mf fn mn mplt fplt nplt mfplt fnplt mnplt)
-  DRUH_MAP = ['subst', 'adj']
+  DRUH_MAP = ['subst', 'adj', 'sloveso', 'zajmeno', 'cislovka']
 
   def self.map_rod(str)
     ROD_MAP.index(str)
