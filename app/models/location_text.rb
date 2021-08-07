@@ -8,6 +8,11 @@ class LocationText < ApplicationRecord
     #  t.string :zdroje
   end
 
+  def self.all_allowed
+    Rails.configuration.public ?
+      LocationText.order(:cislo).where(:public => 1) : LocationText.order(:cislo).all
+  end
+
   # číslo,seznam lokalit - oblastí,,číslo,lok. - oblast,+ č. zdroje,definovaná oblast,definice
   # 1,Blanensko,,1,Blanensko,,Blanensko,
   def self.csv_import(data)
