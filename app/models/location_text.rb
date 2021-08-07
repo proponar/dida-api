@@ -19,7 +19,8 @@ class LocationText < ApplicationRecord
         identifikator: rec[1],
         presentace: rec[2],
         definice: rec[3],
-        zdroje: rec[4],
+        # zdroje: rec[4], // nemame
+        public: rec[4] =~ /^ve/ ? 1 : 0
       })
       s.save!
       counter += 1

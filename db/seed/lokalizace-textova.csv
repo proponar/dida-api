@@ -1,747 +1,774 @@
-číslo,editace (co uvidíme při zadávání),prezentace,definice
-1,Blanensko,Blanensko,Blansko
-2,Blata,Blata,region
-3,Bohumínsko a Karvinsko [Téma],Bohumínsko a Karvinsko,...
-4,Břeclavsko [Folprecht],Břeclavsko,region
-5,Českobudějovicko,Českobudějovicko,České Budějovice
-6,Českotěšínsko,Českotěšínsko,Český Těšín
-7,Českotřebovsko,Českotřebovsko,Česká Třebová
-8,Dačicko,Dačicko,Dačice
-9,Domažlicko,Domažlicko,Domažlice
-10,Doudlebsko,Doudlebsko,region
-11,Frenštátsko,Frenštátsko,Frenštát pod Radhoštěm
-12,Frýdecko,Frýdecko,
-13,Frýdecko-Místecko,Frýdecko-Místecko,Frýdek-Místek
-14,Frýdecko-Místecko [Loriš],Frýdecko-Místecko,"Morávka FM, Pražmo FM, Krásná FM, Staré Hamry FM, Malenovice FM, Frýdlant nad Ostravicí FM (Nová Ves), Frýdlant nad Ostravicí FM (Lubno), Pržno FM, Janovice FM, Raškovice FM, Vyšní Lhoty FM, Nižní Lhoty FM, Nošovice FM, Frýdek-Místek FM (Skalice), Baška FM, Staré Město FM, Frýdek-Místek FM (Frýdek), Dobrá FM, Dobratice FM, Vojkovice FM, Lučina FM, Pazderna FM, Frýdek-Místek FM (Lískovec), Bruzovice FM"
-15,Frýdecko-Místecko [Zemanová],Frýdecko-Místecko,"Pražmo FM, Morávka FM, Krásná FM, Raškovice FM"
-16,Hlinecko [Adámek],Hlinecko,...
-17,Hlučínsko,Hlučínsko,Hlučín
-18,Hodonínsko,Hodonínsko,Hodonín
-19,Holicko,Holicko,Holice
-20,Chodsko,Chodsko,region
-21,Jilemnicko,Jilemnicko,Jilemnice
-22,Karvinsko,Karvinsko,Karviná
-23,Kelečsko,Kelečsko,...
-24,Kladsko,Kladsko,region
-25,Konicko,Konicko,Konice
-26,Litomyšlsko,Litomyšlsko,Litomyšl
-27,Luhačovicko [Kolařík],Luhačovicko,"Luhačovice ZL, Ludkovice ZL, Pozlovice ZL, Podhradí ZL, Luhačovice ZL (Řetechov), Ludkovice ZL (Pradlisko), Biskupice ZL, Luhačovice ZL (Kladná Žilín)"
-28,Náchodsko,Náchodsko,Náchod
-29,Neveklovsko,Neveklovsko,Neveklov
-30,Novopacko,Novopacko,Nová Paka
-31,Novopacko a Hořicko [Kotík],Novopacko a Hořicko,
-32,Opavsko,Opavsko,Opava
-33,Ostravsko,Ostravsko,Ostrava
-34,Plzeňsko,Plzeňsko,Plzeň
-35,Podkrkonoší [Bachmannová],Podkrkonoší,...
-36,Prachaticko [Vydra],Prachaticko,"Budkov PT, Vlachovo Březí PT (Dachov), Drslavice PT, Dvory PT, Husinec PT (Horouty), Šumavské Hoštice PT, Husinec PT, Kratušín PT (Chlístov), Chlumany PT, Nebahovy PT (Jelemek), Prachatice PT (Kahov), Šumavské Hoštice PT (Kosmo), Kratušín PT, Lažiště PT, Nebahovy PT (Lažišťka), Radhostice PT (Lštění), Vlachovo Březí PT (Mojkov), Nebahovy PT, Prachatice PT (Oseky), Pěčnov PT, Prachatice PT (Podolí), Prachatice PT, Strunkovice nad Blanicí PT, Drslavice PT (Švihov), Buk PT (Včelná pod Boubínem), Vlachovo Březí PT, Šumavské Hoštice PT (Vojslavice), Zábrdí PT, Nebahovy PT (Zdenice), Strunkovice nad Blanicí PT (Žíchovec), Žárovná PT, Žernovice PT"
-37,Prostějovsko,Prostějovsko,Prostějov
-38,Příborsko,Příborsko,Příbor
-39,Příbramsko [Jančáková],Příbramsko,"Křešín PB, Rosovice PB, Mokrovraty PB, Drevníky PB (Nechalov), Dublovice PB, Rožmitál pod Třemšínem PB (Nesvačily), Březnice PB (Bor), Bukovany PB, Klučenice PB, Krásná Hora nad Vltavou PB (Krašovice), Obecnice PB, Podlesí PB, Příbram PB (Kozičín), Příbram PB (Žežice), Láz PB, Lazsko PB, Modřovice PB, Tochovice PB, Hluboš PB, Trhové Dušníky PB, Háje PB, Milín PB, Vrančice PB, Suchodol PB, Dubenec PB, Višňová PB, Dolní Hbity PB (Jelence), Milín PB (Stěžov), Smolotely PB, Pečice PB, Bohostice PB, Obory PB, Dolní Hbity PB (Luhy), Kamýk nad Vltavou PB (Velká), Zduchovice PB, Kamýk nad Vltavou PB, Solenice PB"
-40,Rožmitálsko,Rožmitálsko,Rožmitál pod Třemšínem
-41,Rožnovsko,Rožnovsko,Rožnov pod Radhoštěm
-42,Rtyňsko-Svatoňovicko,Rtyňsko-Svatoňovicko,"Rtyně v Podkrkonoší TU, Malé Svatoňovice TU, Velké Svatoňovice TU, Malé Svatoňovice TU (Petrovice), Malé Svatoňovice TU (Strážkovice), Malé Svatoňovice TU (Odolov), Velké Svatoňovice TU (Markoušovice), Batňovice TU, Úpice TU, Suchovršice TU, Havlovice TU, Libňatov TU, Maršov u Úpice Tu, Stárkov NA, Stárkov NA (Chlívce), Červený Kostelec NA (Bohdašín)"
-43,Rychnovsko,Rychnovsko,Rychnov nad Kněžnou
-44,"Sedlčansko, Sedlecko a Voticko [Habart]","Sedlčansko, Sedlecko a Voticko",
-45,Strakonicko,Strakonicko,Strakonice
-46,Sušicko,Sušicko,Sušice
-47,Šumpersko [Rýznar],Šumpersko,"Bohdíkov SU, Brníčko SU, Dlouhomilov SU, Drozdov SU, Horní Studénky SU, Jakubovice SU, Jedlí SU, Písařov SU, Postřelmov SU, Ruda nad Moravou SU (Bartoňov), Štíty SU"
-48,Tišnovsko [Vojtová],Tišnovsko,"Deblín BO, Drásov BO, Lipůvka BK, Kuřim BO, Rájec-Jestřebí BK, Sloup BK"
-49,Uherskohradišťsko [Hubáček],Uherskohradišťsko,...
-50,Uherskohradišťsko [Ilík],Uherskohradišťsko,"Kunovice UH, Uherské Hradiště UH (Míkovice), Podolí UH, Popovice UH, Uherské Hradiště UH (Sady), Uherské Hradiště UH (Vésky)"
-51,Valašsko,Valašsko,region
-52,Valašskokloboucko,Valašskokloboucko,Valašské Klobouky
-53,Valašskomeziříčsko [Kašík],Valašskomeziříčsko,"Branky VS, Choryně VS, Kladeruby VS, Kunovice VS, Lešná VS, Lešná VS (Jasenice), Mikulůvka VS, Police VS, Poličná VS, Valašské Meziříčí VS (Juřinka), Valašské Meziříčí VS (Krásno nad Bečvou)"
-54,Vsetínsko,Vsetínsko,Vsetín
-55,vých. Prostějovsko [Borocký],vých. Prostějovsko,https://mapy.cz/s/dutavukosu
-56,Vysokomýtsko [Bachmann],Vysokomýtsko,...
-57,Vyškovsko,Vyškovsko,Vyškov
-58,Vyškovsko [Cigánek],Vyškovsko,...
-59,Zábřežsko [Šmejkalová],Zábřežsko,"Bohuslavice SU, Dubicko SU, Hrabová SU"
-60,Zlínsko,Zlínsko,Zlín
-61,Ždánicko [Kolaja],Ždánicko,"Ždánice HO, Dambořice HO, Lovčice HO, Žarošice HO, Archlebov HO, Dražůvky HO"
-62,Železnobrodsko [Bachmannová],Železnobrodsko,"Loužnice JN, Pěnčín JN (Bratříkov), Držkov JN, Zásada JN"
-63,Abertamsko,Abertamsko,Abertamy
-64,Adamovsko,Adamovsko,Adamov
-65,Ašsko,Ašsko,Aš
-66,Bakovsko,Bakovsko,Bakov nad Jizerou
-67,Bašsko,Bašsko,Baška
-68,Bašťsko,Bašťsko,Bašť
-69,Batelovsko,Batelovsko,Batelov
-70,Bavorovsko,Bavorovsko,Bavorov
-71,Bečovsko,Bečovsko,Bečov nad Teplou
-72,Bechyňsko,Bechyňsko,Bechyně
-73,Bělčicko,Bělčicko,Bělčice
-74,Bělohradsko,Bělohradsko,Lázně Bělohrad
-75,Benátecko,Benátecko,Benátky nad Jizerou
-76,Benešovsko,Benešovsko,Benešov
-77,Berounsko,Berounsko,Beroun
-78,Besednicko,Besednicko,Besednice
-79,Bezdružicko,Bezdružicko,Bezdružice
-80,Bezensko,Bezensko,Bezno
-81,Bílinsko,Bílinsko,Bílina
-82,Bílovecko,Bílovecko,Bílovec
-83,Blatensko,Blatensko,Blatná
-84,Blížkovicko,Blížkovicko,Blížkovice
-85,Blovicko,Blovicko,Blovice
-86,Blšansko,Blšansko,Blšany
-87,Bludovsko,Bludovsko,Bludov
-88,Bobrovsko,Bobrovsko,Bobrová
-89,Bohdalovsko,Bohdalovsko,Bohdalov
-90,Bohdanečsko,Bohdanečsko,Lázně Bohdaneč
-91,Bohumínsko,Bohumínsko,Bohumín
-92,Bohuňovicko,Bohuňovicko,Bohuňovice
-93,Bohušovicko,Bohušovicko,Bohušovice nad Ohří
-94,Bochovsko,Bochovsko,Bochov
-95,Bojkovicko,Bojkovicko,Bojkovice
-96,Bolaticko,Bolaticko,Bolatice
-97,Boleradicko,Boleradicko,Boleradice
-98,Borohrádecko,Borohrádecko,Borohrádek
-99,Borovansko,Borovansko,Borovany
-100,Borsko,Borsko,Bor
-101,Boskovicko,Boskovicko,Boskovice
-102,Brandýsko,Brandýsko,Brandýs nad Labem-Stará Boleslav
-103,Brankovicko,Brankovicko,Brankovice
-104,Brněnsko,Brněnsko,Brno
-105,Broumovsko,Broumovsko,Broumov
-106,Brozansko,Brozansko,Brozany nad Ohří
-107,Brtnicko,Brtnicko,Brtnice
-108,Brumovsko,Brumovsko,Brumov-Bylnice
-109,Bruntálsko,Bruntálsko,Bruntál
-110,Brušpersko,Brušpersko,Brušperk
-111,Břeclavsko,Břeclavsko,Břeclav
-112,Bučovicko,Bučovicko,Bučovice
-113,Budyňsko,Budyňsko,Budyně nad Ohří
-114,Buchlovicko,Buchlovicko,Buchlovice
-115,Buštěhradsko,Buštěhradsko,Buštěhrad
-116,Bystersko,Bystersko,Bystré
-117,Bzenecko,Bzenecko,Bzenec
-118,Cerhenicko,Cerhenicko,Cerhenice
-119,Cerhovicko,Cerhovicko,Cerhovice
-120,Cítolibsko,Cítolibsko,Cítoliby
-121,Cvikovsko,Cvikovsko,Cvikov
-122,Čáslavsko,Čáslavsko,Čáslav
-123,Častolovicko,Častolovicko,Častolovice
-124,Čechticko,Čechticko,Čechtice
-125,Čeladensko,Čeladensko,Čeladná
-126,Čelákovicko,Čelákovicko,Čelákovice
-127,Čerčansko,Čerčansko,Čerčany
-128,Černohorsko,Černohorsko,Černá Hora
-129,Černokostelecko,Černokostelecko,Kostelec nad Černými lesy
-130,Černošicko,Černošicko,Černošice
-131,Černošínsko,Černošínsko,Černošín
-132,Černovicko,Černovicko,Černovice
-133,Červenokostelecko,Červenokostelecko,Červený Kostelec
-134,Červenopečecko,Červenopečecko,Červené Pečky
-135,Červenořečicko,Červenořečicko,Červená Řečice
-136,Červenovodsko,Červenovodsko,Červená Voda
-137,Českobělsko,Českobělsko,Česká Bělá
-138,Českobrodsko,Českobrodsko,Český Brod
-139,Českodubsko,Českodubsko,Český Dub
-140,Českokamenicko,Českokamenicko,Česká Kamenice
-141,Českokrumlovsko,Českokrumlovsko,Český Krumlov
-142,Českolipsko,Českolipsko,Česká Lípa
-143,Českoskalicko,Českoskalicko,Česká Skalice
-144,Českovelenicko,Českovelenicko,České Velenice
-145,Dašicko,Dašicko,Dašice
-146,Davelsko,Davelsko,Davle
-147,Deblínsko,Deblínsko,Deblín
-148,Děčínsko,Děčínsko,Děčín
-149,Desensko,Desensko,Desná
-150,Deštensko,Deštensko,Deštná
-151,Dětmarovicko,Dětmarovicko,Dětmarovice
-152,Divišovsko,Divišovsko,Divišov
-153,Dobersko,Dobersko,Dobrá
-154,Dobrovicko,Dobrovicko,Dobrovice
-155,Dobrušsko,Dobrušsko,Dobruška
-156,Dobřansko,Dobřansko,Dobřany
-157,Dobřichovicko,Dobřichovicko,Dobřichovice
-158,Dobříšsko,Dobříšsko,Dobříš
-159,Dokesko,Dokesko,Doksy
-160,Dolnobenešovsko,Dolnobenešovsko,Dolní Benešov
-161,Dolnobojanovicko,Dolnobojanovicko,Dolní Bojanovice
-162,Dolnobousovsko,Dolnobousovsko,Dolní Bousov
-163,Dolnobřežansko,Dolnobřežansko,Dolní Břežany
-164,Dolnobukovsko,Dolnobukovsko,Dolní Bukovsko
-165,Dolnocerekevsko,Dolnocerekevsko,Dolní Cerekev
-166,Dolnočermensko,Dolnočermensko,Dolní Čermná
-167,Dolnodobroučsko,Dolnodobroučsko,Dolní Dobrouč
-168,Dolnokounicko,Dolnokounicko,Dolní Kounice
-169,Dolnolutyňsko,Dolnolutyňsko,Dolní Lutyně
-170,Dolnoněmečsko,Dolnoněmečsko,Dolní Němčí
-171,Dolnopoustevensko,Dolnopoustevensko,Dolní Poustevna
-172,Doubravnicko,Doubravnicko,Doubravník
-173,Drásovsko,Drásovsko,Drásov
-174,Drnholecko,Drnholecko,Drnholec
-175,Dřevohosticko,Dřevohosticko,Dřevohostice
-176,Dubňansko,Dubňansko,Dubňany
-177,Duchcovsko,Duchcovsko,Duchcov
-178,Františkolázeňsko,Františkolázeňsko,Františkovy Lázně
-179,Frymbursko,Frymbursko,Frymburk
-180,Fryštácko,Fryštácko,Fryšták
-181,Fulnecko,Fulnecko,Fulnek
-182,Golčovojeníkovsko,Golčovojeníkovsko,Golčův Jeníkov
-183,Habartovsko,Habartovsko,Habartov
-184,Habersko,Habersko,Habry
-185,Hanušovicko,Hanušovicko,Hanušovice
-186,Harrachovsko,Harrachovsko,Harrachov
-187,Hartmanicko,Hartmanicko,Hartmanice
-188,Havířovsko,Havířovsko,Havířov
-189,Havlíčkoborovsko,Havlíčkoborovsko,Havlíčkova Borová
-190,Havlíčkobrodsko,Havlíčkobrodsko,Havlíčkův Brod
-191,Hejnicko,Hejnicko,Hejnice
-192,Heřmanoměstecko,Heřmanoměstecko,Heřmanův Městec
-193,Hlinecko,Hlinecko,Hlinsko
-194,Hlubocko,Hlubocko,Hluboká nad Vltavou
-195,Hlubočsko,Hlubočsko,Hlubočky
-196,Hlucko,Hlucko,Hluk
-197,Hodkovicko,Hodkovicko,Hodkovice nad Mohelkou
-198,Holešovsko,Holešovsko,Holešov
-199,Holýšovsko,Holýšovsko,Holýšov
-200,Horažďovicko,Horažďovicko,Horažďovice
-201,Hornobenešovsko,Hornobenešovsko,Horní Benešov
-202,Hornobřízsko,Hornobřízsko,Horní Bříza
-203,Hornocerekevsko,Hornocerekevsko,Horní Cerekev
-204,Hornojelensko,Hornojelensko,Horní Jelení
-205,Hornojiřetínsko,Hornojiřetínsko,Horní Jiřetín
-206,Hornoplánsko,Hornoplánsko,Horní Planá
-207,Hornoslavkovsko,Hornoslavkovsko,Horní Slavkov
-208,Hornosušsko,Hornosušsko,Horní Suchá
-209,Horoměřicko,Horoměřicko,Horoměřice
-210,Horšovskotýnsko,Horšovskotýnsko,Horšovský Týn
-211,Hořicko,Hořicko,Hořice
-212,Hořovicko,Hořovicko,Hořovice
-213,Hostinsko,Hostinsko,Hostinné
-214,Hostivicko,Hostivicko,Hostivice
-215,Hoštecko,Hoštecko,Hoštka
-216,Hranicko,Hranicko,Hranice
-217,Hrobsko,Hrobsko,Hrob
-218,Hrochovotýnecko,Hrochovotýnecko,Hrochův Týnec
-219,Hronovsko,Hronovsko,Hronov
-220,Hrotovicko,Hrotovicko,Hrotovice
-221,Hroznětínsko,Hroznětínsko,Hroznětín
-222,Hulínsko,Hulínsko,Hulín
-223,Humpolecko,Humpolecko,Humpolec
-224,Hustopečsko,Hustopečsko,Hustopeče
-225,Chabařovicko,Chabařovicko,Chabařovice
-226,Chebsko,Chebsko,Cheb
-227,Chlumecko,Chlumecko,Chlumec nad Cidlinou
-228,Choceňsko,Choceňsko,Choceň
-229,Chodovsko,Chodovsko,Chodov
-230,Cholticko,Cholticko,Choltice
-231,Chomutovsko,Chomutovsko,Chomutov
-232,Chotěbořsko,Chotěbořsko,Chotěboř
-233,Chotěšovsko,Chotěšovsko,Chotěšov
-234,Chotětovsko,Chotětovsko,Chotětov
-235,Chrastavsko,Chrastavsko,Chrastava
-236,Chrastsko,Chrastsko,Chrast
-237,Chropyňsko,Chropyňsko,Chropyně
-238,Chroustovicko,Chroustovicko,Chroustovice
-239,Chrudimsko,Chrudimsko,Chrudim
-240,Chudenicko,Chudenicko,Chudenice
-241,Chvaleticko,Chvaleticko,Chvaletice
-242,Chýnovsko,Chýnovsko,Chýnov
-243,Chýňsko,Chýňsko,Chýně
-244,Ivančicko,Ivančicko,Ivančice
-245,Ivanovicko,Ivanovicko,Ivanovice na Hané
-246,Jablunkovsko,Jablunkovsko,Jablunkov
-247,Jáchymovsko,Jáchymovsko,Jáchymov
-248,Janovicko,Janovicko,Janovice nad Úhlavou
-249,Jaroměřicko,Jaroměřicko,Jaroměřice nad Rokytnou
-250,Jaroměřsko,Jaroměřsko,Jaroměř
-251,Jedovnicko,Jedovnicko,Jedovnice
-252,Jemnicko,Jemnicko,Jemnice
-253,Jevíčsko,Jevíčsko,Jevíčko
-254,Jevišovicko,Jevišovicko,Jevišovice
-255,Jičínsko,Jičínsko,Jičín
-256,Jihlavsko,Jihlavsko,Jihlava
-257,Jimramovsko,Jimramovsko,Jimramov
-258,Jindřichohradecko,Jindřichohradecko,Jindřichův Hradec
-259,Jinecko,Jinecko,Jince
-260,Jirensko,Jirensko,Jirny
-261,Jiříkovsko,Jiříkovsko,Jiříkov
-262,Jistebnicko,Jistebnicko,Jistebnice
-263,Kácovsko,Kácovsko,Kácov
-264,Kadaňsko,Kadaňsko,Kadaň
-265,Kamenickošenovsko,Kamenickošenovsko,Kamenický Šenov
-266,Kaplicko,Kaplicko,Kaplice
-267,Kardašovořečicko,Kardašovořečicko,Kardašova Řečice
-268,Karlovarsko,Karlovarsko,Karlovy Vary
-269,Karlštejnsko,Karlštejnsko,Karlštejn
-270,Karolinsko,Karolinsko,Karolinka
-271,Kasejovicko,Kasejovicko,Kasejovice
-272,Kašperskohorsko,Kašperskohorsko,Kašperské Hory
-273,Katovicko,Katovicko,Katovice
-274,Kaznějovsko,Kaznějovsko,Kaznějov
-275,Kdyňsko,Kdyňsko,Kdyně
-276,Kladensko,Kladensko,Kladno
-277,Klášterecko,Klášterecko,Klášterec nad Ohří
-278,Klatovsko,Klatovsko,Klatovy
-279,Klecansko,Klecansko,Klecany
-280,Klenečsko,Klenečsko,Klenčí pod Čerchovem
-281,Klimkovicko,Klimkovicko,Klimkovice
-282,Kloboucko,Kloboucko,Klobouky u Brna
-283,Kobeřicko,Kobeřicko,Kobeřice
-284,Kojetínsko,Kojetínsko,Kojetín
-285,Kolinecko,Kolinecko,Kolinec
-286,Kolínsko,Kolínsko,Kolín
-287,Kolovečsko,Kolovečsko,Koloveč
-288,Kopidlensko,Kopidlensko,Kopidlno
-289,Kopřivnicko,Kopřivnicko,Kopřivnice
-290,Koryčansko,Koryčansko,Koryčany
-291,Kosmonosko,Kosmonosko,Kosmonosy
-292,Košťansko,Košťansko,Košťany
-293,Kounicko,Kounicko,Kounice
-294,Kouřimsko,Kouřimsko,Kouřim
-295,Kozlovicko,Kozlovicko,Kozlovice
-296,Kožlansko,Kožlansko,Kožlany
-297,Králicko,Králicko,Králíky
-298,Králodvorsko,Králodvorsko,Králův Dvůr
-299,Královédvorsko,Královédvorsko,Dvůr Králové nad Labem
-300,Královéhradecko,Královéhradecko,Hradec Králové
-301,Královéměstecko,Královéměstecko,Městec Králové
-302,Kralovicko,Kralovicko,Kralovice
-303,Kralupsko,Kralupsko,Kralupy nad Vltavou
-304,Kraslicko,Kraslicko,Kraslice
-305,Krásnohorsko,Krásnohorsko,Krásná Hora nad Vltavou
-306,Krásnolipsko,Krásnolipsko,Krásná Lípa
-307,Kravařsko,Kravařsko,Kravaře
-308,Krnovsko,Krnovsko,Krnov
-309,Kroměřížsko,Kroměřížsko,Kroměříž
-310,Krucembursko,Krucembursko,Krucemburk
-311,Krupecko,Krupecko,Krupka
-312,Kryrsko,Kryrsko,Kryry
-313,Křemžsko,Křemžsko,Křemže
-314,Křinecko,Křinecko,Křinec
-315,Křižanovsko,Křižanovsko,Křižanov
-316,Křtinsko,Křtinsko,Křtiny
-317,Kunovicko,Kunovicko,Kunovice
-318,Kunštátsko,Kunštátsko,Kunštát
-319,Kunvaldsko,Kunvaldsko,Kunvald
-320,Kuřimsko,Kuřimsko,Kuřim
-321,Kutnohorsko,Kutnohorsko,Kutná Hora
-322,Kyjovsko,Kyjovsko,Kyjov
-323,Kynšpersko,Kynšpersko,Kynšperk nad Ohří
-324,Kynžvartsko,Kynžvartsko,Lázně Kynžvart
-325,Lanškrounsko,Lanškrounsko,Lanškroun
-326,Lanžhotsko,Lanžhotsko,Lanžhot
-327,Ledečsko,Ledečsko,Ledeč nad Sázavou
-328,Ledenicko,Ledenicko,Ledenice
-329,Letohradsko,Letohradsko,Letohrad
-330,Letovicko,Letovicko,Letovice
-331,Lhenicko,Lhenicko,Lhenice
-332,Libáňsko,Libáňsko,Libáň
-333,Libčicko,Libčicko,Libčice nad Vltavou
-334,Liběchovsko,Liběchovsko,Liběchov
-335,Liberecko,Liberecko,Liberec
-336,Líbeznicko,Líbeznicko,Líbeznice
-337,Libicko,Libicko,Libice nad Doubravou
-338,Libinsko,Libinsko,Libina
-339,Libochovicko,Libochovicko,Libochovice
-340,Libštátsko,Libštátsko,Libštát
-341,Libušínsko,Libušínsko,Libušín
-342,Líňsko,Líňsko,Líně
-343,Lišovsko,Lišovsko,Lišov
-344,Liteňsko,Liteňsko,Liteň
-345,Litoměřicko,Litoměřicko,Litoměřice
-346,Litovelsko,Litovelsko,Litovel
-347,Litultovicko,Litultovicko,Litultovice
-348,Litvínovicko,Litvínovicko,Litvínovice
-349,Litvínovsko,Litvínovsko,Litvínov
-350,Loketsko,Loketsko,Loket
-351,Lomsko,Lomsko,Lom
-352,Lošticko,Lošticko,Loštice
-353,Loučeňsko,Loučeňsko,Loučeň
-354,Lounsko,Lounsko,Louny
-355,Lovosicko,Lovosicko,Lovosice
-356,Lubsko,Lubsko,Luby
-357,Lučansko,Lučansko,Lučany nad Nisou
-358,Ludgeřovicko,Ludgeřovicko,Ludgeřovice
-359,Luhačovicko,Luhačovicko,Luhačovice
-360,Lutínsko,Lutínsko,Lutín
-361,Lužicko,Lužicko,Lužice
-362,Lužsko,Lužsko,Luže
-363,Lysicko,Lysicko,Lysice
-364,Machovsko,Machovsko,Machov
-365,Malešovsko,Malešovsko,Malešov
-366,Malšicko,Malšicko,Malšice
-367,Manětínsko,Manětínsko,Manětín
-368,Mariánskolázeňsko,Mariánskolázeňsko,Mariánské Lázně
-369,Mečínsko,Mečínsko,Měčín
-370,Mělnicko,Mělnicko,Mělník
-371,Měřínsko,Měřínsko,Měřín
-372,Mezibořsko,Mezibořsko,Meziboří
-373,Meziměstsko,Meziměstsko,Meziměstí
-374,Mikulášovicko,Mikulášovicko,Mikulášovice
-375,Mikulovsko,Mikulovsko,Mikulov
-376,Miletínsko,Miletínsko,Miletín
-377,Milovicko,Milovicko,Milovice
-378,Mimoňsko,Mimoňsko,Mimoň
-379,Miroslavsko,Miroslavsko,Miroslav
-380,Mirošovsko,Mirošovsko,Mirošov
-381,Miroticko,Miroticko,Mirotice
-382,Mirovicko,Mirovicko,Mirovice
-383,Mladoboleslavsko,Mladoboleslavsko,Mladá Boleslav
-384,Mladovolžicko,Mladovolžicko,Mladá Vožice
-385,Mnichovicko,Mnichovicko,Mnichovice
-386,Mnichovohradišťsko,Mnichovohradišťsko,Mnichovo Hradiště
-387,Mníšecko,Mníšecko,Mníšek pod Brdy
-388,Modřicko,Modřicko,Modřice
-389,Mohelensko,Mohelensko,Mohelno
-390,Mohelnicko,Mohelnicko,Mohelnice
-391,Moravskoberounsko,Moravskoberounsko,Moravský Beroun
-392,Moravskobudějovicko,Moravskobudějovicko,Moravské Budějovice
-393,Moravskokrumlovsko,Moravskokrumlovsko,Moravský Krumlov
-394,Moravskotřebovsko,Moravskotřebovsko,Moravská Třebová
-395,Morkovicko,Morkovicko,Morkovice-Slížany
-396,Mostecko,Mostecko,Most
-397,Mšecko,Mšecko,Mšec
-398,Mšensko,Mšensko,Mšeno
-399,Mukařovsko,Mukařovsko,Mukařov
-400,Mutěnicko,Mutěnicko,Mutěnice
-401,Mýtsko,Mýtsko,Mýto
-402,Načeradecko,Načeradecko,Načeradec
-403,Nalžovskohorsko,Nalžovskohorsko,Nalžovské Hory
-404,Napajedelsko,Napajedelsko,Napajedla
-405,Nasavrcko,Nasavrcko,Nasavrky
-406,Návesko,Návesko,Návsí
-407,Nedvědicko,Nedvědicko,Nedvědice
-408,Nehvizdsko,Nehvizdsko,Nehvizdy
-409,Nechanicko,Nechanicko,Nechanice
-410,Nejdecko,Nejdecko,Nejdek
-411,Němčicko,Němčicko,Němčice nad Hanou
-412,Nepomucko,Nepomucko,Nepomuk
-413,Neratovicko,Neratovicko,Neratovice
-414,Netolicko,Netolicko,Netolice
-415,Netvořicko,Netvořicko,Netvořice
-416,Nezamyslicko,Nezamyslicko,Nezamyslice
-417,Nivnicko,Nivnicko,Nivnice
-418,Nosislavsko,Nosislavsko,Nosislav
-419,Novoborsko,Novoborsko,Nový Bor
-420,Novobydžovsko,Novobydžovsko,Nový Bydžov
-421,Novobystřicko,Novobystřicko,Nová Bystřice
-422,Novocerekevsko,Novocerekevsko,Nová Cerekev
-423,Novohrádecko,Novohrádecko,Nový Hrádek
-424,Novohradsko,Novohradsko,Nové Hrady
-425,Novohrozenkovsko,Novohrozenkovsko,Nový Hrozenkov
-426,Novojičínsko,Novojičínsko,Nový Jičín
-427,Novoknínsko,Novoknínsko,Nový Knín
-428,Novomalínsko,Novomalínsko,Nový Malín
-429,Novoměstsko,Novoměstsko,Nové Město pod Smrkem
-430,Novorolsko,Novorolsko,Nová Role
-431,Novorychnovsko,Novorychnovsko,Nový Rychnov
-432,Novoříšsko,Novoříšsko,Nová Říše
-433,Novosedelsko,Novosedelsko,Nové Sedlo
-434,Novostrašecko,Novostrašecko,Nové Strašecí
-435,Novovčelnicko,Novovčelnicko,Nová Včelnice
-436,Novoveselsko,Novoveselsko,Nové Veselí
-437,Nymbursko,Nymbursko,Nymburk
-438,Nýrsko,Nýrsko,Nýrsko
-439,Nýřansko,Nýřansko,Nýřany
-440,Odersko,Odersko,Odry
-441,Odolenovodsko,Odolenovodsko,Odolena Voda
-442,Okříšsko,Okříšsko,Okříšky
-443,Olomoucko,Olomoucko,Olomouc
-444,Olovsko,Olovsko,Oloví
-445,Opočensko,Opočensko,Opočno
-446,Orlickoústecko,Orlickoústecko,Ústí nad Orlicí
-447,Orlovsko,Orlovsko,Orlová
-448,Osečensko,Osečensko,Osečná
-449,Oslavansko,Oslavansko,Oslavany
-450,Ostrovsko,Ostrovsko,Ostrov
-451,Osvětimansko,Osvětimansko,Osvětimany
-452,Otrokovicko,Otrokovicko,Otrokovice
-453,Pacovsko,Pacovsko,Pacov
-454,Palkovicko,Palkovicko,Palkovice
-455,Pardubicko,Pardubicko,Pardubice
-456,Paskovsko,Paskovsko,Paskov
-457,Pavlíkovsko,Pavlíkovsko,Pavlíkov
-458,Peckovsko,Peckovsko,Pecka
-459,Pečecko,Pečecko,Pečky
-460,Pelhřimovsko,Pelhřimovsko,Pelhřimov
-461,Perucko,Perucko,Peruc
-462,Petřvaldsko,Petřvaldsko,Petřvald
-463,Pilníkovsko,Pilníkovsko,Pilníkov
-464,Písecko,Písecko,Písek
-465,Plaňansko,Plaňansko,Plaňany
-466,Plánicko,Plánicko,Plánice
-467,Plasko,Plasko,Plasy
-468,Plesensko,Plesensko,Plesná
-469,Plumlovsko,Plumlovsko,Plumlov
-470,Poběžovicko,Poběžovicko,Poběžovice
-471,Počátecko,Počátecko,Počátky
-472,Podbořansko,Podbořansko,Podbořany
-473,Poděbradsko,Poděbradsko,Poděbrady
-474,Podivínsko,Podivínsko,Podivín
-475,Pohořelicko,Pohořelicko,Pohořelice
-476,Polensko,Polensko,Polná
-477,Polešovicko,Polešovicko,Polešovice
-478,Policko,Policko,Police nad Metují
-479,Poličsko,Poličsko,Polička
-480,Postoloprtsko,Postoloprtsko,Postoloprty
-481,Postřelmovsko,Postřelmovsko,Postřelmov
-482,Potštátsko,Potštátsko,Potštát
-483,Pozlovicko,Pozlovicko,Pozlovice
-484,Prachaticko,Prachaticko,Prachatice
-485,Proboštovsko,Proboštovsko,Proboštov
-486,Prosečsko,Prosečsko,Proseč
-487,Prosiměricko,Prosiměricko,Prosiměřice
-488,Protivanovsko,Protivanovsko,Protivanov
-489,Protivínsko,Protivínsko,Protivín
-490,Průhonicko,Průhonicko,Průhonice
-491,Přeloučsko,Přeloučsko,Přelouč
-492,Přerovsko,Přerovsko,Přerov
-493,Přešticko,Přešticko,Přeštice
-494,Příbramsko,Příbramsko,Příbram
-495,Přibyslavsko,Přibyslavsko,Přibyslav
-496,Přimdsko,Přimdsko,Přimda
-497,Psársko,Psársko,Psáry
-498,Pyšelsko,Pyšelsko,Pyšely
-499,Radnicko,Radnicko,Radnice
-500,Radomyšlsko,Radomyšlsko,Radomyšl
-501,Radostínsko,Radostínsko,Radostín nad Oslavou
-502,Rájecko-Jestřebsko,Rájecko-Jestřebsko,Rájec-Jestřebí
-503,Rajhradsko,Rajhradsko,Rajhrad
-504,Rakovnicko,Rakovnicko,Rakovník
-505,Rapotínsko,Rapotínsko,Rapotín
-506,Raspenavsko,Raspenavsko,Raspenava
-507,Ratíškovicko,Ratíškovicko,Ratíškovice
-508,Rohatecko,Rohatecko,Rohatec
-509,Rokycansko,Rokycansko,Rokycany
-510,Ronovsko,Ronovsko,Ronov nad Doubravou
-511,Rosicko,Rosicko,Rosice
-512,Rotavsko,Rotavsko,Rotava
-513,Roudnicko,Roudnicko,Roudnice nad Labem
-514,Rousínovsko,Rousínovsko,Rousínov
-515,Roztocko,Roztocko,Roztoky
-516,Rožďalovicko,Rožďalovicko,Rožďalovice
-517,Rtyňsko,Rtyňsko,Rtyně v Podkrkonoší
-518,Rudensko,Rudensko,Rudná
-519,Rudolfovsko,Rudolfovsko,Rudolfov
-520,Rumbursko,Rumbursko,Rumburk
-521,Rychvaldsko,Rychvaldsko,Rychvald
-522,Rýmařovsko,Rýmařovsko,Rýmařov
-523,Řevnicko,Řevnicko,Řevnice
-524,Říčansko,Říčansko,Říčany
-525,Sadsko,Sadsko,Sadská
-526,Sázavsko,Sázavsko,Sázava
-527,Sečsko,Sečsko,Seč
-528,Sedlčansko,Sedlčansko,Sedlčany
-529,Sedlecko,Sedlecko,Sedlec-Prčice
-530,Sedlicko,Sedlicko,Sedlice
-531,Semilsko,Semilsko,Semily
-532,Senomatsko,Senomatsko,Senomaty
-533,Sepekovsko,Sepekovsko,Sepekov
-534,Sezemicko,Sezemicko,Sezemice
-535,Sezimoústecko,Sezimoústecko,Sezimovo Ústí
-536,Skalensko,Skalensko,Skalná
-537,Skutečsko,Skutečsko,Skuteč
-538,Slánsko,Slánsko,Slaný
-539,Slatiňansko,Slatiňansko,Slatiňany
-540,Slavičínsko,Slavičínsko,Slavičín
-541,Slavkovsko,Slavkovsko,Slavkov u Brna
-542,Slavonicko,Slavonicko,Slavonice
-543,Slušovicko,Slušovicko,Slušovice
-544,Smečensko,Smečensko,Smečno
-545,Smiřicko,Smiřicko,Smiřice
-546,Smržovsko,Smržovsko,Smržovka
-547,Soběslavsko,Soběslavsko,Soběslav
-548,Sobotecko,Sobotecko,Sobotka
-549,Sokolovsko,Sokolovsko,Sokolov
-550,Solnicko,Solnicko,Solnice
-551,Spálenopoříčsko,Spálenopoříčsko,Spálené Poříčí
-552,Srubecko,Srubecko,Srubec
-553,Staňkovsko,Staňkovsko,Staňkov
-554,Starojičínsko,Starojičínsko,Starý Jičín
-555,Staroplzenecko,Staroplzenecko,Starý Plzenec
-556,Stařečsko,Stařečsko,Stařeč
-557,Stodsko,Stodsko,Stod
-558,Stochovsko,Stochovsko,Stochov
-559,Stonařovsko,Stonařovsko,Stonařov
-560,Strančicko,Strančicko,Strančice
-561,Stránsko,Stránsko,Strání
-562,Strašicko,Strašicko,Strašice
-563,Strážnicko,Strážnicko,Strážnice
-564,Strážovsko,Strážovsko,Strážov
-565,Strmilovsko,Strmilovsko,Strmilov
-566,Střážecko,Střážecko,Strážek
-567,Střelicko,Střelicko,Střelice
-568,Stříbrsko,Stříbrsko,Stříbro
-569,Studénecko,Studénecko,Studénka
-570,Svatavsko,Svatavsko,Svatava
-571,Svatobořicko,Svatobořicko,Svatobořice-Mistřín
-572,Světelsko,Světelsko,Světlá nad Sázavou
-573,Svitávecko,Svitávecko,Svitávka
-574,Svitavsko,Svitavsko,Svitavy
-575,Svobodsko,Svobodsko,Svoboda nad Úpou
-576,Svratecko,Svratecko,Svratka
-577,Šatovsko,Šatovsko,Šatov
-578,Šenovsko,Šenovsko,Šenov
-579,Šestajovicko,Šestajovicko,Šestajovice
-580,Ševětínsko,Ševětínsko,Ševětín
-581,Škvorecko,Škvorecko,Škvorec
-582,Šlapanicko,Šlapanicko,Šlapanice
-583,Šluknovsko,Šluknovsko,Šluknov
-584,Šťáhlavsko,Šťáhlavsko,Šťáhlavy
-585,Štěchovicko,Štěchovicko,Štěchovice
-586,Štěkeňsko,Štěkeňsko,Štěkeň
-587,Štěpánkovicko,Štěpánkovicko,Štěpánkovice
-588,Štěpánovsko,Štěpánovsko,Štěpánov
-589,Šternbersko,Šternbersko,Šternberk
-590,Štětsko,Štětsko,Štětí
-591,Štítsko,Štítsko,Štíty
-592,Štocko,Štocko,Štoky
-593,Štrambersko,Štrambersko,Štramberk
-594,Šumpersko,Šumpersko,Šumperk
-595,Švábenicko,Švábenicko,Švábenice
-596,Švihovsko,Švihovsko,Švihov
-597,Táborsko,Táborsko,Tábor
-598,Tachovsko,Tachovsko,Tachov
-599,Tanvaldsko,Tanvaldsko,Tanvald
-600,Telčsko,Telčsko,Telč
-601,Tepelsko,Tepelsko,Teplá
-602,Teplicko,Teplicko,Teplice
-603,Terezínsko,Terezínsko,Terezín
-604,Tišnovsko,Tišnovsko,Tišnov
-605,Tlučensko,Tlučensko,Tlučná
-606,Toušeňsko,Toušeňsko,Lázně Toušeň
-607,Touškovsko,Touškovsko,Město Touškov
-608,Toužimsko,Toužimsko,Toužim
-609,Tovačovsko,Tovačovsko,Tovačov
-610,Trhosvinensko,Trhosvinensko,Trhové Sviny
-611,Trhovokamenicko,Trhovokamenicko,Trhová Kamenice
-612,Trhovoštěpánovsko,Trhovoštěpánovsko,Trhový Štěpánov
-613,Trmicko,Trmicko,Trmice
-614,Trojanovicko,Trojanovicko,Trojanovice
-615,Trutnovsko,Trutnovsko,Trutnov
-616,Třebechovicko,Třebechovicko,Třebechovice pod Orebem
-617,Třebenicko,Třebenicko,Třebenice
-618,Třebíčsko,Třebíčsko,Třebíč
-619,Třeboňsko,Třeboňsko,Třeboň
-620,Třemošensko,Třemošensko,Třemošná
-621,Třemošnicko,Třemošnicko,Třemošnice
-622,Třešťsko,Třešťsko,Třešť
-623,Třinecko,Třinecko,Třinec
-624,Tuchlovicko,Tuchlovicko,Tuchlovice
-625,Turnovsko,Turnovsko,Turnov
-626,Týnišťsko,Týnišťsko,Týniště nad Orlicí
-627,Uherskobrodsko,Uherskobrodsko,Uherský Brod
-628,Uherskohradišťsko,Uherskohradišťsko,Uherské Hradiště
-629,Uherskoostrožsko,Uherskoostrožsko,Uherský Ostroh
-630,Uhlířskojanovicko,Uhlířskojanovicko,Uhlířské Janovice
-631,Unhošťsko,Unhošťsko,Unhošť
-632,Uničovsko,Uničovsko,Uničov
-633,Úpicko,Úpicko,Úpice
-634,Úsovsko,Úsovsko,Úsov
-635,Úštěcko,Úštěcko,Úštěk
-636,Úvalsko,Úvalsko,Úvaly
-637,Valašskomeziříčsko,Valašskomeziříčsko,Valašské Meziříčí
-638,Valticko,Valticko,Valtice
-639,Vambersko,Vambersko,Vamberk
-640,Varnsdorfsko,Varnsdorfsko,Varnsdorf
-641,Vejprtsko,Vejprtsko,Vejprty
-642,Vejrpnicko,Vejrpnicko,Vejprnice
-643,Velešínsko,Velešínsko,Velešín
-644,Velicko,Velicko,Velká nad Veličkou
-645,Velkobílovicko,Velkobílovicko,Velké Bílovice
-646,Velkobítešsko,Velkobítešsko,Velká Bíteš
-647,Velkobystřicko,Velkobystřicko,Velká Bystřice
-648,Velkohamersko,Velkohamersko,Velké Hamry
-649,Velkolosinsko,Velkolosinsko,Velké Losiny
-650,Velkomeziříčsko,Velkomeziříčsko,Velké Meziříčí
-651,Velkoněmčicko,Velkoněmčicko,Velké Němčice
-652,Velkoopatovicko,Velkoopatovicko,Velké Opatovice
-653,Velkopavlovicko,Velkopavlovicko,Velké Pavlovice
-654,Velkopopovicko,Velkopopovicko,Velké Popovice
-655,Velkopoříčsko,Velkopoříčsko,Velké Poříčí
-656,Velkopřílepsko,Velkopřílepsko,Velké Přílepy
-657,Velkošenovsko,Velkošenovsko,Velký Šenov
-658,Velkotýnecko,Velkotýnecko,Velký Týnec
-659,Velkoújezdsko,Velkoújezdsko,Velký Újezd
-660,Veltrusko,Veltrusko,Veltrusy
-661,Velvarsko,Velvarsko,Velvary
-662,Vendryňsko,Vendryňsko,Vendryně
-663,Verneřicko,Verneřicko,Verneřice
-664,Větřínsko,Větřínsko,Větřní
-665,Veverskobítýšsko,Veverskobítýšsko,Veverská Bítýška
-666,Vidnavsko,Vidnavsko,Vidnava
-667,Vimpersko,Vimpersko,Vimperk
-668,Višňovsko,Višňovsko,Višňové
-669,Vítkovsko,Vítkovsko,Vítkov
-670,Vizovicko,Vizovicko,Vizovice
-671,Vladislavsko,Vladislavsko,Vladislav
-672,Vlachovobřezsko,Vlachovobřezsko,Vlachovo Březí
-673,Vlašimsko,Vlašimsko,Vlašim
-674,Vlčnovsko,Vlčnovsko,Vlčnov
-675,Vnorovsko,Vnorovsko,Vnorovy
-676,Vodňansko,Vodňansko,Vodňany
-677,Vojnovoměstecko,Vojnovoměstecko,Vojnův Městec
-678,Volarsko,Volarsko,Volary
-679,Volyňsko,Volyňsko,Volyně
-680,Voticko,Voticko,Votice
-681,Vracovsko,Vracovsko,Vracov
-682,Vransko,Vransko,Vrané nad Vltavou
-683,Vratimovsko,Vratimovsko,Vratimov
-684,Vrbensko,Vrbensko,Vrbno pod Pradědem
-685,Vrdsko,Vrdsko,Vrdy
-686,Vrchlabsko,Vrchlabsko,Vrchlabí
-687,Vrchotojanovicko,Vrchotojanovicko,Vrchotovy Janovice
-688,Vroutecko,Vroutecko,Vroutek
-689,Všetatsko,Všetatsko,Všetaty
-690,Vysocko,Vysocko,Vysoké nad Jizerou
-691,Vysokochlumecko,Vysokochlumecko,Vysoký Chlumec
-692,Vysokomýtsko,Vysokomýtsko,Vysoké Mýto
-693,Vysokoveselsko,Vysokoveselsko,Vysoké Veselí
-694,Vyšebrodsko,Vyšebrodsko,Vyšší Brod
-695,Zábřežsko,Zábřežsko,Zábřeh
-696,Zákupsko,Zákupsko,Zákupy
-697,Zápsko,Zápsko,Zápy
-698,Zásmucko,Zásmucko,Zásmuky
-699,Zastávecko,Zastávecko,Zastávka
-700,Zašovsko,Zašovsko,Zašová
-701,Zbirožsko,Zbirožsko,Zbiroh
-702,Zbůšsko,Zbůšsko,Zbůch
-703,Zbýšovsko,Zbýšovsko,Zbýšov
-704,Zdibsko,Zdibsko,Zdiby
-705,Zdicko,Zdicko,Zdice
-706,Zelenečsko,Zelenečsko,Zeleneč
-707,Zlatohorsko,Zlatohorsko,Zlaté Hory
-708,Zlivsko,Zlivsko,Zliv
-709,Zlonicko,Zlonicko,Zlonice
-710,Znojemsko,Znojemsko,Znojmo
-711,Zručsko,Zručsko,Zruč nad Sázavou
-712,Zručsko-Senecko,Zručsko-Senecko,Zruč-Senec
-713,Zubersko,Zubersko,Zubří
-714,Žacléřsko,Žacléřsko,Žacléř
-715,Žambersko,Žambersko,Žamberk
-716,Žandovsko,Žandovsko,Žandov
-717,Žatecko,Žatecko,Žatec
-718,Ždánicko,Ždánicko,Ždánice
-719,Žďársko,Žďársko,Žďár nad Sázavou
-720,Ždírecko,Ždírecko,Ždírec nad Doubravou
-721,Žebrácko,Žebrácko,Žebrák
-722,Žehušicko,Žehušicko,Žehušice
-723,Želetavsko,Želetavsko,Želetava
-724,Železnicko,Železnicko,Železnice
-725,Železnobrodsko,Železnobrodsko,Železný Brod
-726,Železnorudsko,Železnorudsko,Železná Ruda
-727,Židlochovicko,Židlochovicko,Židlochovice
-728,Žinkovsko,Žinkovsko,Žinkovy
-729,Žirovnicko,Žirovnicko,Žirovnice
-730,Žluticko,Žluticko,Žlutice
-731,Žulovsko,Žulovsko,Žulová
-732,Slavkovsko-Bučovicko [Gregor],Slavkovsko-Bučovicko,"Heršpice VY, Hodějice VY, Kobeřice u Brna VY, Němčany VY, Křižanovice VY, Bučovice VY (Marefy), Mouřínov VY, Rašovice VY, Vážany nad Litavou VY"
-733,Štrambersko [Kellner],Štrambersko,"Štramberk NJ, Závišice NJ, Rybí NJ, Libhošť NJ, Kopřivnice NJ"
-734,Branice POLSKO,Branice POLSKO,Polsko
-735,Baborów POLSKO,Baborów POLSKO,Polsko
-736,Pstrążna POLSKO,Pstrążna POLSKO,Polsko
-737,Kudowa-Zdrój POLSKO,Kudowa-Zdrój POLSKO,Polsko
-738,Jakubowice POLSKO,Jakubowice POLSKO,Polsko
-739,Strzelin POLSKO,Strzelin POLSKO,Polsko
-740,Kuropatnik POLSKO,Kuropatnik POLSKO,Polsko
-741,Gęsiniec POLSKO,Gęsiniec POLSKO,Polsko
-742,Puńców POLSKO,Puńców POLSKO,Polsko
-743,Wisła POLSKO,Wisła POLSKO,Polsko
-744,Pietrowice Wielkie POLSKO,Pietrowice Wielkie POLSKO,Polsko
-745,Krzanowice POLSKO,Krzanowice POLSKO,Polsko
-746,Czermna POLSKO,Czermna POLSKO,Polsko
+číslo,editace (co uvidíme při zadávání),prezentace,definice,veřejné?
+1,Blanensko,Blanensko,Blansko,veřejné
+2,Blata,Blata,region,
+3,Bohumínsko a Karvinsko [Téma],Bohumínsko a Karvinsko,...,
+4,Břeclavsko [Folprecht],Břeclavsko,region,
+5,Českobudějovicko,Českobudějovicko,České Budějovice,veřejné
+6,Českotěšínsko,Českotěšínsko,Český Těšín,veřejné
+7,Českotřebovsko,Českotřebovsko,Česká Třebová,veřejné
+8,Dačicko,Dačicko,Dačice,veřejné
+9,Domažlicko,Domažlicko,Domažlice,veřejné
+10,Doudlebsko,Doudlebsko,region,
+11,Frenštátsko,Frenštátsko,Frenštát pod Radhoštěm,veřejné
+12,Frýdecko,Frýdecko,,
+13,Frýdecko-Místecko,Frýdecko-Místecko,Frýdek-Místek,veřejné
+14,Frýdecko-Místecko [Loriš],Frýdecko-Místecko,"Morávka FM, Pražmo FM, Krásná FM, Staré Hamry FM, Malenovice FM, Frýdlant nad Ostravicí FM (Nová Ves), Frýdlant nad Ostravicí FM (Lubno), Pržno FM, Janovice FM, Raškovice FM, Vyšní Lhoty FM, Nižní Lhoty FM, Nošovice FM, Frýdek-Místek FM (Skalice), Baška FM, Staré Město FM, Frýdek-Místek FM (Frýdek), Dobrá FM, Dobratice FM, Vojkovice FM, Lučina FM, Pazderna FM, Frýdek-Místek FM (Lískovec), Bruzovice FM",
+15,Frýdecko-Místecko [Zemanová],Frýdecko-Místecko,"Pražmo FM, Morávka FM, Krásná FM, Raškovice FM",
+16,Hlinecko [Adámek],Hlinecko,...,
+17,Hlučínsko,Hlučínsko,Hlučín,veřejné
+18,Hodonínsko,Hodonínsko,Hodonín,veřejné
+19,Holicko,Holicko,Holice,veřejné
+20,Chodsko,Chodsko,region,
+21,Jilemnicko,Jilemnicko,Jilemnice,veřejné
+22,Karvinsko,Karvinsko,Karviná,veřejné
+23,Kelečsko,Kelečsko,...,veřejné
+24,Kladsko,Kladsko,region,
+25,Konicko,Konicko,Konice,veřejné
+26,Litomyšlsko,Litomyšlsko,Litomyšl,veřejné
+27,Luhačovicko [Kolařík],Luhačovicko,"Luhačovice ZL, Ludkovice ZL, Pozlovice ZL, Podhradí ZL, Luhačovice ZL (Řetechov), Ludkovice ZL (Pradlisko), Biskupice ZL, Luhačovice ZL (Kladná Žilín)",
+28,Náchodsko,Náchodsko,Náchod,veřejné
+29,Neveklovsko,Neveklovsko,Neveklov,veřejné
+30,Novopacko,Novopacko,Nová Paka,veřejné
+31,Novopacko a Hořicko [Kotík],Novopacko a Hořicko,,
+32,Opavsko,Opavsko,Opava,veřejné
+33,Ostravsko,Ostravsko,Ostrava,veřejné
+34,Plzeňsko,Plzeňsko,Plzeň,veřejné
+35,Podkrkonoší [Bachmannová],Podkrkonoší,...,
+36,Prachaticko [Vydra],Prachaticko,"Budkov PT, Vlachovo Březí PT (Dachov), Drslavice PT, Dvory PT, Husinec PT (Horouty), Šumavské Hoštice PT, Husinec PT, Kratušín PT (Chlístov), Chlumany PT, Nebahovy PT (Jelemek), Prachatice PT (Kahov), Šumavské Hoštice PT (Kosmo), Kratušín PT, Lažiště PT, Nebahovy PT (Lažišťka), Radhostice PT (Lštění), Vlachovo Březí PT (Mojkov), Nebahovy PT, Prachatice PT (Oseky), Pěčnov PT, Prachatice PT (Podolí), Prachatice PT, Strunkovice nad Blanicí PT, Drslavice PT (Švihov), Buk PT (Včelná pod Boubínem), Vlachovo Březí PT, Šumavské Hoštice PT (Vojslavice), Zábrdí PT, Nebahovy PT (Zdenice), Strunkovice nad Blanicí PT (Žíchovec), Žárovná PT, Žernovice PT",
+37,Prostějovsko,Prostějovsko,Prostějov,veřejné
+38,Příborsko,Příborsko,Příbor,veřejné
+39,Příbramsko [Jančáková],Příbramsko,"Křešín PB, Rosovice PB, Mokrovraty PB, Drevníky PB (Nechalov), Dublovice PB, Rožmitál pod Třemšínem PB (Nesvačily), Březnice PB (Bor), Bukovany PB, Klučenice PB, Krásná Hora nad Vltavou PB (Krašovice), Obecnice PB, Podlesí PB, Příbram PB (Kozičín), Příbram PB (Žežice), Láz PB, Lazsko PB, Modřovice PB, Tochovice PB, Hluboš PB, Trhové Dušníky PB, Háje PB, Milín PB, Vrančice PB, Suchodol PB, Dubenec PB, Višňová PB, Dolní Hbity PB (Jelence), Milín PB (Stěžov), Smolotely PB, Pečice PB, Bohostice PB, Obory PB, Dolní Hbity PB (Luhy), Kamýk nad Vltavou PB (Velká), Zduchovice PB, Kamýk nad Vltavou PB, Solenice PB",
+40,Rožmitálsko,Rožmitálsko,Rožmitál pod Třemšínem,veřejné
+41,Rožnovsko,Rožnovsko,Rožnov pod Radhoštěm,veřejné
+42,Rtyňsko-Svatoňovicko,Rtyňsko-Svatoňovicko,"Rtyně v Podkrkonoší TU, Malé Svatoňovice TU, Velké Svatoňovice TU, Malé Svatoňovice TU (Petrovice), Malé Svatoňovice TU (Strážkovice), Malé Svatoňovice TU (Odolov), Velké Svatoňovice TU (Markoušovice), Batňovice TU, Úpice TU, Suchovršice TU, Havlovice TU, Libňatov TU, Maršov u Úpice Tu, Stárkov NA, Stárkov NA (Chlívce), Červený Kostelec NA (Bohdašín)",
+43,Rychnovsko,Rychnovsko,Rychnov nad Kněžnou,veřejné
+44,"Sedlčansko, Sedlecko a Voticko [Habart]","Sedlčansko, Sedlecko a Voticko",,
+45,Strakonicko,Strakonicko,Strakonice,veřejné
+46,Sušicko,Sušicko,Sušice,veřejné
+47,Šumpersko [Rýznar],Šumpersko,"Bohdíkov SU, Brníčko SU, Dlouhomilov SU, Drozdov SU, Horní Studénky SU, Jakubovice SU, Jedlí SU, Písařov SU, Postřelmov SU, Ruda nad Moravou SU (Bartoňov), Štíty SU",
+48,Tišnovsko [Vojtová],Tišnovsko,"Deblín BO, Drásov BO, Lipůvka BK, Kuřim BO, Rájec-Jestřebí BK, Sloup BK",
+49,Uherskohradišťsko [Hubáček],Uherskohradišťsko,...,
+50,Uherskohradišťsko [Ilík],Uherskohradišťsko,"Kunovice UH, Uherské Hradiště UH (Míkovice), Podolí UH, Popovice UH, Uherské Hradiště UH (Sady), Uherské Hradiště UH (Vésky)",
+51,Valašsko,Valašsko,region,
+52,Valašskokloboucko,Valašskokloboucko,Valašské Klobouky,veřejné
+53,Valašskomeziříčsko [Kašík],Valašskomeziříčsko,"Branky VS, Choryně VS, Kladeruby VS, Kunovice VS, Lešná VS, Lešná VS (Jasenice), Mikulůvka VS, Police VS, Poličná VS, Valašské Meziříčí VS (Juřinka), Valašské Meziříčí VS (Krásno nad Bečvou)",
+54,Vsetínsko,Vsetínsko,Vsetín,veřejné
+55,vých. Prostějovsko [Borocký],vých. Prostějovsko,https://mapy.cz/s/dutavukosu,
+56,Vysokomýtsko [Bachmann],Vysokomýtsko,...,
+57,Vyškovsko,Vyškovsko,Vyškov,veřejné
+58,Vyškovsko [Cigánek],Vyškovsko,...,
+59,Zábřežsko [Šmejkalová],Zábřežsko,"Bohuslavice SU, Dubicko SU, Hrabová SU",
+60,Zlínsko,Zlínsko,Zlín,veřejné
+61,Ždánicko [Kolaja],Ždánicko,"Ždánice HO, Dambořice HO, Lovčice HO, Žarošice HO, Archlebov HO, Dražůvky HO",
+62,Železnobrodsko [Bachmannová],Železnobrodsko,"Loužnice JN, Pěnčín JN (Bratříkov), Držkov JN, Zásada JN",
+63,Abertamsko,Abertamsko,Abertamy,veřejné
+64,Adamovsko,Adamovsko,Adamov,veřejné
+65,Ašsko,Ašsko,Aš,veřejné
+66,Bakovsko,Bakovsko,Bakov nad Jizerou,veřejné
+67,Bašsko,Bašsko,Baška,veřejné
+68,Bašťsko,Bašťsko,Bašť,veřejné
+69,Batelovsko,Batelovsko,Batelov,veřejné
+70,Bavorovsko,Bavorovsko,Bavorov,veřejné
+71,Bečovsko,Bečovsko,Bečov nad Teplou,veřejné
+72,Bechyňsko,Bechyňsko,Bechyně,veřejné
+73,Bělčicko,Bělčicko,Bělčice,veřejné
+74,Bělohradsko,Bělohradsko,Lázně Bělohrad,veřejné
+75,Benátecko,Benátecko,Benátky nad Jizerou,veřejné
+76,Benešovsko,Benešovsko,Benešov,veřejné
+77,Berounsko,Berounsko,Beroun,veřejné
+78,Besednicko,Besednicko,Besednice,veřejné
+79,Bezdružicko,Bezdružicko,Bezdružice,veřejné
+80,Bezensko,Bezensko,Bezno,veřejné
+81,Bílinsko,Bílinsko,Bílina,veřejné
+82,Bílovecko,Bílovecko,Bílovec,veřejné
+83,Blatensko,Blatensko,Blatná,veřejné
+84,Blížkovicko,Blížkovicko,Blížkovice,veřejné
+85,Blovicko,Blovicko,Blovice,veřejné
+86,Blšansko,Blšansko,Blšany,veřejné
+87,Bludovsko,Bludovsko,Bludov,veřejné
+88,Bobrovsko,Bobrovsko,Bobrová,veřejné
+89,Bohdalovsko,Bohdalovsko,Bohdalov,veřejné
+90,Bohdanečsko,Bohdanečsko,Lázně Bohdaneč,veřejné
+91,Bohumínsko,Bohumínsko,Bohumín,veřejné
+92,Bohuňovicko,Bohuňovicko,Bohuňovice,veřejné
+93,Bohušovicko,Bohušovicko,Bohušovice nad Ohří,veřejné
+94,Bochovsko,Bochovsko,Bochov,veřejné
+95,Bojkovicko,Bojkovicko,Bojkovice,veřejné
+96,Bolaticko,Bolaticko,Bolatice,veřejné
+97,Boleradicko,Boleradicko,Boleradice,veřejné
+98,Borohrádecko,Borohrádecko,Borohrádek,veřejné
+99,Borovansko,Borovansko,Borovany,veřejné
+100,Borsko,Borsko,Bor,veřejné
+101,Boskovicko,Boskovicko,Boskovice,veřejné
+102,Brandýsko,Brandýsko,Brandýs nad Labem-Stará Boleslav,veřejné
+103,Brankovicko,Brankovicko,Brankovice,veřejné
+104,Brněnsko,Brněnsko,Brno,veřejné
+105,Broumovsko,Broumovsko,Broumov,veřejné
+106,Brozansko,Brozansko,Brozany nad Ohří,veřejné
+107,Brtnicko,Brtnicko,Brtnice,veřejné
+108,Brumovsko,Brumovsko,Brumov-Bylnice,veřejné
+109,Bruntálsko,Bruntálsko,Bruntál,veřejné
+110,Brušpersko,Brušpersko,Brušperk,veřejné
+111,Břeclavsko,Břeclavsko,Břeclav,veřejné
+112,Bučovicko,Bučovicko,Bučovice,veřejné
+113,Budyňsko,Budyňsko,Budyně nad Ohří,veřejné
+114,Buchlovicko,Buchlovicko,Buchlovice,veřejné
+115,Buštěhradsko,Buštěhradsko,Buštěhrad,veřejné
+116,Bystersko,Bystersko,Bystré,veřejné
+117,Bzenecko,Bzenecko,Bzenec,veřejné
+118,Cerhenicko,Cerhenicko,Cerhenice,veřejné
+119,Cerhovicko,Cerhovicko,Cerhovice,veřejné
+120,Cítolibsko,Cítolibsko,Cítoliby,veřejné
+121,Cvikovsko,Cvikovsko,Cvikov,veřejné
+122,Čáslavsko,Čáslavsko,Čáslav,veřejné
+123,Častolovicko,Častolovicko,Častolovice,veřejné
+124,Čechticko,Čechticko,Čechtice,veřejné
+125,Čeladensko,Čeladensko,Čeladná,veřejné
+126,Čelákovicko,Čelákovicko,Čelákovice,veřejné
+127,Čerčansko,Čerčansko,Čerčany,veřejné
+128,Černohorsko,Černohorsko,Černá Hora,veřejné
+129,Černokostelecko,Černokostelecko,Kostelec nad Černými lesy,veřejné
+130,Černošicko,Černošicko,Černošice,veřejné
+131,Černošínsko,Černošínsko,Černošín,veřejné
+132,Černovicko,Černovicko,Černovice,veřejné
+133,Červenokostelecko,Červenokostelecko,Červený Kostelec,veřejné
+134,Červenopečecko,Červenopečecko,Červené Pečky,veřejné
+135,Červenořečicko,Červenořečicko,Červená Řečice,veřejné
+136,Červenovodsko,Červenovodsko,Červená Voda,veřejné
+137,Českobělsko,Českobělsko,Česká Bělá,veřejné
+138,Českobrodsko,Českobrodsko,Český Brod,veřejné
+139,Českodubsko,Českodubsko,Český Dub,veřejné
+140,Českokamenicko,Českokamenicko,Česká Kamenice,veřejné
+141,Českokrumlovsko,Českokrumlovsko,Český Krumlov,veřejné
+142,Českolipsko,Českolipsko,Česká Lípa,veřejné
+143,Českoskalicko,Českoskalicko,Česká Skalice,veřejné
+144,Českovelenicko,Českovelenicko,České Velenice,veřejné
+145,Dašicko,Dašicko,Dašice,veřejné
+146,Davelsko,Davelsko,Davle,veřejné
+147,Deblínsko,Deblínsko,Deblín,veřejné
+148,Děčínsko,Děčínsko,Děčín,veřejné
+149,Desensko,Desensko,Desná,veřejné
+150,Deštensko,Deštensko,Deštná,veřejné
+151,Dětmarovicko,Dětmarovicko,Dětmarovice,veřejné
+152,Divišovsko,Divišovsko,Divišov,veřejné
+153,Dobersko,Dobersko,Dobrá,veřejné
+154,Dobrovicko,Dobrovicko,Dobrovice,veřejné
+155,Dobrušsko,Dobrušsko,Dobruška,veřejné
+156,Dobřansko,Dobřansko,Dobřany,veřejné
+157,Dobřichovicko,Dobřichovicko,Dobřichovice,veřejné
+158,Dobříšsko,Dobříšsko,Dobříš,veřejné
+159,Dokesko,Dokesko,Doksy,veřejné
+160,Dolnobenešovsko,Dolnobenešovsko,Dolní Benešov,veřejné
+161,Dolnobojanovicko,Dolnobojanovicko,Dolní Bojanovice,veřejné
+162,Dolnobousovsko,Dolnobousovsko,Dolní Bousov,veřejné
+163,Dolnobřežansko,Dolnobřežansko,Dolní Břežany,veřejné
+164,Dolnobukovsko,Dolnobukovsko,Dolní Bukovsko,veřejné
+165,Dolnocerekevsko,Dolnocerekevsko,Dolní Cerekev,veřejné
+166,Dolnočermensko,Dolnočermensko,Dolní Čermná,veřejné
+167,Dolnodobroučsko,Dolnodobroučsko,Dolní Dobrouč,veřejné
+168,Dolnokounicko,Dolnokounicko,Dolní Kounice,veřejné
+169,Dolnolutyňsko,Dolnolutyňsko,Dolní Lutyně,veřejné
+170,Dolnoněmečsko,Dolnoněmečsko,Dolní Němčí,veřejné
+171,Dolnopoustevensko,Dolnopoustevensko,Dolní Poustevna,veřejné
+172,Doubravnicko,Doubravnicko,Doubravník,veřejné
+173,Drásovsko,Drásovsko,Drásov,veřejné
+174,Drnholecko,Drnholecko,Drnholec,veřejné
+175,Dřevohosticko,Dřevohosticko,Dřevohostice,veřejné
+176,Dubňansko,Dubňansko,Dubňany,veřejné
+177,Duchcovsko,Duchcovsko,Duchcov,veřejné
+178,Františkolázeňsko,Františkolázeňsko,Františkovy Lázně,veřejné
+179,Frymbursko,Frymbursko,Frymburk,veřejné
+180,Fryštácko,Fryštácko,Fryšták,veřejné
+181,Fulnecko,Fulnecko,Fulnek,veřejné
+182,Golčovojeníkovsko,Golčovojeníkovsko,Golčův Jeníkov,veřejné
+183,Habartovsko,Habartovsko,Habartov,veřejné
+184,Habersko,Habersko,Habry,veřejné
+185,Hanušovicko,Hanušovicko,Hanušovice,veřejné
+186,Harrachovsko,Harrachovsko,Harrachov,veřejné
+187,Hartmanicko,Hartmanicko,Hartmanice,veřejné
+188,Havířovsko,Havířovsko,Havířov,veřejné
+189,Havlíčkoborovsko,Havlíčkoborovsko,Havlíčkova Borová,veřejné
+190,Havlíčkobrodsko,Havlíčkobrodsko,Havlíčkův Brod,veřejné
+191,Hejnicko,Hejnicko,Hejnice,veřejné
+192,Heřmanoměstecko,Heřmanoměstecko,Heřmanův Městec,veřejné
+193,Hlinecko,Hlinecko,Hlinsko,veřejné
+194,Hlubocko,Hlubocko,Hluboká nad Vltavou,veřejné
+195,Hlubočsko,Hlubočsko,Hlubočky,veřejné
+196,Hlucko,Hlucko,Hluk,veřejné
+197,Hodkovicko,Hodkovicko,Hodkovice nad Mohelkou,veřejné
+198,Holešovsko,Holešovsko,Holešov,veřejné
+199,Holýšovsko,Holýšovsko,Holýšov,veřejné
+200,Horažďovicko,Horažďovicko,Horažďovice,veřejné
+201,Hornobenešovsko,Hornobenešovsko,Horní Benešov,veřejné
+202,Hornobřízsko,Hornobřízsko,Horní Bříza,veřejné
+203,Hornocerekevsko,Hornocerekevsko,Horní Cerekev,veřejné
+204,Hornojelensko,Hornojelensko,Horní Jelení,veřejné
+205,Hornojiřetínsko,Hornojiřetínsko,Horní Jiřetín,veřejné
+206,Hornoplánsko,Hornoplánsko,Horní Planá,veřejné
+207,Hornoslavkovsko,Hornoslavkovsko,Horní Slavkov,veřejné
+208,Hornosušsko,Hornosušsko,Horní Suchá,veřejné
+209,Horoměřicko,Horoměřicko,Horoměřice,veřejné
+210,Horšovskotýnsko,Horšovskotýnsko,Horšovský Týn,veřejné
+211,Hořicko,Hořicko,Hořice,veřejné
+212,Hořovicko,Hořovicko,Hořovice,veřejné
+213,Hostinsko,Hostinsko,Hostinné,veřejné
+214,Hostivicko,Hostivicko,Hostivice,veřejné
+215,Hoštecko,Hoštecko,Hoštka,veřejné
+216,Hranicko,Hranicko,Hranice,veřejné
+217,Hrobsko,Hrobsko,Hrob,veřejné
+218,Hrochovotýnecko,Hrochovotýnecko,Hrochův Týnec,veřejné
+219,Hronovsko,Hronovsko,Hronov,veřejné
+220,Hrotovicko,Hrotovicko,Hrotovice,veřejné
+221,Hroznětínsko,Hroznětínsko,Hroznětín,veřejné
+222,Hulínsko,Hulínsko,Hulín,veřejné
+223,Humpolecko,Humpolecko,Humpolec,veřejné
+224,Hustopečsko,Hustopečsko,Hustopeče,veřejné
+225,Chabařovicko,Chabařovicko,Chabařovice,veřejné
+226,Chebsko,Chebsko,Cheb,veřejné
+227,Chlumecko,Chlumecko,Chlumec nad Cidlinou,veřejné
+228,Choceňsko,Choceňsko,Choceň,veřejné
+229,Chodovsko,Chodovsko,Chodov,veřejné
+230,Cholticko,Cholticko,Choltice,veřejné
+231,Chomutovsko,Chomutovsko,Chomutov,veřejné
+232,Chotěbořsko,Chotěbořsko,Chotěboř,veřejné
+233,Chotěšovsko,Chotěšovsko,Chotěšov,veřejné
+234,Chotětovsko,Chotětovsko,Chotětov,veřejné
+235,Chrastavsko,Chrastavsko,Chrastava,veřejné
+236,Chrastsko,Chrastsko,Chrast,veřejné
+237,Chropyňsko,Chropyňsko,Chropyně,veřejné
+238,Chroustovicko,Chroustovicko,Chroustovice,veřejné
+239,Chrudimsko,Chrudimsko,Chrudim,veřejné
+240,Chudenicko,Chudenicko,Chudenice,veřejné
+241,Chvaleticko,Chvaleticko,Chvaletice,veřejné
+242,Chýnovsko,Chýnovsko,Chýnov,veřejné
+243,Chýňsko,Chýňsko,Chýně,veřejné
+244,Ivančicko,Ivančicko,Ivančice,veřejné
+245,Ivanovicko,Ivanovicko,Ivanovice na Hané,veřejné
+246,Jablunkovsko,Jablunkovsko,Jablunkov,veřejné
+247,Jáchymovsko,Jáchymovsko,Jáchymov,veřejné
+248,Janovicko,Janovicko,Janovice nad Úhlavou,veřejné
+249,Jaroměřicko,Jaroměřicko,Jaroměřice nad Rokytnou,veřejné
+250,Jaroměřsko,Jaroměřsko,Jaroměř,veřejné
+251,Jedovnicko,Jedovnicko,Jedovnice,veřejné
+252,Jemnicko,Jemnicko,Jemnice,veřejné
+253,Jevíčsko,Jevíčsko,Jevíčko,veřejné
+254,Jevišovicko,Jevišovicko,Jevišovice,veřejné
+255,Jičínsko,Jičínsko,Jičín,veřejné
+256,Jihlavsko,Jihlavsko,Jihlava,veřejné
+257,Jimramovsko,Jimramovsko,Jimramov,veřejné
+258,Jindřichohradecko,Jindřichohradecko,Jindřichův Hradec,veřejné
+259,Jinecko,Jinecko,Jince,veřejné
+260,Jirensko,Jirensko,Jirny,veřejné
+261,Jiříkovsko,Jiříkovsko,Jiříkov,veřejné
+262,Jistebnicko,Jistebnicko,Jistebnice,veřejné
+263,Kácovsko,Kácovsko,Kácov,veřejné
+264,Kadaňsko,Kadaňsko,Kadaň,veřejné
+265,Kamenickošenovsko,Kamenickošenovsko,Kamenický Šenov,veřejné
+266,Kaplicko,Kaplicko,Kaplice,veřejné
+267,Kardašovořečicko,Kardašovořečicko,Kardašova Řečice,veřejné
+268,Karlovarsko,Karlovarsko,Karlovy Vary,veřejné
+269,Karlštejnsko,Karlštejnsko,Karlštejn,veřejné
+270,Karolinsko,Karolinsko,Karolinka,veřejné
+271,Kasejovicko,Kasejovicko,Kasejovice,veřejné
+272,Kašperskohorsko,Kašperskohorsko,Kašperské Hory,veřejné
+273,Katovicko,Katovicko,Katovice,veřejné
+274,Kaznějovsko,Kaznějovsko,Kaznějov,veřejné
+275,Kdyňsko,Kdyňsko,Kdyně,veřejné
+276,Kladensko,Kladensko,Kladno,veřejné
+277,Klášterecko,Klášterecko,Klášterec nad Ohří,veřejné
+278,Klatovsko,Klatovsko,Klatovy,veřejné
+279,Klecansko,Klecansko,Klecany,veřejné
+280,Klenečsko,Klenečsko,Klenčí pod Čerchovem,veřejné
+281,Klimkovicko,Klimkovicko,Klimkovice,veřejné
+282,Kloboucko,Kloboucko,Klobouky u Brna,veřejné
+283,Kobeřicko,Kobeřicko,Kobeřice,veřejné
+284,Kojetínsko,Kojetínsko,Kojetín,veřejné
+285,Kolinecko,Kolinecko,Kolinec,veřejné
+286,Kolínsko,Kolínsko,Kolín,veřejné
+287,Kolovečsko,Kolovečsko,Koloveč,veřejné
+288,Kopidlensko,Kopidlensko,Kopidlno,veřejné
+289,Kopřivnicko,Kopřivnicko,Kopřivnice,veřejné
+290,Koryčansko,Koryčansko,Koryčany,veřejné
+291,Kosmonosko,Kosmonosko,Kosmonosy,veřejné
+292,Košťansko,Košťansko,Košťany,veřejné
+293,Kounicko,Kounicko,Kounice,veřejné
+294,Kouřimsko,Kouřimsko,Kouřim,veřejné
+295,Kozlovicko,Kozlovicko,Kozlovice,veřejné
+296,Kožlansko,Kožlansko,Kožlany,veřejné
+297,Králicko,Králicko,Králíky,veřejné
+298,Králodvorsko,Králodvorsko,Králův Dvůr,veřejné
+299,Královédvorsko,Královédvorsko,Dvůr Králové nad Labem,veřejné
+300,Královéhradecko,Královéhradecko,Hradec Králové,veřejné
+301,Královéměstecko,Královéměstecko,Městec Králové,veřejné
+302,Kralovicko,Kralovicko,Kralovice,veřejné
+303,Kralupsko,Kralupsko,Kralupy nad Vltavou,veřejné
+304,Kraslicko,Kraslicko,Kraslice,veřejné
+305,Krásnohorsko,Krásnohorsko,Krásná Hora nad Vltavou,veřejné
+306,Krásnolipsko,Krásnolipsko,Krásná Lípa,veřejné
+307,Kravařsko,Kravařsko,Kravaře,veřejné
+308,Krnovsko,Krnovsko,Krnov,veřejné
+309,Kroměřížsko,Kroměřížsko,Kroměříž,veřejné
+310,Krucembursko,Krucembursko,Krucemburk,veřejné
+311,Krupecko,Krupecko,Krupka,veřejné
+312,Kryrsko,Kryrsko,Kryry,veřejné
+313,Křemžsko,Křemžsko,Křemže,veřejné
+314,Křinecko,Křinecko,Křinec,veřejné
+315,Křižanovsko,Křižanovsko,Křižanov,veřejné
+316,Křtinsko,Křtinsko,Křtiny,veřejné
+317,Kunovicko,Kunovicko,Kunovice,veřejné
+318,Kunštátsko,Kunštátsko,Kunštát,veřejné
+319,Kunvaldsko,Kunvaldsko,Kunvald,veřejné
+320,Kuřimsko,Kuřimsko,Kuřim,veřejné
+321,Kutnohorsko,Kutnohorsko,Kutná Hora,veřejné
+322,Kyjovsko,Kyjovsko,Kyjov,veřejné
+323,Kynšpersko,Kynšpersko,Kynšperk nad Ohří,veřejné
+324,Kynžvartsko,Kynžvartsko,Lázně Kynžvart,veřejné
+325,Lanškrounsko,Lanškrounsko,Lanškroun,veřejné
+326,Lanžhotsko,Lanžhotsko,Lanžhot,veřejné
+327,Ledečsko,Ledečsko,Ledeč nad Sázavou,veřejné
+328,Ledenicko,Ledenicko,Ledenice,veřejné
+329,Letohradsko,Letohradsko,Letohrad,veřejné
+330,Letovicko,Letovicko,Letovice,veřejné
+331,Lhenicko,Lhenicko,Lhenice,veřejné
+332,Libáňsko,Libáňsko,Libáň,veřejné
+333,Libčicko,Libčicko,Libčice nad Vltavou,veřejné
+334,Liběchovsko,Liběchovsko,Liběchov,veřejné
+335,Liberecko,Liberecko,Liberec,veřejné
+336,Líbeznicko,Líbeznicko,Líbeznice,veřejné
+337,Libicko,Libicko,Libice nad Doubravou,veřejné
+338,Libinsko,Libinsko,Libina,veřejné
+339,Libochovicko,Libochovicko,Libochovice,veřejné
+340,Libštátsko,Libštátsko,Libštát,veřejné
+341,Libušínsko,Libušínsko,Libušín,veřejné
+342,Líňsko,Líňsko,Líně,veřejné
+343,Lišovsko,Lišovsko,Lišov,veřejné
+344,Liteňsko,Liteňsko,Liteň,veřejné
+345,Litoměřicko,Litoměřicko,Litoměřice,veřejné
+346,Litovelsko,Litovelsko,Litovel,veřejné
+347,Litultovicko,Litultovicko,Litultovice,veřejné
+348,Litvínovicko,Litvínovicko,Litvínovice,veřejné
+349,Litvínovsko,Litvínovsko,Litvínov,veřejné
+350,Loketsko,Loketsko,Loket,veřejné
+351,Lomsko,Lomsko,Lom,veřejné
+352,Lošticko,Lošticko,Loštice,veřejné
+353,Loučeňsko,Loučeňsko,Loučeň,veřejné
+354,Lounsko,Lounsko,Louny,veřejné
+355,Lovosicko,Lovosicko,Lovosice,veřejné
+356,Lubsko,Lubsko,Luby,veřejné
+357,Lučansko,Lučansko,Lučany nad Nisou,veřejné
+358,Ludgeřovicko,Ludgeřovicko,Ludgeřovice,veřejné
+359,Luhačovicko,Luhačovicko,Luhačovice,veřejné
+360,Lutínsko,Lutínsko,Lutín,veřejné
+361,Lužicko,Lužicko,Lužice,veřejné
+362,Lužsko,Lužsko,Luže,veřejné
+363,Lysicko,Lysicko,Lysice,veřejné
+364,Machovsko,Machovsko,Machov,veřejné
+365,Malešovsko,Malešovsko,Malešov,veřejné
+366,Malšicko,Malšicko,Malšice,veřejné
+367,Manětínsko,Manětínsko,Manětín,veřejné
+368,Mariánskolázeňsko,Mariánskolázeňsko,Mariánské Lázně,veřejné
+369,Mečínsko,Mečínsko,Měčín,veřejné
+370,Mělnicko,Mělnicko,Mělník,veřejné
+371,Měřínsko,Měřínsko,Měřín,veřejné
+372,Mezibořsko,Mezibořsko,Meziboří,veřejné
+373,Meziměstsko,Meziměstsko,Meziměstí,veřejné
+374,Mikulášovicko,Mikulášovicko,Mikulášovice,veřejné
+375,Mikulovsko,Mikulovsko,Mikulov,veřejné
+376,Miletínsko,Miletínsko,Miletín,veřejné
+377,Milovicko,Milovicko,Milovice,veřejné
+378,Mimoňsko,Mimoňsko,Mimoň,veřejné
+379,Miroslavsko,Miroslavsko,Miroslav,veřejné
+380,Mirošovsko,Mirošovsko,Mirošov,veřejné
+381,Miroticko,Miroticko,Mirotice,veřejné
+382,Mirovicko,Mirovicko,Mirovice,veřejné
+383,Mladoboleslavsko,Mladoboleslavsko,Mladá Boleslav,veřejné
+384,Mladovolžicko,Mladovolžicko,Mladá Vožice,veřejné
+385,Mnichovicko,Mnichovicko,Mnichovice,veřejné
+386,Mnichovohradišťsko,Mnichovohradišťsko,Mnichovo Hradiště,veřejné
+387,Mníšecko,Mníšecko,Mníšek pod Brdy,veřejné
+388,Modřicko,Modřicko,Modřice,veřejné
+389,Mohelensko,Mohelensko,Mohelno,veřejné
+390,Mohelnicko,Mohelnicko,Mohelnice,veřejné
+391,Moravskoberounsko,Moravskoberounsko,Moravský Beroun,veřejné
+392,Moravskobudějovicko,Moravskobudějovicko,Moravské Budějovice,veřejné
+393,Moravskokrumlovsko,Moravskokrumlovsko,Moravský Krumlov,veřejné
+394,Moravskotřebovsko,Moravskotřebovsko,Moravská Třebová,veřejné
+395,Morkovicko,Morkovicko,Morkovice-Slížany,veřejné
+396,Mostecko,Mostecko,Most,veřejné
+397,Mšecko,Mšecko,Mšec,veřejné
+398,Mšensko,Mšensko,Mšeno,veřejné
+399,Mukařovsko,Mukařovsko,Mukařov,veřejné
+400,Mutěnicko,Mutěnicko,Mutěnice,veřejné
+401,Mýtsko,Mýtsko,Mýto,veřejné
+402,Načeradecko,Načeradecko,Načeradec,veřejné
+403,Nalžovskohorsko,Nalžovskohorsko,Nalžovské Hory,veřejné
+404,Napajedelsko,Napajedelsko,Napajedla,veřejné
+405,Nasavrcko,Nasavrcko,Nasavrky,veřejné
+406,Návesko,Návesko,Návsí,veřejné
+407,Nedvědicko,Nedvědicko,Nedvědice,veřejné
+408,Nehvizdsko,Nehvizdsko,Nehvizdy,veřejné
+409,Nechanicko,Nechanicko,Nechanice,veřejné
+410,Nejdecko,Nejdecko,Nejdek,veřejné
+411,Němčicko,Němčicko,Němčice nad Hanou,veřejné
+412,Nepomucko,Nepomucko,Nepomuk,veřejné
+413,Neratovicko,Neratovicko,Neratovice,veřejné
+414,Netolicko,Netolicko,Netolice,veřejné
+415,Netvořicko,Netvořicko,Netvořice,veřejné
+416,Nezamyslicko,Nezamyslicko,Nezamyslice,veřejné
+417,Nivnicko,Nivnicko,Nivnice,veřejné
+418,Nosislavsko,Nosislavsko,Nosislav,veřejné
+419,Novoborsko,Novoborsko,Nový Bor,veřejné
+420,Novobydžovsko,Novobydžovsko,Nový Bydžov,veřejné
+421,Novobystřicko,Novobystřicko,Nová Bystřice,veřejné
+422,Novocerekevsko,Novocerekevsko,Nová Cerekev,veřejné
+423,Novohrádecko,Novohrádecko,Nový Hrádek,veřejné
+424,Novohradsko,Novohradsko,Nové Hrady,veřejné
+425,Novohrozenkovsko,Novohrozenkovsko,Nový Hrozenkov,veřejné
+426,Novojičínsko,Novojičínsko,Nový Jičín,veřejné
+427,Novoknínsko,Novoknínsko,Nový Knín,veřejné
+428,Novomalínsko,Novomalínsko,Nový Malín,veřejné
+429,Novoměstsko,Novoměstsko,Nové Město pod Smrkem,veřejné
+430,Novorolsko,Novorolsko,Nová Role,veřejné
+431,Novorychnovsko,Novorychnovsko,Nový Rychnov,veřejné
+432,Novoříšsko,Novoříšsko,Nová Říše,veřejné
+433,Novosedelsko,Novosedelsko,Nové Sedlo,veřejné
+434,Novostrašecko,Novostrašecko,Nové Strašecí,veřejné
+435,Novovčelnicko,Novovčelnicko,Nová Včelnice,veřejné
+436,Novoveselsko,Novoveselsko,Nové Veselí,veřejné
+437,Nymbursko,Nymbursko,Nymburk,veřejné
+438,Nýrsko,Nýrsko,Nýrsko,veřejné
+439,Nýřansko,Nýřansko,Nýřany,veřejné
+440,Odersko,Odersko,Odry,veřejné
+441,Odolenovodsko,Odolenovodsko,Odolena Voda,veřejné
+442,Okříšsko,Okříšsko,Okříšky,veřejné
+443,Olomoucko,Olomoucko,Olomouc,veřejné
+444,Olovsko,Olovsko,Oloví,veřejné
+445,Opočensko,Opočensko,Opočno,veřejné
+446,Orlickoústecko,Orlickoústecko,Ústí nad Orlicí,veřejné
+447,Orlovsko,Orlovsko,Orlová,veřejné
+448,Osečensko,Osečensko,Osečná,veřejné
+449,Oslavansko,Oslavansko,Oslavany,veřejné
+450,Ostrovsko,Ostrovsko,Ostrov,veřejné
+451,Osvětimansko,Osvětimansko,Osvětimany,veřejné
+452,Otrokovicko,Otrokovicko,Otrokovice,veřejné
+453,Pacovsko,Pacovsko,Pacov,veřejné
+454,Palkovicko,Palkovicko,Palkovice,veřejné
+455,Pardubicko,Pardubicko,Pardubice,veřejné
+456,Paskovsko,Paskovsko,Paskov,veřejné
+457,Pavlíkovsko,Pavlíkovsko,Pavlíkov,veřejné
+458,Peckovsko,Peckovsko,Pecka,veřejné
+459,Pečecko,Pečecko,Pečky,veřejné
+460,Pelhřimovsko,Pelhřimovsko,Pelhřimov,veřejné
+461,Perucko,Perucko,Peruc,veřejné
+462,Petřvaldsko,Petřvaldsko,Petřvald,veřejné
+463,Pilníkovsko,Pilníkovsko,Pilníkov,veřejné
+464,Písecko,Písecko,Písek,veřejné
+465,Plaňansko,Plaňansko,Plaňany,veřejné
+466,Plánicko,Plánicko,Plánice,veřejné
+467,Plasko,Plasko,Plasy,veřejné
+468,Plesensko,Plesensko,Plesná,veřejné
+469,Plumlovsko,Plumlovsko,Plumlov,veřejné
+470,Poběžovicko,Poběžovicko,Poběžovice,veřejné
+471,Počátecko,Počátecko,Počátky,veřejné
+472,Podbořansko,Podbořansko,Podbořany,veřejné
+473,Poděbradsko,Poděbradsko,Poděbrady,veřejné
+474,Podivínsko,Podivínsko,Podivín,veřejné
+475,Pohořelicko,Pohořelicko,Pohořelice,veřejné
+476,Polensko,Polensko,Polná,veřejné
+477,Polešovicko,Polešovicko,Polešovice,veřejné
+478,Policko,Policko,Police nad Metují,veřejné
+479,Poličsko,Poličsko,Polička,veřejné
+480,Postoloprtsko,Postoloprtsko,Postoloprty,veřejné
+481,Postřelmovsko,Postřelmovsko,Postřelmov,veřejné
+482,Potštátsko,Potštátsko,Potštát,veřejné
+483,Pozlovicko,Pozlovicko,Pozlovice,veřejné
+484,Prachaticko,Prachaticko,Prachatice,veřejné
+485,Proboštovsko,Proboštovsko,Proboštov,veřejné
+486,Prosečsko,Prosečsko,Proseč,veřejné
+487,Prosiměricko,Prosiměricko,Prosiměřice,veřejné
+488,Protivanovsko,Protivanovsko,Protivanov,veřejné
+489,Protivínsko,Protivínsko,Protivín,veřejné
+490,Průhonicko,Průhonicko,Průhonice,veřejné
+491,Přeloučsko,Přeloučsko,Přelouč,veřejné
+492,Přerovsko,Přerovsko,Přerov,veřejné
+493,Přešticko,Přešticko,Přeštice,veřejné
+494,Příbramsko,Příbramsko,Příbram,veřejné
+495,Přibyslavsko,Přibyslavsko,Přibyslav,veřejné
+496,Přimdsko,Přimdsko,Přimda,veřejné
+497,Psársko,Psársko,Psáry,veřejné
+498,Pyšelsko,Pyšelsko,Pyšely,veřejné
+499,Radnicko,Radnicko,Radnice,veřejné
+500,Radomyšlsko,Radomyšlsko,Radomyšl,veřejné
+501,Radostínsko,Radostínsko,Radostín nad Oslavou,veřejné
+502,Rájecko-Jestřebsko,Rájecko-Jestřebsko,Rájec-Jestřebí,veřejné
+503,Rajhradsko,Rajhradsko,Rajhrad,veřejné
+504,Rakovnicko,Rakovnicko,Rakovník,veřejné
+505,Rapotínsko,Rapotínsko,Rapotín,veřejné
+506,Raspenavsko,Raspenavsko,Raspenava,veřejné
+507,Ratíškovicko,Ratíškovicko,Ratíškovice,veřejné
+508,Rohatecko,Rohatecko,Rohatec,veřejné
+509,Rokycansko,Rokycansko,Rokycany,veřejné
+510,Ronovsko,Ronovsko,Ronov nad Doubravou,veřejné
+511,Rosicko,Rosicko,Rosice,veřejné
+512,Rotavsko,Rotavsko,Rotava,veřejné
+513,Roudnicko,Roudnicko,Roudnice nad Labem,veřejné
+514,Rousínovsko,Rousínovsko,Rousínov,veřejné
+515,Roztocko,Roztocko,Roztoky,veřejné
+516,Rožďalovicko,Rožďalovicko,Rožďalovice,veřejné
+517,Rtyňsko,Rtyňsko,Rtyně v Podkrkonoší,veřejné
+518,Rudensko,Rudensko,Rudná,veřejné
+519,Rudolfovsko,Rudolfovsko,Rudolfov,veřejné
+520,Rumbursko,Rumbursko,Rumburk,veřejné
+521,Rychvaldsko,Rychvaldsko,Rychvald,veřejné
+522,Rýmařovsko,Rýmařovsko,Rýmařov,veřejné
+523,Řevnicko,Řevnicko,Řevnice,veřejné
+524,Říčansko,Říčansko,Říčany,veřejné
+525,Sadsko,Sadsko,Sadská,veřejné
+526,Sázavsko,Sázavsko,Sázava,veřejné
+527,Sečsko,Sečsko,Seč,veřejné
+528,Sedlčansko,Sedlčansko,Sedlčany,veřejné
+529,Sedlecko,Sedlecko,Sedlec-Prčice,veřejné
+530,Sedlicko,Sedlicko,Sedlice,veřejné
+531,Semilsko,Semilsko,Semily,veřejné
+532,Senomatsko,Senomatsko,Senomaty,veřejné
+533,Sepekovsko,Sepekovsko,Sepekov,veřejné
+534,Sezemicko,Sezemicko,Sezemice,veřejné
+535,Sezimoústecko,Sezimoústecko,Sezimovo Ústí,veřejné
+536,Skalensko,Skalensko,Skalná,veřejné
+537,Skutečsko,Skutečsko,Skuteč,veřejné
+538,Slánsko,Slánsko,Slaný,veřejné
+539,Slatiňansko,Slatiňansko,Slatiňany,veřejné
+540,Slavičínsko,Slavičínsko,Slavičín,veřejné
+541,Slavkovsko,Slavkovsko,Slavkov u Brna,veřejné
+542,Slavonicko,Slavonicko,Slavonice,veřejné
+543,Slušovicko,Slušovicko,Slušovice,veřejné
+544,Smečensko,Smečensko,Smečno,veřejné
+545,Smiřicko,Smiřicko,Smiřice,veřejné
+546,Smržovsko,Smržovsko,Smržovka,veřejné
+547,Soběslavsko,Soběslavsko,Soběslav,veřejné
+548,Sobotecko,Sobotecko,Sobotka,veřejné
+549,Sokolovsko,Sokolovsko,Sokolov,veřejné
+550,Solnicko,Solnicko,Solnice,veřejné
+551,Spálenopoříčsko,Spálenopoříčsko,Spálené Poříčí,veřejné
+552,Srubecko,Srubecko,Srubec,veřejné
+553,Staňkovsko,Staňkovsko,Staňkov,veřejné
+554,Starojičínsko,Starojičínsko,Starý Jičín,veřejné
+555,Staroplzenecko,Staroplzenecko,Starý Plzenec,veřejné
+556,Stařečsko,Stařečsko,Stařeč,veřejné
+557,Stodsko,Stodsko,Stod,veřejné
+558,Stochovsko,Stochovsko,Stochov,veřejné
+559,Stonařovsko,Stonařovsko,Stonařov,veřejné
+560,Strančicko,Strančicko,Strančice,veřejné
+561,Stránsko,Stránsko,Strání,veřejné
+562,Strašicko,Strašicko,Strašice,veřejné
+563,Strážnicko,Strážnicko,Strážnice,veřejné
+564,Strážovsko,Strážovsko,Strážov,veřejné
+565,Strmilovsko,Strmilovsko,Strmilov,veřejné
+566,Střážecko,Střážecko,Strážek,veřejné
+567,Střelicko,Střelicko,Střelice,veřejné
+568,Stříbrsko,Stříbrsko,Stříbro,veřejné
+569,Studénecko,Studénecko,Studénka,veřejné
+570,Svatavsko,Svatavsko,Svatava,veřejné
+571,Svatobořicko,Svatobořicko,Svatobořice-Mistřín,veřejné
+572,Světelsko,Světelsko,Světlá nad Sázavou,veřejné
+573,Svitávecko,Svitávecko,Svitávka,veřejné
+574,Svitavsko,Svitavsko,Svitavy,veřejné
+575,Svobodsko,Svobodsko,Svoboda nad Úpou,veřejné
+576,Svratecko,Svratecko,Svratka,veřejné
+577,Šatovsko,Šatovsko,Šatov,veřejné
+578,Šenovsko,Šenovsko,Šenov,veřejné
+579,Šestajovicko,Šestajovicko,Šestajovice,veřejné
+580,Ševětínsko,Ševětínsko,Ševětín,veřejné
+581,Škvorecko,Škvorecko,Škvorec,veřejné
+582,Šlapanicko,Šlapanicko,Šlapanice,veřejné
+583,Šluknovsko,Šluknovsko,Šluknov,veřejné
+584,Šťáhlavsko,Šťáhlavsko,Šťáhlavy,veřejné
+585,Štěchovicko,Štěchovicko,Štěchovice,veřejné
+586,Štěkeňsko,Štěkeňsko,Štěkeň,veřejné
+587,Štěpánkovicko,Štěpánkovicko,Štěpánkovice,veřejné
+588,Štěpánovsko,Štěpánovsko,Štěpánov,veřejné
+589,Šternbersko,Šternbersko,Šternberk,veřejné
+590,Štětsko,Štětsko,Štětí,veřejné
+591,Štítsko,Štítsko,Štíty,veřejné
+592,Štocko,Štocko,Štoky,veřejné
+593,Štrambersko,Štrambersko,Štramberk,veřejné
+594,Šumpersko,Šumpersko,Šumperk,veřejné
+595,Švábenicko,Švábenicko,Švábenice,veřejné
+596,Švihovsko,Švihovsko,Švihov,veřejné
+597,Táborsko,Táborsko,Tábor,veřejné
+598,Tachovsko,Tachovsko,Tachov,veřejné
+599,Tanvaldsko,Tanvaldsko,Tanvald,veřejné
+600,Telčsko,Telčsko,Telč,veřejné
+601,Tepelsko,Tepelsko,Teplá,veřejné
+602,Teplicko,Teplicko,Teplice,veřejné
+603,Terezínsko,Terezínsko,Terezín,veřejné
+604,Tišnovsko,Tišnovsko,Tišnov,veřejné
+605,Tlučensko,Tlučensko,Tlučná,veřejné
+606,Toušeňsko,Toušeňsko,Lázně Toušeň,veřejné
+607,Touškovsko,Touškovsko,Město Touškov,veřejné
+608,Toužimsko,Toužimsko,Toužim,veřejné
+609,Tovačovsko,Tovačovsko,Tovačov,veřejné
+610,Trhosvinensko,Trhosvinensko,Trhové Sviny,veřejné
+611,Trhovokamenicko,Trhovokamenicko,Trhová Kamenice,veřejné
+612,Trhovoštěpánovsko,Trhovoštěpánovsko,Trhový Štěpánov,veřejné
+613,Trmicko,Trmicko,Trmice,veřejné
+614,Trojanovicko,Trojanovicko,Trojanovice,veřejné
+615,Trutnovsko,Trutnovsko,Trutnov,veřejné
+616,Třebechovicko,Třebechovicko,Třebechovice pod Orebem,veřejné
+617,Třebenicko,Třebenicko,Třebenice,veřejné
+618,Třebíčsko,Třebíčsko,Třebíč,veřejné
+619,Třeboňsko,Třeboňsko,Třeboň,veřejné
+620,Třemošensko,Třemošensko,Třemošná,veřejné
+621,Třemošnicko,Třemošnicko,Třemošnice,veřejné
+622,Třešťsko,Třešťsko,Třešť,veřejné
+623,Třinecko,Třinecko,Třinec,veřejné
+624,Tuchlovicko,Tuchlovicko,Tuchlovice,veřejné
+625,Turnovsko,Turnovsko,Turnov,veřejné
+626,Týnišťsko,Týnišťsko,Týniště nad Orlicí,veřejné
+627,Uherskobrodsko,Uherskobrodsko,Uherský Brod,veřejné
+628,Uherskohradišťsko,Uherskohradišťsko,Uherské Hradiště,veřejné
+629,Uherskoostrožsko,Uherskoostrožsko,Uherský Ostroh,veřejné
+630,Uhlířskojanovicko,Uhlířskojanovicko,Uhlířské Janovice,veřejné
+631,Unhošťsko,Unhošťsko,Unhošť,veřejné
+632,Uničovsko,Uničovsko,Uničov,veřejné
+633,Úpicko,Úpicko,Úpice,veřejné
+634,Úsovsko,Úsovsko,Úsov,veřejné
+635,Úštěcko,Úštěcko,Úštěk,veřejné
+636,Úvalsko,Úvalsko,Úvaly,veřejné
+637,Valašskomeziříčsko,Valašskomeziříčsko,Valašské Meziříčí,veřejné
+638,Valticko,Valticko,Valtice,veřejné
+639,Vambersko,Vambersko,Vamberk,veřejné
+640,Varnsdorfsko,Varnsdorfsko,Varnsdorf,veřejné
+641,Vejprtsko,Vejprtsko,Vejprty,veřejné
+642,Vejrpnicko,Vejrpnicko,Vejprnice,veřejné
+643,Velešínsko,Velešínsko,Velešín,veřejné
+644,Velicko,Velicko,Velká nad Veličkou,veřejné
+645,Velkobílovicko,Velkobílovicko,Velké Bílovice,veřejné
+646,Velkobítešsko,Velkobítešsko,Velká Bíteš,veřejné
+647,Velkobystřicko,Velkobystřicko,Velká Bystřice,veřejné
+648,Velkohamersko,Velkohamersko,Velké Hamry,veřejné
+649,Velkolosinsko,Velkolosinsko,Velké Losiny,veřejné
+650,Velkomeziříčsko,Velkomeziříčsko,Velké Meziříčí,veřejné
+651,Velkoněmčicko,Velkoněmčicko,Velké Němčice,veřejné
+652,Velkoopatovicko,Velkoopatovicko,Velké Opatovice,veřejné
+653,Velkopavlovicko,Velkopavlovicko,Velké Pavlovice,veřejné
+654,Velkopopovicko,Velkopopovicko,Velké Popovice,veřejné
+655,Velkopoříčsko,Velkopoříčsko,Velké Poříčí,veřejné
+656,Velkopřílepsko,Velkopřílepsko,Velké Přílepy,veřejné
+657,Velkošenovsko,Velkošenovsko,Velký Šenov,veřejné
+658,Velkotýnecko,Velkotýnecko,Velký Týnec,veřejné
+659,Velkoújezdsko,Velkoújezdsko,Velký Újezd,veřejné
+660,Veltrusko,Veltrusko,Veltrusy,veřejné
+661,Velvarsko,Velvarsko,Velvary,veřejné
+662,Vendryňsko,Vendryňsko,Vendryně,veřejné
+663,Verneřicko,Verneřicko,Verneřice,veřejné
+664,Větřínsko,Větřínsko,Větřní,veřejné
+665,Veverskobítýšsko,Veverskobítýšsko,Veverská Bítýška,veřejné
+666,Vidnavsko,Vidnavsko,Vidnava,veřejné
+667,Vimpersko,Vimpersko,Vimperk,veřejné
+668,Višňovsko,Višňovsko,Višňové,veřejné
+669,Vítkovsko,Vítkovsko,Vítkov,veřejné
+670,Vizovicko,Vizovicko,Vizovice,veřejné
+671,Vladislavsko,Vladislavsko,Vladislav,veřejné
+672,Vlachovobřezsko,Vlachovobřezsko,Vlachovo Březí,veřejné
+673,Vlašimsko,Vlašimsko,Vlašim,veřejné
+674,Vlčnovsko,Vlčnovsko,Vlčnov,veřejné
+675,Vnorovsko,Vnorovsko,Vnorovy,veřejné
+676,Vodňansko,Vodňansko,Vodňany,veřejné
+677,Vojnovoměstecko,Vojnovoměstecko,Vojnův Městec,veřejné
+678,Volarsko,Volarsko,Volary,veřejné
+679,Volyňsko,Volyňsko,Volyně,veřejné
+680,Voticko,Voticko,Votice,veřejné
+681,Vracovsko,Vracovsko,Vracov,veřejné
+682,Vransko,Vransko,Vrané nad Vltavou,veřejné
+683,Vratimovsko,Vratimovsko,Vratimov,veřejné
+684,Vrbensko,Vrbensko,Vrbno pod Pradědem,veřejné
+685,Vrdsko,Vrdsko,Vrdy,veřejné
+686,Vrchlabsko,Vrchlabsko,Vrchlabí,veřejné
+687,Vrchotojanovicko,Vrchotojanovicko,Vrchotovy Janovice,veřejné
+688,Vroutecko,Vroutecko,Vroutek,veřejné
+689,Všetatsko,Všetatsko,Všetaty,veřejné
+690,Vysocko,Vysocko,Vysoké nad Jizerou,veřejné
+691,Vysokochlumecko,Vysokochlumecko,Vysoký Chlumec,veřejné
+692,Vysokomýtsko,Vysokomýtsko,Vysoké Mýto,veřejné
+693,Vysokoveselsko,Vysokoveselsko,Vysoké Veselí,veřejné
+694,Vyšebrodsko,Vyšebrodsko,Vyšší Brod,veřejné
+695,Zábřežsko,Zábřežsko,Zábřeh,veřejné
+696,Zákupsko,Zákupsko,Zákupy,veřejné
+697,Zápsko,Zápsko,Zápy,veřejné
+698,Zásmucko,Zásmucko,Zásmuky,veřejné
+699,Zastávecko,Zastávecko,Zastávka,veřejné
+700,Zašovsko,Zašovsko,Zašová,veřejné
+701,Zbirožsko,Zbirožsko,Zbiroh,veřejné
+702,Zbůšsko,Zbůšsko,Zbůch,veřejné
+703,Zbýšovsko,Zbýšovsko,Zbýšov,veřejné
+704,Zdibsko,Zdibsko,Zdiby,veřejné
+705,Zdicko,Zdicko,Zdice,veřejné
+706,Zelenečsko,Zelenečsko,Zeleneč,veřejné
+707,Zlatohorsko,Zlatohorsko,Zlaté Hory,veřejné
+708,Zlivsko,Zlivsko,Zliv,veřejné
+709,Zlonicko,Zlonicko,Zlonice,veřejné
+710,Znojemsko,Znojemsko,Znojmo,veřejné
+711,Zručsko,Zručsko,Zruč nad Sázavou,veřejné
+712,Zručsko-Senecko,Zručsko-Senecko,Zruč-Senec,veřejné
+713,Zubersko,Zubersko,Zubří,veřejné
+714,Žacléřsko,Žacléřsko,Žacléř,veřejné
+715,Žambersko,Žambersko,Žamberk,veřejné
+716,Žandovsko,Žandovsko,Žandov,veřejné
+717,Žatecko,Žatecko,Žatec,veřejné
+718,Ždánicko,Ždánicko,Ždánice,veřejné
+719,Žďársko,Žďársko,Žďár nad Sázavou,veřejné
+720,Ždírecko,Ždírecko,Ždírec nad Doubravou,veřejné
+721,Žebrácko,Žebrácko,Žebrák,veřejné
+722,Žehušicko,Žehušicko,Žehušice,veřejné
+723,Želetavsko,Želetavsko,Želetava,veřejné
+724,Železnicko,Železnicko,Železnice,veřejné
+725,Železnobrodsko,Železnobrodsko,Železný Brod,veřejné
+726,Železnorudsko,Železnorudsko,Železná Ruda,veřejné
+727,Židlochovicko,Židlochovicko,Židlochovice,veřejné
+728,Žinkovsko,Žinkovsko,Žinkovy,veřejné
+729,Žirovnicko,Žirovnicko,Žirovnice,veřejné
+730,Žluticko,Žluticko,Žlutice,veřejné
+731,Žulovsko,Žulovsko,Žulová,veřejné
+732,Slavkovsko-Bučovicko [Gregor],Slavkovsko-Bučovicko,"Heršpice VY, Hodějice VY, Kobeřice u Brna VY, Němčany VY, Křižanovice VY, Bučovice VY (Marefy), Mouřínov VY, Rašovice VY, Vážany nad Litavou VY",
+733,Štrambersko [Kellner],Štrambersko,"Štramberk NJ, Závišice NJ, Rybí NJ, Libhošť NJ, Kopřivnice NJ",
+734,Branice POLSKO,Branice POLSKO,Polsko,veřejné
+735,Baborów POLSKO,Baborów POLSKO,Polsko,veřejné
+736,Kudowa-Zdrój POLSKO (Pstrążna),Kudowa-Zdrój POLSKO (Pstrążna),Polsko,veřejné
+737,Kudowa-Zdrój POLSKO,Kudowa-Zdrój POLSKO,Polsko,veřejné
+738,Kudowa-Zdrój POLSKO (Jakubowice),Kudowa-Zdrój POLSKO (Jakubowice),Polsko,veřejné
+739,Strzelin POLSKO,Strzelin POLSKO,Polsko,
+740,Kuropatnik POLSKO,Kuropatnik POLSKO,Polsko,
+741,Gęsiniec POLSKO,Gęsiniec POLSKO,Polsko,
+742,Puńców POLSKO,Puńców POLSKO,Polsko,
+743,Wisła POLSKO,Wisła POLSKO,Polsko,
+744,Pietrowice Wielkie POLSKO,Pietrowice Wielkie POLSKO,Polsko,veřejné
+745,Krzanowice POLSKO,Krzanowice POLSKO,Polsko,veřejné
+746,Kudowa-Zdrój POLSKO (Czermna),Kudowa-Zdrój POLSKO (Czermna),Polsko,veřejné
+747,Kudowa-Zdrój POLSKO (Słone),Kudowa-Zdrój POLSKO (Słone),Polsko,veřejné
+748,Kudowa-Zdrój POLSKO (Zakrze),Kudowa-Zdrój POLSKO (Zakrze),Polsko,veřejné
+749,Kudowa-Zdrój POLSKO (Bukowina Kłodzka),Kudowa-Zdrój POLSKO (Bukowina Kłodzka),Polsko,veřejné
+750,Kudowa-Zdrój POLSKO (Kudowa Górna),Kudowa-Zdrój POLSKO (Kudowa Górna),Polsko,veřejné
+751,Radków POLSKO (Ostra Góra),Radków POLSKO (Ostra Góra),Polsko,veřejné
+752,Branice POLSKO (Boboluszki),Branice POLSKO (Boboluszki),Polsko,veřejné
+753,Branice POLSKO (Wysoka),Branice POLSKO (Wysoka),Polsko,veřejné
+754,Branice POLSKO (Wódka),Branice POLSKO (Wódka),Polsko,veřejné
+755,Branice POLSKO (Niekazanice),Branice POLSKO (Niekazanice),Polsko,veřejné
+756,Branice POLSKO (Jakubowice),Branice POLSKO (Jakubowice),Polsko,veřejné
+757,Branice POLSKO (Gródczany),Branice POLSKO (Gródczany),Polsko,veřejné
+758,Kietrz POLSKO (Chróścielów),Kietrz POLSKO (Chróścielów),Polsko,veřejné
+759,Kietrz POLSKO (Nasiedle),Kietrz POLSKO (Nasiedle),Polsko,veřejné
+760,Branice POLSKO (Turków),Branice POLSKO (Turków),Polsko,veřejné
+761,Branice POLSKO (Uciechowice),Branice POLSKO (Uciechowice),Polsko,veřejné
+762,Branice POLSKO (Dzierżkowice),Branice POLSKO (Dzierżkowice),Polsko,veřejné
+763,Branice POLSKO (Wiechowice),Branice POLSKO (Wiechowice),Polsko,veřejné
+764,Kietrz POLSKO (Ściborzyce Wielkie),Kietrz POLSKO (Ściborzyce Wielkie),Polsko,veřejné
+765,Pietrowice Wielkie POLSKO (Samborowice),Pietrowice Wielkie POLSKO (Samborowice),Polsko,veřejné
+766,Krzanowice POLSKO (Pietraszyn),Krzanowice POLSKO (Pietraszyn),Polsko,veřejné
+767,Krzanowice POLSKO (Bojanów),Krzanowice POLSKO (Bojanów),Polsko,veřejné
+768,Krzyżanowice POLSKO (Bieńkowice),Krzyżanowice POLSKO (Bieńkowice),Polsko,veřejné
+769,Krzanowice POLSKO (Borucin),Krzanowice POLSKO (Borucin),Polsko,veřejné
+770,Krzyżanowice POLSKO (Bolesław),Krzyżanowice POLSKO (Bolesław),Polsko,veřejné
+771,Krzyżanowice POLSKO (Tworków),Krzyżanowice POLSKO (Tworków),Polsko,veřejné
+772,Krzyżanowice POLSKO (Owsiszcze),Krzyżanowice POLSKO (Owsiszcze),Polsko,veřejné
+772,Krzyżanowice POLSKO (Nowa Wioska),Krzyżanowice POLSKO (Nowa Wioska),Polsko,veřejné
