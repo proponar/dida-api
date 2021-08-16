@@ -13,11 +13,11 @@ RSpec.describe Source, type: :model do
   describe 'self.csv_import' do
     it 'loads the correct number of items' do
       test_csv = <<EOD
-#cislo,autor,name,nazev2,rok,bibliografie,typ,lokalizace_text,lokalizace,rok_sberu
-1000001,"ADÁMEK, K. V.",Lid na Hlinecku.,,1900,"Praha: Archaeologická kommisse při České akademii císaře Františka Josefa pro vědy, slovesnost a umění, 1900.",Kniha,,,1900
-1000002,"AMBROŽ, J.",Telč JI.,,1966,1966.,Excerpta,Telč JI,Telč JI,1966
-1000003,"AMBROŽ, J.",Telč JI.,,1967,1967.,Excerpta,Telč JI,Telč JI,1967
-1000004,"AMBROŽ, J.",Telč JI.,,1968,1968.,Excerpta,Telč JI,Telč JI,1968
+#cislo,autor,name,nazev2,typ,rok_sberu,lokalizace,lokalizace_text
+1000001,"ADÁMEK, K. V.",Lid na Hlinecku.,,Kniha,1900,1891,,
+1000002,"AMBROŽ, J.",Telč JI.,,Excerpta,1969,1969,Telč JI,
+1000007,"AMBROŽ, J.",Telč JI.,,Excerpta,1970,1970,Telč JI,
+1000009,"AMBROŽ, J.",Telč JI.,,Excerpta,1966,1966,Telč JI,
 EOD
       counter = Source.csv_import(test_csv)
       expect(counter).to be(4)
