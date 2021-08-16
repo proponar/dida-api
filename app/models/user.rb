@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   has_many :entries
 
+  def self.max_user
+    max = User.maximum(:db)
+    max.nil? ? 0 : max
+  end
+
   def self.find_or_create_user_by_jwt_token(token)
     begin
       decoded_token = JWT.decode(token, nil, false)
@@ -14,7 +19,7 @@ class User < ApplicationRecord
         u = User.create(
           :name => user_data["email"],
           :token => SecureRandom.hex,
-          :db => User.maximum(:db) + 1,
+          :db => max_user
         )
         u.save!
       end

@@ -90,3 +90,7 @@ production:
   <<: *default
   database: dida_api_production
   #username: dida_api
+
+public:
+  <<: *default
+  database: dida_api_public
