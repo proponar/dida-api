@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_07_064514) do
+ActiveRecord::Schema.define(version: 2021_08_07_110752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -335,6 +335,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_064514) do
     t.string "lokalizace_cast_obce", limit: 6
     t.string "nazev2_processed"
     t.bigint "location_text_id"
+    t.bigint "db"
     t.index ["location_text_id"], name: "index_sources_on_location_text_id"
   end
 
