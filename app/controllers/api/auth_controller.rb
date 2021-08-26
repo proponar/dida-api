@@ -14,7 +14,7 @@ class Api::AuthController < ApplicationController
         begin
           TokenValidator.new(token, CLIENT_ID).validate
           user = User.find_or_create_user_by_jwt_token(token)
-        rescue
+        rescue => e
           logger.error("Exception: #{e.message}")
           logger.error(e.backtrace.join("\n"))
           user = nil
