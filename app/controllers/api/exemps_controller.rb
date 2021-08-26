@@ -22,7 +22,7 @@ class Api::ExempsController < Api::BaseController
     e = Exemp.new(add_db_field({
       :user => current_user,
       :entry_id => params[:entry_id],
-      :zdroj_id => params[:zdroj_id],
+      :zdroj_id => params[:zdroj_id], # cislo zdroje
       :meaning_id => params[:meaning_id],
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
@@ -43,7 +43,7 @@ class Api::ExempsController < Api::BaseController
     kod_cast = params[:lokalizace_cast_obce_id]
     e.update({
       :user => current_user,
-      :zdroj_id => params[:zdroj_id],
+      :zdroj_id => params[:zdroj_id], # cislo zdroje
       :meaning_id => params[:meaning_id],
       :lokalizace_obec => kod_obec,
       :lokalizace_cast_obce => kod_cast,
@@ -113,7 +113,7 @@ class Api::ExempsController < Api::BaseController
   end
 
   def exemps_to_csv(l)
-    attributes = %i(exemplifikace druh heslo urceni lokalizace_format zdroj_name rok vyznam vetne aktivni time)
+    attributes = %i(exemplifikace druh heslo urceni lokalizace_format zdroj_id zdroj_name rok vyznam vetne aktivni time)
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
