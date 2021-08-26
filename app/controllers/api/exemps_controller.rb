@@ -113,7 +113,7 @@ class Api::ExempsController < Api::BaseController
   end
 
   def exemps_to_csv(l)
-    attributes = %i(exemplifikace druh heslo urceni lokalizace_format zdroj_id zdroj_name rok vyznam vetne aktivni time)
+    attributes = %i(exemplifikace druh heslo urceni lokalizace_format lokalizace_text zdroj_id zdroj_name rok vyznam vetne aktivni time)
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
