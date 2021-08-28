@@ -19,7 +19,7 @@ class User < ApplicationRecord
         u = User.create(
           :name => user_data["email"],
           :token => SecureRandom.hex,
-          :db => max_user
+          :db => max_user + 1,
         )
         u.save!
       end
