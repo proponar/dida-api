@@ -255,9 +255,9 @@ class Entry < ApplicationRecord
   def replace_or_create_meaning(m)
     existing = m['id'].present? && Meaning.find(m['id'])
     if existing.present?
-      existing.update(cislo: m['cislo'], kvalifikator: m['kvalifikator'], vyznam: m['vyznam'])
+      existing.update(cislo: m['cislo'], kvalifikator: m['kvalifikator'], vyznam: m['vyznam'], db: self.db)
       return existing
     end
-    Meaning.create(entry: self, cislo: m['cislo'], kvalifikator: m['kvalifikator'], vyznam: m['vyznam'])
+    Meaning.create(entry: self, cislo: m['cislo'], kvalifikator: m['kvalifikator'], vyznam: m['vyznam'], db: self.db)
   end
 end
