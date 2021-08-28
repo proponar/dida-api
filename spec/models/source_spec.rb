@@ -11,17 +11,19 @@ RSpec.describe Source, type: :model do
   end
 
   describe 'self.csv_import' do
-    it 'loads the correct number of items' do
+    it 'loads the items correctly' do
       test_csv = <<EOD
-#cislo,autor,name,nazev2,typ,rok_sberu,lokalizace,lokalizace_text
-1000001,"ADÁMEK, K. V.",Lid na Hlinecku.,,Kniha,1900,1891,,
-1000002,"AMBROŽ, J.",Telč JI.,,Excerpta,1969,1969,Telč JI,
-1000007,"AMBROŽ, J.",Telč JI.,,Excerpta,1970,1970,Telč JI,
-1000009,"AMBROŽ, J.",Telč JI.,,Excerpta,1966,1966,Telč JI,
+#Číslo,Jméno,Název 1,Název 2,Typ zdroje,Rok, Rok sberu, Lok. - bod,Lok. - oblast,...
+1000001,"ADÁMEK, K. V.",Lid na Hlinecku.,,Kniha,1900,1900,,,Bara
+1000002,"AMBROŽ, J.",Telč JI.,,Excerpta,1966,1966.,Telč JI,,Bara
+1000003,"AMBROŽ, J.",Telč JI.,,Excerpta,1967,1967.,Telč JI,,Bara
+1000004,"AMBROŽ, J.",Telč JI.,,Excerpta,1968,1968.,Telč JI,,Bara
 EOD
       counter = Source.csv_import(test_csv)
       expect(counter).to be(4)
       expect(Source.find_by(cislo: 1000002).name).to eq('Telč JI.')
+      expect(Source.find_by(cislo: 1000001).typ).to eq('Kniha')
+      expect(Source.find_by(cislo: 1000001).rok_sberu).to eq(1900)
     end
   end
 

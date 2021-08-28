@@ -12,5 +12,5 @@ if $0 == __FILE__
   require 'csv'
   require File.expand_path('./config/environment.rb')
   Source.delete_all
-  SourceImporter.import('/home/martin/dida-sources.csv')
+  SourceImporter.import('./db/seed/dida-sources.csv')
 end
