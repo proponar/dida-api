@@ -46,9 +46,9 @@ jobs:
         run: |
           bundle exec rails db:create RAILS_ENV=test
           bundle exec rails db:migrate RAILS_ENV=test
+          bundle exec rails db:seed_location RAILS_ENV=test
           bundle exec rails db:seed RAILS_ENV=test
           bundle exec rails db:force_seed RAILS_ENV=test
-          bundle exec rails db:seed_location RAILS_ENV=test
       - name: Run tests
         run: bundle exec rake spec SPEC_OPTS=-fd
       - name: Upload coverage results
