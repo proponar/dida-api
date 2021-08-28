@@ -19,7 +19,7 @@ RSpec.describe Source, type: :model do
 1000003,"AMBROŽ, J.",Telč JI.,,Excerpta,1967,1967.,Telč JI,,Bara
 1000004,"AMBROŽ, J.",Telč JI.,,Excerpta,1968,1968.,Telč JI,,Bara
 EOD
-      counter = Source.csv_import(test_csv)
+      counter = Source.csv_import(test_csv, 1)
       expect(counter).to be(4)
       expect(Source.find_by(cislo: 1000002).name).to eq('Telč JI.')
       expect(Source.find_by(cislo: 1000001).typ).to eq('Kniha')

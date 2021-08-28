@@ -4,7 +4,7 @@ class SourceImporter
   def self.import(file)
     data = File.read(file,nil)
     #data.sub!(/^L.*$/m,'')
-    Source.csv_import(data)
+    Source.csv_import(data, 1) # import for DB #1
   end
 end
 

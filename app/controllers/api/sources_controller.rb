@@ -10,7 +10,7 @@ class Api::SourcesController < Api::BaseController
     begin
       source = add_db_scope(Source)
       source.delete_all
-      counter = source.csv_import(request.body.read.force_encoding('utf-8'))
+      counter = source.csv_import(request.body.read.force_encoding('utf-8'), @current_user.db)
 
       render json: {message: "#{counter} zdroje importovány", count: counter}, status: 200
     rescue CSV::MalformedCSVError => e

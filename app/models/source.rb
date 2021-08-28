@@ -26,7 +26,7 @@ class Source < ApplicationRecord
   end
 
   # FIXME using https://mattboldt.com/importing-massive-data-into-rails/
-  def self.csv_import(data)
+  def self.csv_import(data, db)
     counter = 0
     CSV.parse(data, headers: true) do |rec|
       #                 0                       4                 7          8
@@ -59,7 +59,9 @@ class Source < ApplicationRecord
         lokalizace_text: lokalizace_text, # textova varianta LocationText
         location_text: location_text,     # vazba pres 'cislo' LocationText
 
-        bibliografie: nil # rec[5],
+        bibliografie: nil, # rec[5],
+
+        db: db,
       })
       s.save!
       counter += 1
