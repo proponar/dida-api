@@ -4,7 +4,7 @@ class Entry < ApplicationRecord
   has_many :meanings
   has_paper_trail
 
-  validates :heslo, presence: true, uniqueness: true
+  validates :heslo, presence: true, uniqueness: { scope: :db }
 
   before_save :process_tvar_map
 
