@@ -31,7 +31,10 @@ class TokenValidator
     end
 
     unless self.class._certs.keys.include? @envelope["kid"]
-      fail TokenValidationError, "No matching Google cert found for envelope: #{@envelope}"
+      self.class.invalidate_certs
+      unless self.class._certs.keys.include? @envelope["kid"]
+        fail TokenValidationError, "No matching Google cert found for envelope: #{@envelope}"
+      end
     end
 
     pem = self.class._certs[envelope["kid"]]
@@ -79,6 +82,10 @@ class TokenValidator
         uri = URI(GOOGLE_SIGNON_CERTS_URL)
         JSON.parse Net::HTTP.get(uri)
       end
+    end
+
+    def invalidate_certs
+      @_cached_certs = nil
     end
   end
 
