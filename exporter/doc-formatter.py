@@ -86,6 +86,12 @@ def format_zdroj(z):
         l.append(str(z['rok']))
     return " - ".join(l)
 
+def format_cislo_vyznamu(v):
+    if v != None:
+        return v
+    else:
+        return ''
+
 for e in data:
     if same_heslo != e['heslo']:
         heslo_text = f'{e["heslo"]} {e["entry_full"]["rod"]}.'
@@ -97,7 +103,7 @@ for e in data:
     if same_meaning != e['vyznam']:
         #document.add_heading(vyznam_text, 2)
 
-        p = document.add_paragraph(f'{e["vyznam_full"]["cislo"]}. ', style='Heading 2')
+        p = document.add_paragraph(f'{format_cislo_vyznamu(e["vyznam_full"]["cislo"])}. ', style='Heading 2')
         if None != e["vyznam_full"]["kvalifikator"]:
             p.add_run(e["vyznam_full"]["kvalifikator"]).bold = False
         p.add_run(e["vyznam"])
