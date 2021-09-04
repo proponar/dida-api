@@ -29,6 +29,8 @@ class Source < ApplicationRecord
   def self.csv_import(data, db)
     counter = 0
     CSV.parse(data, headers: true) do |rec|
+      next if rec[0] !~ /^\d+$/ # safeguard for invalid rows or duplicate header
+
       #                 0                       4                 7          8
       # attributes = %i(cislo autor name nazev2 typ rok rok_sberu lokalizace lokalizace_text)
 
