@@ -87,8 +87,8 @@ def format_zdroj(z):
     return " - ".join(l)
 
 def format_cislo_vyznamu(v):
-    if v != None:
-        return v
+    if v['cislo'] != None:
+        return f'{v["cislo"]}. '
     else:
         return ''
 
@@ -103,7 +103,7 @@ for e in data:
     if same_meaning != e['vyznam']:
         #document.add_heading(vyznam_text, 2)
 
-        p = document.add_paragraph(f'{format_cislo_vyznamu(e["vyznam_full"]["cislo"])}. ', style='Heading 2')
+        p = document.add_paragraph(format_cislo_vyznamu(e["vyznam_full"]), style='Heading 2')
         if None != e["vyznam_full"]["kvalifikator"]:
             p.add_run(e["vyznam_full"]["kvalifikator"]).bold = False
         p.add_run(e["vyznam"])
