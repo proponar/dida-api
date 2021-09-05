@@ -10,7 +10,7 @@ class LocationText < ApplicationRecord
 
   def self.all_allowed
     Rails.configuration.public ?
-      LocationText.order(:cislo).where(:public => 1) : LocationText.order(:cislo).all
+      LocationText.order(:identifikator).where(:public => 1) : LocationText.order(:cislo).all
   end
 
   # číslo,seznam lokalit - oblastí,,číslo,lok. - oblast,+ č. zdroje,definovaná oblast,definice
