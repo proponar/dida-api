@@ -3,6 +3,7 @@ import json
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_ALIGN_VERTICAL
 from docx.enum.section import WD_ORIENT
 from docx.enum.section import WD_SECTION
 
@@ -20,7 +21,28 @@ else:
 
 document = Document()
 
-# change page orientation
+# The header
+header = document.sections[0].header
+para = header.paragraphs[0]
+
+# Add a table to the header with given widths
+table = header.add_table(rows=1, cols=2, width=Inches(8))
+table.autofit = False
+table.allow_autofit = False
+table.columns[0].width = Inches(1.5)
+table.columns[1].width = Inches(6.5)
+
+table.cell(0, 0).vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+table.cell(0, 1).vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+table.cell(0, 1).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+paragraph = table.rows[0].cells[0].paragraphs[0]
+run = paragraph.add_run()
+run.add_picture("naki_logo.png", width=Inches(1))
+
+table.rows[0].cells[1].text = 'ProPONAR 1.0 | Nářečí českého jazyka interaktivně'
+
+# Change page orientation
 current_section = document.sections[-1]
 new_width, new_height = current_section.page_height, current_section.page_width
 current_section.orientation = WD_ORIENT.LANDSCAPE
