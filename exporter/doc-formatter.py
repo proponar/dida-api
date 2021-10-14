@@ -42,6 +42,12 @@ run.add_picture("naki_logo.png", width=Inches(1))
 
 table.rows[0].cells[1].text = 'ProPONAR 1.0 | Nářečí českého jazyka interaktivně'
 
+footer = document.sections[0].footer
+para = footer.paragraphs[0]
+para.add_run("\nSoftware ProPONAR vznikl na základě řešení projektu č. DG20P02OVV029 ")
+para.add_run("Nářečí českého jazyka interaktivně. Dokumentace a zpřístupnění mizejícího jazykového dědictví jako nedílné součásti regionálních identit; ").italic = True
+para.add_run("poskytovatel podpory Ministerstvo kultury, Program NAKI II.")
+
 # Change page orientation
 current_section = document.sections[-1]
 new_width, new_height = current_section.page_height, current_section.page_width
