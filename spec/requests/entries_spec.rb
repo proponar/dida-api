@@ -115,8 +115,8 @@ RSpec.describe 'Entries API', type: :request do
   describe 'DELETE /entries/:id' do
     before { delete "/api/entries/#{entry_id}", headers: { "Authorization" => credentials } }
 
-    it 'returns status code 204' do
-      expect(response).to have_http_status(204)
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
     end
   end
 end
