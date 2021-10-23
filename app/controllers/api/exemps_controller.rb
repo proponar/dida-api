@@ -63,7 +63,7 @@ class Api::ExempsController < Api::BaseController
     e.delete
     render json: { message: "Exemplifikace smazána" }, status: 200
   rescue => e
-    render json: { message: "could not update exemp: #{e.message}" }, status: 400
+    render json: { message: "Nepodařilo se smazat exemplifikaci: #{e.message}" }, status: 400
   end
 
   # /api/entries/:entry_id/exemps/:exemp_id/attach(.:format)

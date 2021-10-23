@@ -116,6 +116,17 @@ class Api::EntriesController < Api::BaseController
     }, status: 400
   end
 
+  def destroy
+    entry = add_db_scope(Entry)
+    entry = entry.find(params[:id])
+    entry.exemps.destroy_all
+    entry.meanings.destroy_all
+    entry.delete
+    render json: { message: "Heslo smazáno" }, status: 200
+  rescue => e
+    render json: { message: "Nepodařilo se snazat heslo: #{e.message}" }, status: 400
+  end
+
   private
   def entry_params
     params.permit(%i(rod druh heslo vetne kvalifikator vyznam))
