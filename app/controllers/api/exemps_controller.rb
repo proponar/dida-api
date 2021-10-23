@@ -113,10 +113,11 @@ class Api::ExempsController < Api::BaseController
   end
 
   def exemps_to_csv(l)
-    attributes = %i(exemplifikace druh heslo urceni lokalizace_format lokalizace_text zdroj_id zdroj_name rok vyznam vetne aktivni time)
+    attributes  = %i(exemplifikace druh heslo urceni lokalizace_format lokalizace_text zdroj_id zdroj_name rok vyznam vetne aktivni time)
+    col_headers = %i(exemplifikace druh heslo urceni lokalizace_format oblasst zdroj_id zdroj_name rok vyznam vetne aktivni time)
 
     CSV.generate(headers: true) do |csv|
-      csv << attributes
+      csv << col_headers
       l.each do |s|
         csv << attributes.map { |a| s[a.to_sym] }
       end
@@ -150,9 +151,9 @@ class Api::ExempsController < Api::BaseController
     end
 
     query = query.
-      joins([:user, :meaning, :source, {:entry => :meanings}]).
+      joins([:user, {:entry => :meanings}]).
+      left_joins([:meaning, :source]).
       left_joins([:location_text, :location, :location_part]).
-      #includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}])
       preload(:location_text, :location, :location_part).
       includes(:user, :meaning, :source, {:entry => :meanings})
 

@@ -4,10 +4,11 @@ class Source < ApplicationRecord
   include SourceGuesser
 
   def self.to_csv
-    attributes = %i(cislo autor name nazev2 typ rok rok_sberu lokalizace lokalizace_text)
+    attributes  = %i(cislo autor name nazev2 typ rok rok_sberu lokalizace lokalizace_text)
+    col_headers = %i(cislo autor name nazev2 typ rok rok_sberu lokalizace oblast)
 
     CSV.generate(headers: true) do |csv|
-      csv << attributes
+      csv << col_headers
       all.each do |s|
         csv << attributes.map { |a| s.send(a) }
       end
