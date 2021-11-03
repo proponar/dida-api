@@ -136,7 +136,13 @@ class Api::ExempsController < Api::BaseController
   MAX_RESULTS_UI = 2000
   MAX_RESULTS_EXPORT = 5000
   def search
-    filter = params.permit({:entry => [:heslo, :id]}, :vetne, :rok, :exemp)
+    filter = params.permit({
+      :entry => [:heslo, :id]},
+      :vetne, :rok, :exemp,
+      :oblast => [:cislo],
+      :obec => [:lokalizace_obec_id],
+      :castObce => [:lokalizace_cast_obce_id],
+    )
 
     export_to_word = params[:w] == '1'
     export_to_csv = params[:d] == '1'
@@ -156,6 +162,10 @@ class Api::ExempsController < Api::BaseController
       left_joins([:location_text, :location, :location_part]).
       preload(:location_text, :location, :location_part).
       includes(:user, :meaning, :source, {:entry => :meanings})
+
+    query = query.where(:n3_obce_body => {:kod_obec => filter[:obec][:lokalizace_obec_id]}) if filter.key?(:obec)
+    query = query.where(:location_texts => {:cislo => filter[:oblast][:cislo]}) if filter.key?(:oblast)
+    query = query.where(:n3_casti_obce_body => {:kod_cob => filter[:castObce][:lokalizace_cast_obce_id]}) if filter.key?(:castObce)
 
     if export_to_word
       # V rámci hesla bychom chtěli seřadit podle významů,
