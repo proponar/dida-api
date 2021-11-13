@@ -152,8 +152,8 @@ class Api::ExempsController < Api::BaseController
     query = query.where(:rok => filter[:rok])     if filter.key?(:rok)
     query = query.where(:vetne => filter[:vetne]) if filter.key?(:vetne)
     if filter.key?(:exemp)
-      filter = filter[:exemp].gsub('*', '%')
-      query = query.where('exemps.exemplifikace ilike ?', filter)
+      exemp_filter = filter[:exemp].gsub('*', '%')
+      query = query.where('exemps.exemplifikace ilike ?', exemp_filter)
     end
 
     query = query.
