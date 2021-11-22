@@ -161,7 +161,8 @@ class Api::ExempsController < Api::BaseController
       left_joins([:meaning, :source]).
       left_joins([:location_text, :location, :location_part]).
       preload(:location_text, :location, :location_part).
-      includes(:user, :meaning, :source, {:entry => :meanings})
+      includes(:user, :meaning, :source, {:entry => :meanings}).
+      where('sources.db = users.db')
 
     query = query.where(:n3_obce_body => {:kod_obec => filter[:obec][:lokalizace_obec_id]}) if filter.key?(:obec)
     query = query.where(:location_texts => {:cislo => filter[:oblast][:cislo]}) if filter.key?(:oblast)
