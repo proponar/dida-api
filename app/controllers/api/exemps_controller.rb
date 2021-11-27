@@ -4,10 +4,14 @@ class Api::ExempsController < Api::BaseController
   def index
     exemp = add_db_scope(Exemp)
     entries = exemp.where(:entry_id => params[:entry_id]).
-      order(:id).
+      joins([:user, {:entry => :meanings}]).
+      left_joins([:meaning, :source]).
       left_joins([:location_text, :location, :location_part]).
-      includes([:user, :meaning, :source, :location_text, :location, :location_part, {:entry => :meanings}]).
+      preload(:location_text, :location, :location_part).
+      includes(:user, :meaning, :source, {:entry => :meanings}).
+      where('sources.db = exemps.db').
       with_attached_attachments.
+      order(:id).
       map(&:json_hash)
 
     render json: {message: 'Nahrány všechny exemplifikace.', data: entries}, status: 200
@@ -162,7 +166,7 @@ class Api::ExempsController < Api::BaseController
       left_joins([:location_text, :location, :location_part]).
       preload(:location_text, :location, :location_part).
       includes(:user, :meaning, :source, {:entry => :meanings}).
-      where('sources.db = users.db')
+      where('sources.db = exemps.db')
 
     query = query.where(:n3_obce_body => {:kod_obec => filter[:obec][:lokalizace_obec_id]}) if filter.key?(:obec)
     query = query.where(:location_texts => {:cislo => filter[:oblast][:cislo]}) if filter.key?(:oblast)
