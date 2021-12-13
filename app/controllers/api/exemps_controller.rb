@@ -9,8 +9,8 @@ class Api::ExempsController < Api::BaseController
       left_joins([:location_text, :location, :location_part]).
       preload(:location_text, :location, :location_part).
       includes(:user, :meaning, :source, {:entry => :meanings}).
-      where(:sources => {:db => @current_user.db }).
-      where(:sources_exemps => {:db => @current_user.db }).
+      where(:sources => {:db => [nil, @current_user.db] }).
+      where(:sources_exemps => {:db => [nil, @current_user.db] }).
       where(:sources => {:exemps => { :db => @current_user.db }}).
       with_attached_attachments.
       order(:id).
@@ -168,8 +168,8 @@ class Api::ExempsController < Api::BaseController
       left_joins([:location_text, :location, :location_part]).
       preload(:location_text, :location, :location_part).
       includes(:user, :meaning, :source, {:entry => :meanings}).
-      where(:sources => {:db => @current_user.db }).
-      where(:sources_exemps => {:db => @current_user.db }).
+      where(:sources => {:db => [nil, @current_user.db] }).
+      where(:sources_exemps => {:db => [nil, @current_user.db] }).
       where(:sources => {:exemps => { :db => @current_user.db }})
 
     query = query.where(:n3_obce_body => {:kod_obec => filter[:obec][:lokalizace_obec_id]}) if filter.key?(:obec)
