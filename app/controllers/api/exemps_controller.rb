@@ -181,7 +181,8 @@ class Api::ExempsController < Api::BaseController
       # v rámci významů podle pádů (určení) prvního výskytu pádu v exemplifikaci.
       # potom podle lokalizace
       query = query.order(
-        :heslo, 'meanings.cislo', 'urceni_sort',
+        # meanings_exemps.cislo misto meanings.cislo, protoze meanings je vazano na entries a meaning_exems na exemps
+        :heslo, 'meanings_exemps.cislo', 'urceni_sort',
         "coalesce(#{Location.table_name}.naz_obec, location_texts.identifikator)")
     else
       # primárně podle hesla (abecedně)
