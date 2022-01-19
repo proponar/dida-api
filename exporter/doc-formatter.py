@@ -102,6 +102,8 @@ def format_lokalizace(e):
     return ''
 
 def format_zdroj(z):
+    if None == z:
+        return ''
     l = []
     # autor - název1 - název2 - rok
     if 'autor' in z and z['autor'] != None:
@@ -115,7 +117,7 @@ def format_zdroj(z):
     return " - ".join(l)
 
 def format_cislo_vyznamu(v):
-    if v['cislo'] != None:
+    if v != None and v['cislo'] != None:
         return f'{v["cislo"]}. '
     else:
         return ''
@@ -132,7 +134,7 @@ for e in data:
         #document.add_heading(vyznam_text, 2)
 
         p = document.add_paragraph(format_cislo_vyznamu(e["vyznam_full"]), style='Heading 2')
-        if None != e["vyznam_full"]["kvalifikator"]:
+        if None != e["vyznam_full"] and None != e["vyznam_full"]["kvalifikator"]:
             p.add_run(e["vyznam_full"]["kvalifikator"]).bold = False
         p.add_run(e["vyznam"])
 
