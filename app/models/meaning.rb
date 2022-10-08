@@ -9,4 +9,8 @@ class Meaning < ApplicationRecord
       kvalifikator: kvalifikator,
     }
   end
+
+  def cislo_not_null
+    cislo ? cislo : 0
+  end
 end

@@ -36,7 +36,7 @@ class Entry < ApplicationRecord
       tvary: tvary || '',
       urceni: urceni || '',
       tvar_map: tvar_map,
-      meanings: meanings.map { |m| m.json_hash },
+      meanings: meanings.sort_by(&:cislo_not_null).map { |m| m.json_hash },
     }
   end
 
