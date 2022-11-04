@@ -106,7 +106,7 @@ RSpec.describe 'Exemps API', type: :request do
     end
   end
 
-  describe "GET search" do
+  describe "POST search" do
     it 'return exemps' do # TODO: sorted by heslo, urceni, lokalizace, zdroj
       post "/api/search",
         headers: { "authorization" => credentials }

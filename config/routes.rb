@@ -27,4 +27,6 @@ Rails.application.routes.draw do
     end
     resources :location_texts, only: [:index]
   end
+
+  get 'api/attachment/:id', to: 'attachment#download'
 end
