@@ -242,25 +242,7 @@ class Api::ExempsController < Api::BaseController
     e = add_db_scope(Exemp).
       includes(:meaning, :source).
       find(params[:id])
-    render json: {
-      id: e.id,
-      exemplifikace: e.exemplifikace,
-      # * informace z vyznamu
-      #      * text
-      vyznam: e.meaning&.vyznam || '',
-      #  * informace ze zdroje
-      #      * nazev
-      #      * rok sberu
-      zdroj_id: e.source && e.source.cislo,
-      zdroj_name: e.source && e.source.name,
-      zdroj_rok_sberu: e.source && e.source.rok_sberu,
-      attachments: e.attachments.map { |a, i|
-        {
-          filename: a.filename.to_s,
-          content_type: a.content_type,
-          url: Rails.application.routes.url_helpers.rails_blob_path(a, only_path: true),
-        }
-      },
-    }
+
+    render json: e.json_hash_simple
   end
 end

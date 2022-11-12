@@ -17,6 +17,28 @@ class Exemp < ApplicationRecord
     self.urceni_sort = Exemp.simplify_urceni(self.urceni)
   end
 
+  def json_hash_simple
+    {
+      id: id,
+      exemplifikace: exemplifikace,
+      vyznam: meaning&.vyznam || '',
+      kvalifikator: meaning&.kvalifikator || '',
+      #  * informace ze zdroje
+      #      * nazev
+      #      * rok sberu
+      zdroj_id: source && source.cislo,
+      zdroj_name: source && source.name,
+      zdroj_rok_sberu: source && source.rok_sberu,
+      attachments: attachments.map { |a, i|
+        {
+          filename: a.filename.to_s,
+          content_type: a.content_type,
+          url: Rails.application.routes.url_helpers.rails_blob_path(a, only_path: true),
+        }
+      },
+    }
+  end
+
   def json_hash
     {
       id: id,
