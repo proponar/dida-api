@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
+    get 's', to: 'exemps#search_exemps'
+    post 's', to: 'exemps#search_exemps'
+    get 'e/:id', to: 'exemps#simple_exemp'
     resources :entries do
       resources :exemps do
         post 'attach'

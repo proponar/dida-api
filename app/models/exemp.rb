@@ -48,7 +48,12 @@ class Exemp < ApplicationRecord
       urceni: Exemp::expand_urceni(urceni_sort),
       time: updated_at&.localtime&.strftime('%d.%m.%Y %H:%M:%S'),
       attachments: attachments.map { |a, i|
-        {filename: a.filename.to_s, content_type: a.content_type, id: a.id}
+        {
+          filename: a.filename.to_s,
+          content_type: a.content_type,
+          id: a.id,
+          url: Rails.application.routes.url_helpers.rails_blob_path(a, only_path: true),
+        }
       },
     }
   end
@@ -60,6 +65,23 @@ class Exemp < ApplicationRecord
       vyznam_full: meaning,
       source_full: source && source.json_short,
     )
+  end
+
+
+  #  * exemplifikace (viz DB entita),
+  # * informace z vyznamu
+  #     * text
+  # * informace ze zdroje
+  #     * nazev
+  #     * rok sberu
+  #  * seznam priloh? nebo jedna (prvni) priloha?, ktera je daneho typu? zvukova?
+  def json_hash_s
+    {
+      id: id,
+      exemplifikace: exemplifikace,
+      lokalizace_obec: lokalizace_obec,
+      lokalizace_cast_obce: lokalizace_cast_obce,
+    }
   end
 
   def location_format
@@ -75,7 +97,6 @@ class Exemp < ApplicationRecord
       "#{nazev} #{kod_okres}"
     end
   end
-
 
   def coordinates
     l = Location.find_obec(self.lokalizace_obec)

@@ -206,4 +206,61 @@ class Api::ExempsController < Api::BaseController
       render json: {message: message, data: entries.map(&:json_hash), total: total}, status: 200
     end
   end
+
+  def search_exemps
+    if ! ['s', 'p', 'sg', 'pl'].index(params[:cislo]) || params[:pad] !~ /^\d$/
+      render json: {
+          message: "Neplatny dotaz",
+        }, status: 400
+      return
+    end
+
+    pad = params[:pad].to_s + params[:cislo].to_s[0]
+    # select urceni from exemps where entry_id=31 and urceni @> '[{"pad": "4s"}]';
+    #   15636 | [{"pad": "2s", "rod": " ", "tvar": "staveňí"}, {"pad": "2s", "rod": " ", "tvar": "staveňí"}]
+    #           [{"pad": "1s", "rod": " ", "tvar": "bapka"}]
+    pad_expr = '[{"pad": "' + pad + '"}]'
+
+    query = add_db_scope(Exemp).
+      where('entry_id =? and urceni @> ?', params[:id], pad_expr) #.
+      #joins([:user, {:entry => :meanings}])
+
+    query = query.order(
+        :exemplifikace
+    )
+
+    total = query.count
+
+    render json: {
+      message: "Seznam exemplifikaci.",
+      data:    query.map(&:json_hash_s),
+      total:   total
+    }, status: 200
+  end
+
+  def simple_exemp
+    e = add_db_scope(Exemp).
+      includes(:meaning, :source).
+      find(params[:id])
+    render json: {
+      id: e.id,
+      exemplifikace: e.exemplifikace,
+      # * informace z vyznamu
+      #      * text
+      vyznam: e.meaning&.vyznam || '',
+      #  * informace ze zdroje
+      #      * nazev
+      #      * rok sberu
+      zdroj_id: e.source && e.source.cislo,
+      zdroj_name: e.source && e.source.name,
+      zdroj_rok_sberu: e.source && e.source.rok_sberu,
+      attachments: e.attachments.map { |a, i|
+        {
+          filename: a.filename.to_s,
+          content_type: a.content_type,
+          url: Rails.application.routes.url_helpers.rails_blob_path(a, only_path: true),
+        }
+      },
+    }
+  end
 end
