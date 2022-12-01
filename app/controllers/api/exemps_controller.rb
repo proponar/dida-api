@@ -13,7 +13,7 @@ class Api::ExempsController < Api::BaseController
       where(:sources_exemps => {:db => [nil, @current_user.db] }).
       where(:sources => {:exemps => { :db => @current_user.db }}).
       with_attached_attachments.
-      order(:id).
+      order(:created_at).
       map(&:json_hash)
 
     render json: {message: 'Nahrány všechny exemplifikace.', data: entries}, status: 200
