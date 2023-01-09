@@ -208,18 +208,29 @@ class Api::ExempsController < Api::BaseController
   end
 
   def search_exemps
-    if ! ['s', 'p', 'sg', 'pl'].index(params[:cislo]) || params[:pad] !~ /^\d$/
+    if params[:cislo] == 'null' && params[:pad] == 'null'
+      # expectional "null" case
+      pad_expr = '[{"pad": null}]'
+
+    elsif ! ['s', 'p', 'sg', 'pl'].index(params[:cislo]) || params[:pad] !~ /^\d$/
+      # error case
       render json: {
-          message: "Neplatny dotaz",
-        }, status: 400
+            message: "Neplatny dotaz",
+          }, status: 400
       return
+
+    else
+      # general case
+      pad = params[:pad].to_s + params[:cislo].to_s[0]
+      pad_expr = '[{"pad": "' + pad + '"}]'
+
     end
 
-    pad = params[:pad].to_s + params[:cislo].to_s[0]
-    # select urceni from exemps where entry_id=31 and urceni @> '[{"pad": "4s"}]';
+    # example data:
     #   15636 | [{"pad": "2s", "rod": " ", "tvar": "staveňí"}, {"pad": "2s", "rod": " ", "tvar": "staveňí"}]
     #           [{"pad": "1s", "rod": " ", "tvar": "bapka"}]
-    pad_expr = '[{"pad": "' + pad + '"}]'
+    # example query:
+    #   select urceni from exemps where entry_id=31 and urceni @> '[{"pad": "4s"}]';
 
     query = add_db_scope(Exemp).
       where('entry_id =? and urceni @> ?', params[:id], pad_expr) #.
